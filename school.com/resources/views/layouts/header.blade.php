@@ -8,12 +8,6 @@
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </li>
-            <li class="nav-item d-none d-md-block">
-                <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-md-block">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
         </ul>
         <!--end::Start Navbar Links-->
 
@@ -133,50 +127,6 @@
                 </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
-
-            <!--begin::User Menu Dropdown-->
-            <li class="nav-item dropdown user-menu">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <img src="../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image">
-                    <span class="d-none d-md-inline">Alexander Pierce</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                    <!--begin::User Image-->
-                    <li class="user-header text-bg-primary">
-                        <img src="../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image">
-
-                        <p>
-                            Alexander Pierce - Web Developer
-                            <small>Member since Nov. 2023</small>
-                        </p>
-                    </li>
-                    <!--end::User Image-->
-                    <!--begin::Menu Body-->
-                    <li class="user-body">
-                        <!--begin::Row-->
-                        <div class="row">
-                            <div class="col-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </div>
-                        <!--end::Row-->
-                    </li>
-                    <!--end::Menu Body-->
-                    <!--begin::Menu Footer-->
-                    <li class="user-footer">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                        <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
-                    </li>
-                    <!--end::Menu Footer-->
-                </ul>
-            </li>
-            <!--end::User Menu Dropdown-->
         </ul>
         <!--end::End Navbar Links-->
     </div>
@@ -197,25 +147,78 @@
         </a>
         <!--end::Brand Link-->
     </div>
+    <div class="sidebar-brand">
+        <!--begin::Brand Link-->
+        <a href="#" class="brand-link">
+            <!--begin::Brand Image-->
+            <img src="" alt="Logo" class="round opacity-75 shadow">
+            <!--end::Brand Image-->
+            <!--begin::Brand Text-->
+            <span class="brand-text fw-light">{{ Auth::user()->name}}</span>
+            <!--end::Brand Text-->
+        </a>
+        <!--end::Brand Link-->
+    </div>
     <!--end::Sidebar Brand-->
     <!--begin::Sidebar Wrapper-->
     <div class="sidebar-wrapper">
         <nav class="mt-2">
             <!--begin::Sidebar Menu-->
-            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                <li class="nav-item menu-open">
-                    <a href="{{url('admin/dashboard')}}" class="nav-link active">
+            <ul class="nav nav-pills sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                
+            @if(Auth::user()->user_type ==1)
+            <li class="nav-item ">
+                    <a href="{{url('admin/dashboard')}}" class="nav-link  @if(Request::segment(2) == 'dashboard') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
-                    <a href="{{url('admin/admin/list')}}" class="nav-link active">
+                <li class="nav-item ">
+                    <a href="{{url('admin/admin/list')}}" class="nav-link   @if(Request::segment(2) == 'admin') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
                         <p>
                             Admin
+                        </p>
+                    </a>
+                </li>
+            @elseif(Auth::user()->user_type ==2)
+            <li class="nav-item ">
+                    <a href="{{url('teacher/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+    
+            @elseif(Auth::user()->user_type ==3)
+            <li class="nav-item">
+                    <a href="{{url('student/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+               
+            @elseif(Auth::user()->user_type ==4)
+            <li class="nav-item">
+                    <a href="{{url('parent/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+            @endif
+            
+                <li class="nav-item">
+                    <a href="{{url('logout')}}" class="nav-link  @if(Request::segment(1) == 'logout') active @endif">
+                        <i class="nav-icon fa-solid fa-sign-out"></i>
+                        <p>
+                            Logout
                         </p>
                     </a>
                 </li>

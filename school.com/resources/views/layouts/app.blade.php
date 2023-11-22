@@ -32,6 +32,7 @@
 
     <!-- jsvectormap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous">
+    @yield('style') 
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -42,11 +43,11 @@
         <!--begin::Header-->
        @include('layouts.header')
         <!--end::Header-->
-       
+        @yield('content') 
         <!--begin::Footer-->
       @include('layouts.footer')
         <!--end::Footer-->
-       @yield('content') 
+      
     </div>
     <!--end::App Wrapper-->
     <!--begin::Script-->
@@ -58,6 +59,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="{{ url('/public/dist/js/adminlte.js')}}"></script>
+    @yield('script') 
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
