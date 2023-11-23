@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 use Mail;
-use PharIo\Manifest\Url;
+
 use Str;
 
 class AuthController extends Controller

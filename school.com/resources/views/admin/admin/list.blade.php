@@ -1,120 +1,118 @@
 @extends('layouts.app')
-    @section('style')
-    <style type="text/css">
-        </style>
-        @endsection
-     @section('content')
-   <!--begin::App Main-->
-   <main class="app-main">
-            <!--begin::App Content Header-->
-            <div class="app-content-header">
-                <!--begin::Container-->
-                <div class="container-fluid">
-                    <!--begin::Row-->
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h3 class="mb-0">Admin List</h3>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-end">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Simple Tables
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <!--end::Row-->
+@section('style')
+<style type="text/css">
+</style>
+@endsection
+@section('content')
+<!--begin::App Main-->
+<main class="app-main">
+    <!--begin::App Content Header-->
+    <div class="app-content-header">
+        <!--begin::Container-->
+        <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Admin List {Total : {{ $getRecord->total() }}}</h3>
                 </div>
-                <!--end::Container-->
+                <div class="col-sm-6" style="text-align: right;">
+                    <a href="{{url('admin/admin/add')}}" class="btn btn-primary mb-0">Add New Admin</a>
+                </div>
             </div>
-            <!--end::App Content Header-->
-            <!--begin::App Content-->
-            <div class="app-content">
-                <!--begin::Container-->
-                <div class="container-fluid">
-                    <!--begin::Row-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Bordered Table</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 10px">#</th>
-                                                <th>Task</th>
-                                                <th>Progress</th>
-                                                <th style="width: 40px">Label</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1.</td>
-                                                <td>Update software</td>
-                                                <td>
-                                                    <div class="progress progress-xs">
-                                                        <div class="progress-bar progress-bar-danger" style="width: 55%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge text-bg-danger">55%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2.</td>
-                                                <td>Clean database</td>
-                                                <td>
-                                                    <div class="progress progress-xs">
-                                                        <div class="progress-bar text-bg-warning" style="width: 70%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="badge text-bg-warning">70%</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3.</td>
-                                                <td>Cron job running</td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped active">
-                                                        <div class="progress-bar text-bg-primary" style="width: 30%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="badge text-bg-primary">30%</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4.</td>
-                                                <td>Fix and squish bugs</td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped active">
-                                                        <div class="progress-bar text-bg-success" style="width: 90%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="badge text-bg-success">90%</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+            <!--end::Row-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::App Content Header-->
+    <!--begin::App Content-->
 
+
+    <div class="app-content">
+        <!--begin::Container-->
+        <div class="container-fluid">
+            <!--begin::Row-->
+<div class="col-md-12">
+    <div class="card card-primary">
+    <form method="get">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col-auto">
+                        <label class="sr-only">Name</label>
+                        <input type="text" name="name" value="{{ Request::get('name')}}"  class="form-control mb-2" placeholder="Name">
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" >Email</label>
+                        <input type="text" name="email" value="{{ Request::get('name')}}" class="form-control mb-2"  placeholder="Email">
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" >Date</label>
+                        <input type="date" name="date" value="{{ Request::get('date')}}" class="form-control mb-2"  placeholder="Email">
+                    </div>
+                    <div class="col-auto">
+                        <button  class="btn btn-primary mb-2">Search</button>
+                    </div>
+                    <div class="col-auto">
+                        <a href="{{url('admin/admin/list')}}" class="btn btn-danger mb-2">Reset</a>
+                    </div>
+                    </div>
+               
+                </div>
+            </form>
+    </div>
+</div>
+
+            <!-- Start column -->
+           
+            <div class="row">
+
+                <div class="col-md-12">
+                    @include('_message')
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Admin List </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Created Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach($getRecord as $value)
+                                    <tr>
+                                        <td>{{$value->id}}</td>
+                                        <td>{{$value->name}}</td>
+                                        <td>{{$value->email}}</td>
+                                        <td>{{$value->created_at}}</td>
+                                        <td>
+                                            <a href="{{url('admin/admin/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{url('admin/admin/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div style="padding: 10px;">
+                                {{ $getRecord->onEachSide(5)->links() }}
                             </div>
-    
                         </div>
                     </div>
-                    <!--end::Row-->
+
                 </div>
-                <!--end::Container-->
             </div>
-            <!--end::App Content-->
-        </main>
-        <!--end::App Main-->
-     @endsection
+            <!--end::Row-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::App Content-->
+</main>
+<!--end::App Main-->
+
+@endsection
