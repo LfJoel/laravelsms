@@ -171,7 +171,11 @@
                     <a href="{{url('admin/dashboard')}}" class="nav-link  @if(Request::segment(2) == 'dashboard') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
+<<<<<<< HEAD
                             Dashboard 
+=======
+                            Dashboard
+>>>>>>> 02469ee6a5b858f63acf34f716bd4de9fe4f5082
                         </p>
                     </a>
                 </li>
@@ -183,6 +187,7 @@
                         </p>
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item ">
                     <a href="{{url('admin/class/list')}}" class="nav-link   @if(Request::segment(2) == 'class') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
@@ -207,6 +212,8 @@
                         </p>
                     </a>
                 </li>
+=======
+>>>>>>> 02469ee6a5b858f63acf34f716bd4de9fe4f5082
             @elseif(Auth::user()->user_type ==2)
             <li class="nav-item ">
                     <a href="{{url('teacher/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
