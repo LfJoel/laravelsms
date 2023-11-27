@@ -110,10 +110,10 @@
                                             @endif
                                         </td>
                                     <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
-                                    <td style="min-width:150px;">
-                                        <a href="{{url('admin/parent/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="{{url('admin/parent/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                                        <a href="{{url('admin/parent/my-child/'.$value->id)}}" class="btn btn-dark btn-sm">my child</a>
+                                    <td>
+                                        <a href="{{url('admin/parent/edit/'.$value->id)}}" class="btn btn-primary btn-sm mb-2">Edit</a>
+                                        <a href="{{url('admin/parent/delete/'.$value->id)}}" class="btn btn-danger btn-sm mb-2">Delete</a>
+                                        <a href="{{url('admin/parent/my-child/'.$value->id)}}" class="btn btn-dark btn-sm mb-2">my child</a>
                                     </td>
                                 </tr>
                                 @endforeach
