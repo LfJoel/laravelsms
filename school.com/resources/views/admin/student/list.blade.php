@@ -161,8 +161,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Profile Picture</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Student Name</th>
+                                    <th>Parent Name</th>
                                     <th>Admission Number</th>
                                     <th>Roll Number</th>
                                     <th>Class</th>
@@ -190,8 +190,8 @@
                                         <img src="{{$value->getProfile()}}" alt="" style="height: 50px;width:50px; border-radius:50px;">
                                         @endif
                                     </td>
-                                    <td>{{$value->name}}</td>
-                                    <td>{{$value->last_name}}</td>
+                                    <td>{{$value->name}} {{$value->last_name}}</td>
+                                    <td>{{$value->parent_name}} {{$value->parent_last_name}}</td></td>
                                     <td>{{$value->admission_number}}</td>
                                     <td>{{$value->roll_number}}</td>
                                     <td>{{$value->class_name}}</td>
@@ -210,7 +210,13 @@
                                     <td>{{$value->blood_group}}</td>
                                     <td>{{$value->height}}</td>
                                     <td>{{$value->weight}}</td>
-                                    <td>{{$value->status}}</td>
+                                    <td>
+                                            @if($value->status == 0)
+                                            Active
+                                            @else
+                                            InActive
+                                            @endif
+                                        </td>
                                     <td>{{$value->email}}</td>
                                     <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                     <td style="min-width:150px;">
