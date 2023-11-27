@@ -8,6 +8,7 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ClassSubjectController;
 
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,8 +84,16 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin/assign_subject/edit/{id}',[ClassSubjectController::class, 'edit']);
     Route::get('admin/assign_subject/delete/{id}',[ClassSubjectController::class, 'delete']);
     Route::post('admin/assign_subject/edit/{id}',[ClassSubjectController::class, 'update']);
+    Route::get('admin/assign_subject/edit_single/{id}',[ClassSubjectController::class, 'edit_single']);
+    Route::post('admin/assign_subject/edit_single/{id}',[ClassSubjectController::class, 'update_single']);
 
+    //student
 
-
+    Route::get('admin/student/list',[StudentController::class, 'list']);
+    Route::get('admin/student/add',[StudentController::class, 'add']);
+    Route::post('admin/student/add',[StudentController::class, 'insert']);
+    Route::get('admin/student/edit/{id}',[StudentController::class, 'edit']);
+    Route::get('admin/student/delete/{id}',[StudentController::class, 'delete']);
+    Route::post('admin/student/edit/{id}',[StudentController::class, 'update']);
 
 });

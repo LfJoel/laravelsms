@@ -37,8 +37,12 @@
                 <div class="card-body">
                     <div class="row">
                     <div class="col-auto">
-                        <label class="sr-only">Name</label>
-                        <input type="text" name="name" value="{{ Request::get('name')}}"  class="form-control mb-2" placeholder="Name">
+                        <label class="sr-only">Class Name</label>
+                        <input type="text" name="class_name" value="{{ Request::get('class_name')}}"  class="form-control mb-2" placeholder="Class Name">
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only">Subject Name</label>
+                        <input type="text" name="subject_name" value="{{ Request::get('subject_name')}}"  class="form-control mb-2" placeholder="Subject Name">
                     </div>
                     <div class="col-auto">
                         <label class="sr-only" >Date</label>
@@ -98,8 +102,10 @@
                                         <td>{{$value->created_by_name}}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                         <td>
+                                           <a href="{{url('admin/assign_subject/edit_single/'.$value->id)}}" class="btn btn-success">Edit Single</a>
+
                                             <a href="{{url('admin/assign_subject/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                                            <a href="{{url('admin/assign_/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                                            <a href="{{url('admin/assign_subject/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

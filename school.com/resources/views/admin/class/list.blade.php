@@ -44,6 +44,7 @@
                         <label class="sr-only" >Date</label>
                         <input type="date" name="date" value="{{ Request::get('date')}}" class="form-control mb-2"  placeholder="date">
                     </div>
+                    
                     <div class="col-auto">
                         <button  class="btn btn-primary mb-2">Search Class</button>
                     </div>

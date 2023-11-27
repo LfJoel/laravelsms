@@ -32,7 +32,7 @@
                     <div class="card card-primary card-outline">
                         <div class="card-header">
                             <div class="card-title">
-                            Assign Subject
+                                Assign Subject
                             </div>
                         </div>
                         <form method="post" action="">
@@ -43,32 +43,30 @@
                                     <select class="form-control" name="class_id" required>
                                         <option value="">Select Class</option>
                                         @foreach($getClass as $class)
-                                        <option value="{{$class ->id}}">{{$class->name}}</option>
+                                        <option {{ ( $getRecord->class_id == $class->id)? 'selected' : '' }} value="{{$class ->id}}">{{$class->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Subject Name</label>
-
-                                    @foreach($getSubject as $subject)
-                                    <div>
-                                        <label>
-                                            <input type="checkbox" value="{{$subject->id}}" name="subject_id[]"> {{$subject ->name}}
-                                        </label>
-                                    </div>
-                                    @endforeach
+                                    <select class="form-control" name="subject_id" required>
+                                        <option value="">Select Subject</option>
+                                        @foreach($getSubject as $subject)
+                                        <option {{ ( $getRecord->subject_id == $subject->id)? 'selected' : '' }} value="{{$subject ->id}}">{{$subject->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Status</label>
                                     <select class="form-control" name="status">
-                                        <option value="0">Active</option>
-                                        <option value="1">InActive</option>
+                                        <option {{ ( $getRecord->status == 0)? 'selected' : '' }} value="0">Active</option>
+                                        <option {{ ( $getRecord->status == 1)? 'selected' : '' }} value="1">InActive</option>
                                     </select>
                                 </div>
 
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>
