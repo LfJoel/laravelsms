@@ -5,6 +5,7 @@ i have done admin page , student page, teacher and parent page, login with reset
 # date 23/11/2023
 i have done admin crud operations and pagination and filters
 # date 25/11/2023
-class, psubject, assign_subject , crud operations 
+class, subject, assign_subject , crud operations 
 # date 27/11/2023
-student, parent, teachers , crud operations 
+student, parent, teachers , crud operations ,parent student assign
+
