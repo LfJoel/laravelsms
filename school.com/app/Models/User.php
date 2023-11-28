@@ -86,8 +86,29 @@ class User extends Authenticatable
 
         return $return;
     }
+    static public function  getTeacher()
+    {
+        $return = User::select('users.*')
+            ->where('user_type', '=', 2)
+            ->where('is_delete', '=', 0);
+        if (!empty(Requests::get('name'))) {
+            $return = $return->where('name', 'like', '%' . Requests::get('name') . '%');
+        }
+        if (!empty(Requests::get('email'))) {
+            $return = $return->where('email', 'like', '%' . Requests::get('email') . '%');
+        }
+        if (!empty(Requests::get('gender'))) {
+            $return = $return->where('gender', 'like', '%' . Requests::get('gender') . '%');
+        }
+        if (!empty(Requests::get('admission_date'))) {
+            $return = $return->whereDate('admission_date', '=', Requests::get('admission_date'));
+        }
+        $return = $return->orderby('id', 'desc')
+            ->paginate(5);
 
-
+        return $return;
+    }
+    
     static public function getStudent()
     {
 
@@ -156,7 +177,6 @@ class User extends Authenticatable
             ->where('users.user_type', '=', 3)
             ->where('users.parent_id', '=', $parent_id)
             ->where('users.is_delete', '=', 0)
-
             ->orderby('users.id', 'desc')
             ->limit(50)
             ->get();

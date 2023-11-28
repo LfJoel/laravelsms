@@ -139,7 +139,6 @@ class StudentController extends Controller
         if (!empty($request->password)) {
             $student->password = Hash::make($request->password);
         }
-        $student->password = Hash::make($request->password);
         
         $student->save();
         return redirect('admin/student/list')->with('success','Student successfully created');
