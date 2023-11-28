@@ -116,6 +116,10 @@ class StudentController extends Controller
         if(!empty($request->date_of_birth)){
             $student->date_of_birth = trim($request->date_of_birth);
         }
+        if(!empty($request->admission_date)){
+            $student->admission_date = trim($request->admission_date);
+        }
+
         if(!empty($request->file('profile_pic'))){
             if($student->getProfile()){
                 unlink('upload/profile/'.$student->profile_pic);
@@ -130,7 +134,6 @@ class StudentController extends Controller
         $student->caste = trim($request->caste);
         $student->religion = trim($request->religion);
         $student->mobile_number = trim($request->mobile_number);
-        $student->admission_date = trim($request->admission_date);
         $student->blood_group = trim($request->blood_group);
         $student->height = trim($request->height);
         $student->weight = trim($request->weight);
@@ -157,5 +160,7 @@ class StudentController extends Controller
         }
         
     }
+
+   
 
 }

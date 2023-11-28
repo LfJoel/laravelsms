@@ -290,6 +290,14 @@
                     </a>
                 </li>
                 <li class="nav-item ">
+                    <a href="{{url('student/my_subject')}}" class="nav-link @if(Request::segment(2) == 'my_subject') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Subject
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a href="{{url('student/change_password/')}}" class="nav-link   @if(Request::segment(2) == 'change_password') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
                         <p>
@@ -311,6 +319,13 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Account
+                        </p>
+                    </a>
+                </li><li class="nav-item ">
+                    <a href="{{url('parent/my_student')}}" class="nav-link @if(Request::segment(2) == 'my_student') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                        My Student
                         </p>
                     </a>
                 </li>

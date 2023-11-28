@@ -8,4 +8,5 @@ i have done admin crud operations and pagination and filters
 class, subject, assign_subject , crud operations 
 # date 27/11/2023
 student, parent, teachers , crud operations ,parent student assign
-
+# date 28/11/2023
+student, parent, admin , teachers my account operations
