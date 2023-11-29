@@ -139,8 +139,7 @@ class AssignClassTeacherController extends Controller
     {
 
         $save = AssignClassTeacherModel::getSingle($id);
-        $save->is_delete = 1;
-        $save->save();
+        $save->delete();
         return redirect()->back()->with('success', 'Deleted successfully');
     }
 
