@@ -86,6 +86,18 @@ class User extends Authenticatable
 
         return $return;
     }
+
+    static public function getClassTeacher()
+    {
+        $return = User::select('users.*')
+            ->where('users.user_type', '=', 2)
+            ->where('users.is_delete', '=', 0)
+            ->orderby('users.id', 'desc')
+            ->get();
+
+        return $return;
+    }
+
     static public function  getTeacher()
     {
         $return = User::select('users.*')
@@ -108,7 +120,7 @@ class User extends Authenticatable
 
         return $return;
     }
-    
+
     static public function getStudent()
     {
 

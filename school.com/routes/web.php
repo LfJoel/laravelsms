@@ -11,6 +11,9 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ClassSubjectController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AssignClassTeacherController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,6 +116,21 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/assign_subject/edit/{id}', [ClassSubjectController::class, 'update']);
     Route::get('admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'edit_single']);
     Route::post('admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'update_single']);
+
+
+
+    //Assign Class To teacher
+
+    Route::get('admin/assign_class_teacher/list', [AssignClassTeacherController::class, 'list']);
+    Route::get('admin/assign_class_teacher/add', [AssignClassTeacherController::class, 'add']);
+    Route::post('admin/assign_class_teacher/add', [AssignClassTeacherController::class, 'insert']);
+    Route::get('admin/assign_class_teacher/edit/{id}', [AssignClassTeacherController::class, 'edit']);
+    Route::get('admin/assign_class_teacher/delete/{id}', [AssignClassTeacherController::class, 'delete']);
+    Route::post('admin/assign_class_teacher/edit/{id}', [AssignClassTeacherController::class, 'update']);
+    Route::get('admin/assign_class_teacher/edit_single/{id}', [AssignClassTeacherController::class, 'edit_single']);
+    Route::post('admin/assign_class_teacher/edit_single/{id}', [AssignClassTeacherController::class, 'update_single']);
+
+
 
     //student
 
