@@ -45,6 +45,9 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::post('teacher/change_password/', [UserController::class, 'Update_change_password']);
     Route::get('teacher/account', [UserController::class, 'MyAccount']);
     Route::post('teacher/account', [UserController::class, 'UpdateMyAccountTeacher']);
+    Route::get('teacher/my_class_subject', [AssignClassTeacherController::class, 'MyClassSubject']);
+    Route::get('teacher/teacher_my_students', [StudentController::class, 'TeacherMyStudents']);
+
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);

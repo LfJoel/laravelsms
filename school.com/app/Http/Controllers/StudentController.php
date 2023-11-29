@@ -44,19 +44,19 @@ class StudentController extends Controller
         $student->last_name = trim($request->last_name);
         $student->admission_number = trim($request->admission_number);
         $student->roll_number = trim($request->roll_number);
-        $student->class_id = trim($request->class_id );
-        $student->gender = trim($request->gender );
+        $student->class_id = trim($request->class_id);
+        $student->gender = trim($request->gender);
 
-        if(!empty($request->date_of_birth)){
+        if (!empty($request->date_of_birth)) {
             $student->date_of_birth = trim($request->date_of_birth);
         }
-        if(!empty($request->file('profile_pic'))){
+        if (!empty($request->file('profile_pic'))) {
 
             $ext = $request->file('profile_pic')->getClientOriginalExtension();
             $file = $request->file('profile_pic');
-            $randomStr = date('Ymdhis').Str::random(20);
-            $filename = strtolower($randomStr).'.'.$ext;
-            $file->move('upload/profile',$filename);
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/profile', $filename);
             $student->profile_pic = $filename;
         }
         $student->caste = trim($request->caste);
@@ -69,10 +69,10 @@ class StudentController extends Controller
         $student->status = trim($request->status);
         $student->email = trim($request->email);
         $student->password = Hash::make($request->password);
-        
+
         $student->user_type = 3;
         $student->save();
-        return redirect('admin/student/list')->with('success','Student successfully created');
+        return redirect('admin/student/list')->with('success', 'Student successfully created');
     }
     public function edit($id)
     {
@@ -110,25 +110,25 @@ class StudentController extends Controller
         $student->last_name = trim($request->last_name);
         $student->admission_number = trim($request->admission_number);
         $student->roll_number = trim($request->roll_number);
-        $student->class_id = trim($request->class_id );
-        $student->gender = trim($request->gender );
+        $student->class_id = trim($request->class_id);
+        $student->gender = trim($request->gender);
 
-        if(!empty($request->date_of_birth)){
+        if (!empty($request->date_of_birth)) {
             $student->date_of_birth = trim($request->date_of_birth);
         }
-        if(!empty($request->admission_date)){
+        if (!empty($request->admission_date)) {
             $student->admission_date = trim($request->admission_date);
         }
 
-        if(!empty($request->file('profile_pic'))){
-            if($student->getProfile()){
-                unlink('upload/profile/'.$student->profile_pic);
+        if (!empty($request->file('profile_pic'))) {
+            if ($student->getProfile()) {
+                unlink('upload/profile/' . $student->profile_pic);
             }
             $ext = $request->file('profile_pic')->getClientOriginalExtension();
             $file = $request->file('profile_pic');
-            $randomStr = date('Ymdhis').Str::random(20);
-            $filename = strtolower($randomStr).'.'.$ext;
-            $file->move('upload/profile',$filename);
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/profile', $filename);
             $student->profile_pic = $filename;
         }
         $student->caste = trim($request->caste);
@@ -142,25 +142,30 @@ class StudentController extends Controller
         if (!empty($request->password)) {
             $student->password = Hash::make($request->password);
         }
-        
+
         $student->save();
-        return redirect('admin/student/list')->with('success','Student successfully created');
+        return redirect('admin/student/list')->with('success', 'Student successfully created');
     }
 
     public function delete($id)
     {
         $getRecord = User::getsingle($id);
-        if(!empty($getRecord)){
+        if (!empty($getRecord)) {
             $getRecord->is_delete = 1;
             $getRecord->save();
             return redirect('admin/student/list')->with('success', 'student successfully deleted.');
-        }
-        else{
+        } else {
             abort(404);
         }
-        
     }
 
-   
+    //teacher side functions
 
+
+    public function TeacherMyStudents()
+    {
+        $data['getRecord'] = User::getTeacherMyStudents(Auth::user()->id);
+        $data['header_tile'] = 'student list';
+        return view('teacher.teacher_my_students', $data);
+    }
 }
