@@ -322,6 +322,14 @@
                     </a>
                 </li>
                 <li class="nav-item ">
+                    <a href="{{url('teacher/my_calendar')}}" class="nav-link @if(Request::segment(2) == 'my_calendar') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Calendar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a href="{{url('teacher/my_exam_timetable')}}" class="nav-link @if(Request::segment(2) == 'my_timetable') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
@@ -359,6 +367,14 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Subject
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('student/my_calendar')}}" class="nav-link @if(Request::segment(2) == 'my_calendar') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Calendar
                         </p>
                     </a>
                 </li>
@@ -410,6 +426,7 @@
                         </p>
                     </a>
                 </li>
+             
                 <li class="nav-item ">
                     <a href="{{url('parent/change_password/')}}" class="nav-link   @if(Request::segment(2) == 'change_password') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>

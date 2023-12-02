@@ -17,5 +17,4 @@ class time table and sub menu and student my class time table
 # date 1/12/2023
 class time table for parent , teacher , student side
 # date 2/12/2023
-exam time table for parent , teacher , student side
-
+exam time table and calendar for parent , teacher , student side 

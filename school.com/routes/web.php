@@ -14,7 +14,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AssignClassTeacherController;
 use App\Http\Controllers\ClassTimeTableController;
 use App\Http\Controllers\ExaminationController;
-
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +54,7 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::get('teacher/my_class_subject/class_timetable/{class_id}/{subject_id}', [ClassTimeTableController::class, 'MyTimetableTeacher']);
     Route::get('teacher/my_exam_timetable', [ExaminationController::class, 'MyExamTimetableTeacher']);
 
+    Route::get('teacher/my_calendar', [CalendarController::class, 'MyCalendarTeacher']);
 
 
 });
@@ -66,6 +67,9 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/my_subject', [SubjectController::class, 'MySubject']);
     Route::get('student/my_timetable', [ClassTimeTableController::class, 'MyTimetable']);
     Route::get('student/my_exam_timetable', [ExaminationController::class, 'MyExamTimetable']);
+
+
+    Route::get('student/my_calendar', [CalendarController::class, 'MyCalendar']);
 
 });
 Route::group(['middleware' => 'parent'], function () {
@@ -82,7 +86,8 @@ Route::group(['middleware' => 'parent'], function () {
     
     Route::get('parent/my_student/exam_timetable/{student_id}', [ExaminationController::class, 'ParentViewExamTimetable']);
 
-    
+    Route::get('parent/my_student/calendar/{student_id}', [CalendarController::class, 'MyCalendarParent']);
+
 });
 
 
