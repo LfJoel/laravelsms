@@ -59,8 +59,21 @@ class AssignClassTeacherModel extends Model
         return $return;
 
     }
-   
+    static public function  getClassSubjectGroup($teacher_id)
+    {
+        $return = AssignClassTeacherModel::select('assign_class_teacher.*', 'class.name as class_name' ,
+        'class.id as class_id')
+        ->join('class', 'class.id', '=', 'assign_class_teacher.class_id')
+        ->where('assign_class_teacher.status', '=', 0)
+        ->where('assign_class_teacher.is_delete', '=', 0)
+        ->where('assign_class_teacher.teacher_id', '=', $teacher_id)
+        ->groupby('assign_class_teacher.class_id')
+        ->get();
 
+        return $return;
+
+    }
+    
     static public function getAlreadyFirst($class_id, $teacher_id)
     {
         return AssignClassTeacherModel::where('class_id', '=', $class_id)->where('teacher_id', '=', $teacher_id)->first();

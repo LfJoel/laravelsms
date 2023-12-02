@@ -191,6 +191,22 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{url('admin/student/list')}}" class="nav-link   @if(Request::segment(2) == 'student') active @endif">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Student
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('admin/parent/list')}}" class="nav-link   @if(Request::segment(2) == 'parent') active @endif">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Parent
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item  @if(Request::segment(2) == 'class' || Request::segment(2) == 'class_time_table' || Request::segment(2) == 'subject' || Request::segment(2) == 'assign_subject' || Request::segment(2) == 'assign_class_teacher') menu-is-opening menu-open @endif">
                             <a href="#" class="nav-link @if(Request::segment(2) == 'class' || Request::segment(2) == 'subject' || Request::segment(2) == 'assign_subject' || Request::segment(2) == 'assign_class_teacher' || Request::segment(2) == 'class_time_table' ) active @endif">
                                 <i class="nav-icon fa-solid fa-gauge-high"></i>
@@ -232,22 +248,30 @@
                                 </li>
                             </ul>
                         </li>
-                <li class="nav-item ">
-                    <a href="{{url('admin/student/list')}}" class="nav-link   @if(Request::segment(2) == 'student') active @endif">
-                        <i class="nav-icon fa-solid fa-users"></i>
-                        <p>
-                            Student
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{url('admin/parent/list')}}" class="nav-link   @if(Request::segment(2) == 'parent') active @endif">
-                        <i class="nav-icon fa-solid fa-users"></i>
-                        <p>
-                            Parent
-                        </p>
-                    </a>
-                </li>
+                        <li class="nav-item  @if(Request::segment(2) == 'examinations') menu-is-opening menu-open @endif">
+                            <a href="#" class="nav-link @if(Request::segment(2) == 'class' || Request::segment(2) == 'examinations' ) active @endif">
+                                <i class="nav-icon fa-solid fa-gauge-high"></i>
+                                <p>
+                                    Examinations
+                                    <i class="nav-arrow fa-solid fa-angle-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{url('admin/examinations/exam/list')}}" class="nav-link @if(Request::segment(3) == 'exam') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Exam List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('admin/examinations/exam_schedule')}}" class="nav-link @if(Request::segment(3) == 'exam_schedule') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Exam Schedule</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+               
                 <li class="nav-item ">
                     <a href="{{url('admin/account')}}" class="nav-link @if(Request::segment(2) == 'account') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
@@ -298,6 +322,14 @@
                     </a>
                 </li>
                 <li class="nav-item ">
+                    <a href="{{url('teacher/my_exam_timetable')}}" class="nav-link @if(Request::segment(2) == 'my_timetable') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Exam Timetable
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a href="{{url('teacher/change_password/')}}" class="nav-link   @if(Request::segment(2) == 'change_password') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
                         <p>
@@ -335,6 +367,14 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Timetable
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('student/my_exam_timetable')}}" class="nav-link @if(Request::segment(2) == 'my_exam_timetable') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Exam Timetable
                         </p>
                     </a>
                 </li>

@@ -13,6 +13,7 @@ use App\Http\Controllers\ParentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AssignClassTeacherController;
 use App\Http\Controllers\ClassTimeTableController;
+use App\Http\Controllers\ExaminationController;
 
 
 /*
@@ -51,6 +52,9 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::get('teacher/teacher_my_students', [StudentController::class, 'TeacherMyStudents']);
 
     Route::get('teacher/my_class_subject/class_timetable/{class_id}/{subject_id}', [ClassTimeTableController::class, 'MyTimetableTeacher']);
+    Route::get('teacher/my_exam_timetable', [ExaminationController::class, 'MyExamTimetableTeacher']);
+
+
 
 });
 Route::group(['middleware' => 'student'], function () {
@@ -61,6 +65,7 @@ Route::group(['middleware' => 'student'], function () {
     Route::post('student/account', [UserController::class, 'UpdateMyAccountStudent']);
     Route::get('student/my_subject', [SubjectController::class, 'MySubject']);
     Route::get('student/my_timetable', [ClassTimeTableController::class, 'MyTimetable']);
+    Route::get('student/my_exam_timetable', [ExaminationController::class, 'MyExamTimetable']);
 
 });
 Route::group(['middleware' => 'parent'], function () {
@@ -72,8 +77,12 @@ Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/my_student', [ParentController::class, 'MyStudentParent']);
     Route::get('parent/my_student/subject/{student_id}', [SubjectController::class, 'ParentViewSubject']);
 
+   
     Route::get('parent/my_student/subject/class_timetable/{class_id}/{subject_id}/{student_id}', [ClassTimeTableController::class, 'MyTimetableParent']);
+    
+    Route::get('parent/my_student/exam_timetable/{student_id}', [ExaminationController::class, 'ParentViewExamTimetable']);
 
+    
 });
 
 
@@ -171,4 +180,19 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/parent/my-child/{id}', [ParentController::class, 'myChild']);
     Route::get('admin/parent/assign_student_parent/{student_id}/{parent_id}', [ParentController::class, 'AssignStudentParent']);
     Route::get('admin/parent/assign_student_parent_delete/{student_id}', [ParentController::class, 'AssignStudentParentDelete']);
+
+    // Examinations
+
+    Route::get('admin/examinations/exam/list', [ExaminationController::class, 'list']);
+    Route::get('admin/examinations/exam/add', [ExaminationController::class, 'exam_add']);
+    Route::post('admin/examinations/exam/add', [ExaminationController::class, 'exam_insert']);
+    Route::get('admin/examinations/exam/edit/{id}', [ExaminationController::class, 'exam_edit']);
+    Route::post('admin/examinations/exam/edit/{id}', [ExaminationController::class, 'exam_update']);
+    Route::get('admin/examinations/exam/delete/{id}', [ExaminationController::class, 'exam_delete']);
+    
+
+    Route::get('admin/examinations/exam_schedule', [ExaminationController::class, 'exam_schedule']);
+   
+    Route::post('admin/examinations/exam_schedule_insert', [ExaminationController::class, 'exam_schedule_insert']);
+
 });
