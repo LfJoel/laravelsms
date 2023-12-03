@@ -18,3 +18,7 @@ class time table and sub menu and student my class time table
 class time table for parent , teacher , student side
 # date 2/12/2023
 exam time table and calendar for parent , teacher , student side 
+# date 3/12/2023
+ exam mark register operations 
+
+ note: serialize() function not working while submit row of bulk data ,need to debug it 

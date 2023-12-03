@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('style')
 <style type="text/css">
+    .fc-h-event .fc-event-title {
+    display: inline-block;
+    left: 0px;
+    max-width: 100%;
+    overflow: auto;
+    right: 0px;
+    vertical-align: top;
+    white-space: initial;
+}
 </style>
 @endsection
 @section('content')
@@ -52,9 +61,20 @@
         daysOfWeeks: ["{{$value->full_calendar_day}}"],
         startTime: "{{ $value->start_time }}",
         endTime: "{{ $value->end_time }}",
+        
     });
     @endforeach
+    @foreach($getExamtimetable as $exam)
+        events.push({
+            title: "{{ $exam->class_name }} - {{ $exam->exam_name }} - {{ $exam->subject_name }} ({{ date('h:i A' ,strtotime($exam->start_time)) }} to {{ date('h:i A' , strtotime($exam->end_time) )}})",
+            start : "{{ $exam->exam_date }}",
+            end : "{{ $exam->exam_date }}",
+            color:'crimson',
+            url : "{{url('teacher/my_exam_timetable')}}",
 
+        });
+   
+@endforeach
     var calendarID = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarID, {
         headerToolbar: {

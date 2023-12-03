@@ -86,7 +86,6 @@ class User extends Authenticatable
 
         return $return;
     }
-
     static public function getClassTeacher()
     {
         $return = User::select('users.*')
@@ -97,7 +96,6 @@ class User extends Authenticatable
 
         return $return;
     }
-
     static public function  getTeacher()
     {
         $return = User::select('users.*')
@@ -120,10 +118,8 @@ class User extends Authenticatable
 
         return $return;
     }
-
     static public function getStudent()
     {
-
         $return = User::select('users.*', 'class.name as class_name', 'parent.name as parent_name', 'parent.last_name as parent_last_name')
             ->join('users as parent', 'parent.id', '=', 'users.parent_id', 'left')
             ->join('class', 'class.id', '=', 'users.class_id', 'left')
@@ -179,7 +175,6 @@ class User extends Authenticatable
 
             return $return;
         }
-        // dd(Requests::all());
     }
     static public function getMyStudent($parent_id)
     {
@@ -192,6 +187,15 @@ class User extends Authenticatable
             ->orderby('users.id', 'desc')
             ->get();
         return $return;
+    }
+    static public function getStudentClass($class_id)
+    {
+        return User::select('users.*' ,'users.name' , 'users.last_name')
+            ->where('users.user_type', '=', 3)
+            ->where('users.is_delete', '=', 0)
+            ->where('users.class_id' ,'=' ,$class_id)
+            ->orderby('users.id', 'desc')
+            ->get();
     }
     static public function getTeacherMyStudents($teacher_id)
     {
@@ -208,8 +212,6 @@ class User extends Authenticatable
             ->paginate(20);
         return $return;
     }
-    
-
     static public function getEmailSingle($email)
     {
         return User::where('email', '=', $email)->first();
@@ -222,7 +224,6 @@ class User extends Authenticatable
     {
         return User::find($id);
     }
-
     public function getProfile()
     {
         if (!empty($this->profile_pic) && file_exists('upload/profile/' . $this->profile_pic)) {

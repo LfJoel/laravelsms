@@ -44,14 +44,14 @@ class CalendarController extends Controller
 
     public function MyCalendarTeacher()
     {
-
-        $getTeacher = Auth::user()->id;
-
-        $data['getClassTimetable']  = AssignClassTeacherModel::getCalendarTeacher($getTeacher);
-
+        $getTeacherID = Auth::user()->id;
+        $data['getClassTimetable']  = AssignClassTeacherModel::getCalendarTeacher($getTeacherID);
+        $data['getExamtimetable'] = ExamScheduleModel::getExamtimetableTeacher($getTeacherID);
         $data['header_title'] = "Teacher Calendar";
         return view('teacher.my_calendar', $data);
     }
+
+
 
     public function getTimetable($class_id)
     {

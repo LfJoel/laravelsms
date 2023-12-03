@@ -7,16 +7,14 @@ use Hash;
 use Auth;
 use App\Models\User;
 use App\Mail\ForgotPasswordMail;
-use Illuminate\Support\Facades\Hash as FacadesHash;
 use Mail;
-
 use Str;
 
 class AuthController extends Controller
 {
     public function login()
     {
-        // dd(Hash::make(123456));
+        
         if (!empty(Auth::check())) {
 
             if (Auth::user()->user_type == 1) {
@@ -50,7 +48,7 @@ class AuthController extends Controller
         } else {
             return redirect()->back()->with('error', 'Please enter correct email and password');
         }
-        // dd($request->all());
+        
     }
     public function forgotpassword()
     {
