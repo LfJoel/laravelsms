@@ -15,9 +15,6 @@
                 <div class="col-sm-6">
                     <h3 class="mb-0">Marks Register</h3>
                 </div>
-                <div class="col-sm-6" style="text-align: right;">
-                    <a href="{{url('admin/examinations/exam/add')}}" class="btn btn-primary mb-0">Add New Exam</a>
-                </div>
             </div>
             <!--end::Row-->
         </div>
@@ -39,7 +36,7 @@
                                     <select class="form-control" name="exam_id" required>
                                         <option value="">Select Exam Name</option>
                                         @foreach($getExam as $exam)
-                                        <option {{ (Request::get('exam_id') == $exam->id )?'selected':''}} value="{{$exam->id}}">{{ $exam->name}}</option>
+                                        <option {{ (Request::get('exam_id') == $exam->exam_id )?'selected':''}} value="{{$exam->exam_id}}">{{ $exam->exam_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -48,7 +45,7 @@
                                     <select class="form-control" name="class_id" required>
                                         <option value="">Select Class Name</option>
                                         @foreach($getClass as $class)
-                                        <option {{ (Request::get('class_id') == $class->id )?'selected':''}} value="{{$class->id}}">{{ $class->name}}</option>
+                                        <option {{ (Request::get('class_id') == $class->class_id )?'selected':''}} value="{{$class->class_id}}">{{ $class->class_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -56,7 +53,7 @@
                                     <button class="btn btn-primary mb-2">Search</button>
                                 </div>
                                 <div class=" col-auto m-3">
-                                    <a href="{{url('admin/examinations/marks_register')}}" class="btn btn-danger mb-2">Reset</a>
+                                    <a href="{{url('teacher/marks_register')}}" class="btn btn-danger mb-2">Reset</a>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +97,7 @@
                                             <td>{{$student->name}} {{$student->last_name}}</td>
                                             @php
                                             $i = 1;
-                                            $totalStudentMark =0;
+                                            $totalStudentMark = 0;
                                             $totalFullMarks = 0;
                                             $totalPassingMark = 0;
                                             @endphp
@@ -172,6 +169,7 @@
                                             @endforeach
                                             <td>
                                                 <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button>
+                                                </br>
                                                 @if(!empty($totalStudentMark))
                                                 <br>
                                                 <b>Total Subject Mark :</b> {{ $totalFullMarks}}
@@ -187,14 +185,9 @@
                                                 <br>
                                                 <b>Percentage :</b> {{ round($percentage,2)}}%
                                                 <br>
-                                                @if(!empty($getGrade ))
+                                                @if(!empty($getGrade))
                                                 <b>Grade :</b> {{ $getGrade }}
                                                 <br>
-                                                @endif
-                                                @if($pass_fail_vali == 0)
-                                                Result : <span>Pass</span>
-                                                @else
-                                                Result : <span>Fail</span>
                                                 @endif
                                             @endif
                                                 <!--need to some work-->
@@ -207,7 +200,6 @@
                             </table>
                         </div>
                     </div>
-
                     @endif
                 </div>
             </div>
@@ -218,7 +210,6 @@
     <!--end::App Content-->
 </main>
 <!--end::App Main-->
-
 @endsection
 
 @section('script')
@@ -228,7 +219,7 @@
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: "{{ url('admin/examinations/submit_marks_register')}}",
+            url: "{{ url('teacher/submit_marks_register')}}",
             data: $(this).serialize(),
             dataType: "json",
             success: function(data) {
@@ -253,7 +244,7 @@
 
         $.ajax({
             type: "POST",
-            url: "{{ url('admin/examinations/single_submit_marks_register')}}",
+            url: "{{ url('teacher/single_submit_marks_register')}}",
             data: {
                 "_token": "{{ csrf_token() }}",
                 id: id,

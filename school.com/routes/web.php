@@ -55,6 +55,10 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::get('teacher/my_exam_timetable', [ExaminationController::class, 'MyExamTimetableTeacher']);
 
     Route::get('teacher/my_calendar', [CalendarController::class, 'MyCalendarTeacher']);
+
+    Route::get('teacher/mark_register', [ExaminationController::class, 'mark_register_teachers']);
+    Route::post('teacher/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
+    Route::post('teacher/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
@@ -65,9 +69,8 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/my_subject', [SubjectController::class, 'MySubject']);
     Route::get('student/my_timetable', [ClassTimeTableController::class, 'MyTimetable']);
     Route::get('student/my_exam_timetable', [ExaminationController::class, 'MyExamTimetable']);
-
-
     Route::get('student/my_calendar', [CalendarController::class, 'MyCalendar']);
+    Route::get('student/my_exam_results', [ExaminationController::class, 'MyExamResultsStudent']);
 });
 Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
@@ -84,6 +87,8 @@ Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/my_student/exam_timetable/{student_id}', [ExaminationController::class, 'ParentViewExamTimetable']);
 
     Route::get('parent/my_student/calendar/{student_id}', [CalendarController::class, 'MyCalendarParent']);
+
+    Route::get('parent/my_student/exam_result/{student_id}', [ExaminationController::class, 'MyStudentExamResultParent']);
 });
 
 
@@ -191,13 +196,22 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/examinations/exam/edit/{id}', [ExaminationController::class, 'exam_update']);
     Route::get('admin/examinations/exam/delete/{id}', [ExaminationController::class, 'exam_delete']);
 
-
     Route::get('admin/examinations/exam_schedule', [ExaminationController::class, 'exam_schedule']);
 
     Route::post('admin/examinations/exam_schedule_insert', [ExaminationController::class, 'exam_schedule_insert']);
-    
+
     Route::get('admin/examinations/marks_register', [ExaminationController::class, 'marks_register']);
     Route::post('admin/examinations/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
     Route::post('admin/examinations/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
+
+
+    //Mark Grade 
+
+    Route::get('admin/examinations/marks_grade/list', [ExaminationController::class, 'marks_grade']);
+    Route::get('admin/examinations/marks_grade/add', [ExaminationController::class, 'marks_grade_add']);
+    Route::post('admin/examinations/marks_grade/add', [ExaminationController::class, 'marks_grade_insert']);
+    Route::get('admin/examinations/marks_grade/edit/{id}', [ExaminationController::class, 'marks_grade_edit']);
+    Route::get('admin/examinations/marks_grade/delete/{id}', [ExaminationController::class, 'marks_grade_delete']);
+    Route::post('admin/examinations/marks_grade/edit/{id}', [ExaminationController::class, 'marks_grade_update']);
 
 });

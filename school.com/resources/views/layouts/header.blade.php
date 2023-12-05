@@ -275,6 +275,12 @@
                                         <p>Marks Register</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{url('admin/examinations/marks_grade/list')}}" class="nav-link @if(Request::segment(3) == 'marks_grade') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Marks Grade</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                
@@ -324,6 +330,14 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Students
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('teacher/mark_register')}}" class="nav-link @if(Request::segment(2) == 'mark_register') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            Mark Register
                         </p>
                     </a>
                 </li>
@@ -389,6 +403,14 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Timetable
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('student/my_exam_results')}}" class="nav-link @if(Request::segment(2) == 'my_exam_results') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                           Exam Results
                         </p>
                     </a>
                 </li>
