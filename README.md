@@ -24,3 +24,5 @@ exam time table and calendar for parent , teacher , student side
  note: serialize() function not working while submit row of bulk data ,need to debug it 
 # date 5/12/2023
 grade and exam result operations
+# date 6/12/2023
+Attendance operations

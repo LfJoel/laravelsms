@@ -15,6 +15,7 @@ use App\Http\Controllers\AssignClassTeacherController;
 use App\Http\Controllers\ClassTimeTableController;
 use App\Http\Controllers\ExaminationController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,13 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::get('teacher/mark_register', [ExaminationController::class, 'mark_register_teachers']);
     Route::post('teacher/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
     Route::post('teacher/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
+
+    //Attendance
+    Route::get('teacher/attendance/student', [AttendanceController::class, 'AttendanceStudentTeacher']);
+    Route::post('teacher/attendance/student/save', [AttendanceController::class, 'AttendanceStudentSubmit']);
+
+    //Attendance Report 
+    Route::get('teacher/attendance/report', [AttendanceController::class, 'AttendanceReportTeacher']);
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
@@ -71,6 +79,9 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/my_exam_timetable', [ExaminationController::class, 'MyExamTimetable']);
     Route::get('student/my_calendar', [CalendarController::class, 'MyCalendar']);
     Route::get('student/my_exam_results', [ExaminationController::class, 'MyExamResultsStudent']);
+
+    Route::get('student/my_attendance', [AttendanceController::class, 'StudentMyAttendance']);
+
 });
 Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
@@ -89,6 +100,9 @@ Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/my_student/calendar/{student_id}', [CalendarController::class, 'MyCalendarParent']);
 
     Route::get('parent/my_student/exam_result/{student_id}', [ExaminationController::class, 'MyStudentExamResultParent']);
+    Route::get(' parent/my_student/attendance/{student_id}', [AttendanceController::class, 'MyStudentAttendanceParent']);
+
+   
 });
 
 
@@ -214,4 +228,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/examinations/marks_grade/delete/{id}', [ExaminationController::class, 'marks_grade_delete']);
     Route::post('admin/examinations/marks_grade/edit/{id}', [ExaminationController::class, 'marks_grade_update']);
 
+
+    //Attendance
+    Route::get('admin/attendance/student', [AttendanceController::class, 'AttendanceStudent']);
+    Route::post('admin/attendance/student/save', [AttendanceController::class, 'AttendanceStudentSubmit']);
+
+    //Attendance Report 
+    Route::get('admin/attendance/report', [AttendanceController::class, 'AttendanceReport']);
 });

@@ -283,7 +283,29 @@
                                 </li>
                             </ul>
                         </li>
-               
+                        <li class="nav-item  @if(Request::segment(2) == 'attendance') menu-is-opening menu-open @endif">
+                            <a href="#" class="nav-link @if(Request::segment(2) == 'attendance' ) active @endif">
+                                <i class="nav-icon fa-solid fa-gauge-high"></i>
+                                <p>
+                                    Attendance
+                                    <i class="nav-arrow fa-solid fa-angle-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{url('admin/attendance/student')}}" class="nav-link @if(Request::segment(3) == 'student') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Student Attendance</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('admin/attendance/report')}}" class="nav-link @if(Request::segment(3) == 'report') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Attendance Report</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                 <li class="nav-item ">
                     <a href="{{url('admin/account')}}" class="nav-link @if(Request::segment(2) == 'account') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
@@ -357,6 +379,29 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item  @if(Request::segment(2) == 'attendance') menu-is-opening menu-open @endif">
+                            <a href="#" class="nav-link @if(Request::segment(2) == 'attendance' ) active @endif">
+                                <i class="nav-icon fa-solid fa-gauge-high"></i>
+                                <p>
+                                    Attendance
+                                    <i class="nav-arrow fa-solid fa-angle-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{url('teacher/attendance/student')}}" class="nav-link @if(Request::segment(3) == 'student') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Student Attendance</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('teacher/attendance/report')}}" class="nav-link @if(Request::segment(3) == 'report') active @endif">
+                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <p>Attendance Report</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                 <li class="nav-item ">
                     <a href="{{url('teacher/change_password/')}}" class="nav-link   @if(Request::segment(2) == 'change_password') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
@@ -407,6 +452,14 @@
                     </a>
                 </li>
                 <li class="nav-item ">
+                    <a href="{{url('student/my_attendance')}}" class="nav-link @if(Request::segment(2) == 'my_attendance') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Attendance
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a href="{{url('student/my_exam_results')}}" class="nav-link @if(Request::segment(2) == 'my_exam_results') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
@@ -446,7 +499,8 @@
                             My Account
                         </p>
                     </a>
-                </li><li class="nav-item ">
+                </li>
+                <li class="nav-item ">
                     <a href="{{url('parent/my_student')}}" class="nav-link @if(Request::segment(2) == 'my_student') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
@@ -454,7 +508,6 @@
                         </p>
                     </a>
                 </li>
-             
                 <li class="nav-item ">
                     <a href="{{url('parent/change_password/')}}" class="nav-link   @if(Request::segment(2) == 'change_password') active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
