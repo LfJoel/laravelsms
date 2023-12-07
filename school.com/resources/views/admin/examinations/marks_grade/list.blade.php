@@ -25,15 +25,11 @@
     </div>
     <!--end::App Content Header-->
     <!--begin::App Content-->
-
-
     <div class="app-content">
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Row-->
-
             <!-- Start column -->
-
             <div class="row">
 
                 <div class="col-md-12">
@@ -65,17 +61,15 @@
                                         <td>{{$value->createdby_name}}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                         <td>
-                                        <a href="{{url('admin/examinations/marks_grade/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{url('admin/examinations/marks_grade/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
                                             <a href="{{url('admin/examinations/marks_grade/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <!--end::Row-->

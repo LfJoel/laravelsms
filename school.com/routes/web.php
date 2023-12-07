@@ -17,6 +17,7 @@ use App\Http\Controllers\ExaminationController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CommunicateController;
+use App\Http\Controllers\HomeworkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,15 @@ Route::group(['middleware' => 'teacher'], function () {
 
     //notice board
     Route::get('teacher/my_notice_board', [CommunicateController::class, 'TeacherMyNoticeBoard']);
+
+    //Homework
+    Route::get('teacher/homework/homework', [HomeworkController::class, 'TeacherHomework']);
+    Route::get('teacher/homework/homework/add', [HomeworkController::class, 'TeacherAdd']);
+    Route::post('teacher/homework/homework/add', [HomeworkController::class, 'TeacherInsert']);
+    Route::get('teacher/homework/homework/edit/{id}', [HomeworkController::class, 'TeacherEdit']);
+    Route::post('teacher/homework/homework/edit/{id}', [HomeworkController::class, 'TeacherUpdate']);
+    Route::get('teacher/homework/homework/delete/{id}', [HomeworkController::class, 'Delete']);
+    Route::post('teacher/ajax_get_subject', [HomeworkController::class, 'ajax_get_subject']);
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
@@ -87,6 +97,11 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/my_attendance', [AttendanceController::class, 'StudentMyAttendance']);
 
     Route::get('student/my_notice_board', [CommunicateController::class, 'StudentMyNoticeBoard']);
+    Route::get('student/my_homework', [HomeworkController::class, 'StudentHomework']);
+
+    Route::get('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'SubmitHomework']);
+    Route::post('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'InsertSubmitHomework']);
+
 });
 Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
@@ -257,5 +272,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/communicate/search_user', [CommunicateController::class, 'SearchUser']);
     Route::post('admin/communicate/send_email', [CommunicateController::class, 'SendEmailUser']);
 
-
+    //Homework
+    Route::get('admin/homework/homework', [HomeworkController::class, 'Homework']);
+    Route::get('admin/homework/homework/add', [HomeworkController::class, 'Add']);
+    Route::post('admin/homework/homework/add', [HomeworkController::class, 'Insert']);
+    Route::get('admin/homework/homework/edit/{id}', [HomeworkController::class, 'Edit']);
+    Route::post('admin/homework/homework/edit/{id}', [HomeworkController::class, 'Update']);
+    Route::get('admin/homework/homework/delete/{id}', [HomeworkController::class, 'Delete']);
+    Route::post('admin/ajax_get_subject', [HomeworkController::class, 'ajax_get_subject']);
 });

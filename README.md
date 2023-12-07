@@ -27,4 +27,4 @@ grade and exam result operations
 # date 6/12/2023
 Attendance operations
 # date 7/12/2023
-Mail , communication notice board operations
+Mail , communication notice board and home work operations 

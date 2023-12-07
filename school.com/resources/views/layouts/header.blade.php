@@ -331,6 +331,23 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item  @if(Request::segment(2) == 'homework') menu-is-opening menu-open @endif">
+                    <a href="#" class="nav-link @if(Request::segment(2) == 'homework' ) active @endif">
+                        <i class="nav-icon fa-solid fa-gauge-high"></i>
+                        <p>
+                        Homework
+                            <i class="nav-arrow fa-solid fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{url('admin/homework/homework')}}" class="nav-link @if(Request::segment(3) == 'homework') active @endif">
+                                <i class="nav-icon fa-regular fa-circle"></i>
+                                <p>Homework</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item ">
                     <a href="{{url('admin/account')}}" class="nav-link @if(Request::segment(2) == 'account') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
@@ -379,6 +396,23 @@
                             My Students
                         </p>
                     </a>
+                </li>
+                <li class="nav-item  @if(Request::segment(2) == 'homework') menu-is-opening menu-open @endif">
+                    <a href="#" class="nav-link @if(Request::segment(2) == 'homework' ) active @endif">
+                        <i class="nav-icon fa-solid fa-gauge-high"></i>
+                        <p>
+                        Homework
+                            <i class="nav-arrow fa-solid fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{url('teacher/homework/homework')}}" class="nav-link @if(Request::segment(3) == 'homework') active @endif">
+                                <i class="nav-icon fa-regular fa-circle"></i>
+                                <p>Homework</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item ">
                     <a href="{{url('teacher/mark_register')}}" class="nav-link @if(Request::segment(2) == 'mark_register') active @endif">
@@ -466,6 +500,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{url('student/my_homework')}}" class="nav-link @if(Request::segment(2) == 'my_homework') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            My Homework
+                        </p>
+                    </a>
+                </li>
+           
                 <li class="nav-item ">
                     <a href="{{url('student/my_calendar')}}" class="nav-link @if(Request::segment(2) == 'my_calendar') active @endif">
                         <i class="nav-icon fa-solid fa-dashboard"></i>
