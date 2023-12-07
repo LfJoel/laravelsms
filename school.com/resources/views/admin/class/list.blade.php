@@ -31,35 +31,35 @@
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Row-->
-<div class="col-md-12">
-    <div class="card card-primary">
-    <form method="get">
-                <div class="card-body">
-                    <div class="row">
-                    <div class="col-auto">
-                        <label class="sr-only">Name</label>
-                        <input type="text" name="name" value="{{ Request::get('name')}}"  class="form-control mb-2" placeholder="Name">
-                    </div>
-                    <div class="col-auto">
-                        <label class="sr-only" >Date</label>
-                        <input type="date" name="date" value="{{ Request::get('date')}}" class="form-control mb-2"  placeholder="date">
-                    </div>
-                    
-                    <div class="col-auto">
-                        <button  class="btn btn-primary mb-2">Search Class</button>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{url('admin/class/list')}}" class="btn btn-danger mb-2">Reset</a>
-                    </div>
-                    </div>
-               
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <form method="get">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label class="sr-only">Name</label>
+                                    <input type="text" name="name" value="{{ Request::get('name')}}" class="form-control mb-2" placeholder="Name">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only">Date</label>
+                                    <input type="date" name="date" value="{{ Request::get('date')}}" class="form-control mb-2" placeholder="date">
+                                </div>
+
+                                <div class="col-auto">
+                                    <button class="btn btn-primary mb-2">Search Class</button>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="{{url('admin/class/list')}}" class="btn btn-danger mb-2">Reset</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
-            </form>
-    </div>
-</div>
+            </div>
 
             <!-- Start column -->
-           
+
             <div class="row">
 
                 <div class="col-md-12">
@@ -82,31 +82,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
+
                                     @foreach($getRecord as $value)
                                     <tr>
-                                    <td>{{$value->id}}</td>
-                                    <td>{{$value->name}}</td>
-                                    <td>
-                                        @if($value->status == 0)
-                                        Active
-                                        @else
-                                        InActive
-                                        @endif
-                                </td>
-                                    <td>{{$value->created_by_name}}</td>
-                                    <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
-                                    <td>
+                                        <td>{{$value->id}}</td>
+                                        <td>{{$value->name}}</td>
+                                        <td>
+                                            @if($value->status == 0)
+                                            Active
+                                            @else
+                                            InActive
+                                            @endif
+                                        </td>
+                                        <td>{{$value->created_by_name}}</td>
+                                        <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
+                                        <td>
                                             <a href="{{url('admin/class/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
                                             <a href="{{url('admin/class/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                                         </td>
-</tr>
+                                    </tr>
                                     @endforeach
 
                                 </tbody>
                             </table>
                             <div style="padding: 10px;">
-                            {{ $getRecord->onEachSide(5)->links() }}
+                                {{ $getRecord->onEachSide(5)->links() }}
                             </div>
                         </div>
                     </div>

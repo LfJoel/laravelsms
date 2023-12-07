@@ -16,6 +16,7 @@ use App\Http\Controllers\ClassTimeTableController;
 use App\Http\Controllers\ExaminationController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CommunicateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,9 @@ Route::group(['middleware' => 'teacher'], function () {
 
     //Attendance Report 
     Route::get('teacher/attendance/report', [AttendanceController::class, 'AttendanceReportTeacher']);
+
+    //notice board
+    Route::get('teacher/my_notice_board', [CommunicateController::class, 'TeacherMyNoticeBoard']);
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
@@ -82,6 +86,7 @@ Route::group(['middleware' => 'student'], function () {
 
     Route::get('student/my_attendance', [AttendanceController::class, 'StudentMyAttendance']);
 
+    Route::get('student/my_notice_board', [CommunicateController::class, 'StudentMyNoticeBoard']);
 });
 Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
@@ -102,7 +107,9 @@ Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/my_student/exam_result/{student_id}', [ExaminationController::class, 'MyStudentExamResultParent']);
     Route::get(' parent/my_student/attendance/{student_id}', [AttendanceController::class, 'MyStudentAttendanceParent']);
 
-   
+    //notice board
+    Route::get('parent/my_notice_board', [CommunicateController::class, 'ParentMyNoticeBoard']);
+    Route::get('parent/my_student_notice_board', [CommunicateController::class, 'ParentMyStudentNoticeBoard']);
 });
 
 
@@ -235,4 +242,20 @@ Route::group(['middleware' => 'admin'], function () {
 
     //Attendance Report 
     Route::get('admin/attendance/report', [AttendanceController::class, 'AttendanceReport']);
+
+    //Communicate
+    Route::get('admin/communicate/notice_board', [CommunicateController::class, 'NoticeBoard']);
+    Route::get('admin/communicate/notice_board/add', [CommunicateController::class, 'AddNoticeBoard']);
+    Route::post('admin/communicate/notice_board/add', [CommunicateController::class, 'InsertNoticeBoard']);
+    Route::get('admin/communicate/notice_board/edit/{id}', [CommunicateController::class, 'EditNoticeBoard']);
+    Route::post('admin/communicate/notice_board/edit/{id}', [CommunicateController::class, 'UpdateNoticeBoard']);
+    Route::get('admin/communicate/notice_board/delete/{id}', [CommunicateController::class, 'NoticeBoardDelete']);
+
+
+    //Send Email
+    Route::get('admin/communicate/send_email', [CommunicateController::class, 'SendEmail']);
+    Route::get('admin/communicate/search_user', [CommunicateController::class, 'SearchUser']);
+    Route::post('admin/communicate/send_email', [CommunicateController::class, 'SendEmailUser']);
+
+
 });

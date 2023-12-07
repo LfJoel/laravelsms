@@ -26,3 +26,5 @@ exam time table and calendar for parent , teacher , student side
 grade and exam result operations
 # date 6/12/2023
 Attendance operations
+# date 7/12/2023
+Mail , communication notice board operations

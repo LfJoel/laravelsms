@@ -7266,6 +7266,7 @@ textarea.form-control-lg {
 
 .d-flex {
   display: flex !important;
+  justify-content: space-between;
 }
 
 .d-inline-flex {

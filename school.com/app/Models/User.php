@@ -47,7 +47,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
+    static public function getUser($user_type)
+    {
+        return User::select('users.*')
+            ->where('user_type', '=', $user_type)
+            ->where('is_delete', '=', 0)->get();
+    }
     static public function getAdmin()
     {
         $return = User::select('users.*')
@@ -190,10 +195,10 @@ class User extends Authenticatable
     }
     static public function getStudentClass($class_id)
     {
-        return User::select('users.*' ,'users.name' , 'users.last_name')
+        return User::select('users.*', 'users.name', 'users.last_name')
             ->where('users.user_type', '=', 3)
             ->where('users.is_delete', '=', 0)
-            ->where('users.class_id' ,'=' ,$class_id)
+            ->where('users.class_id', '=', $class_id)
             ->orderby('users.id', 'desc')
             ->get();
     }
@@ -233,9 +238,18 @@ class User extends Authenticatable
         }
     }
 
-    static public function getAttendance($student_id,$class_id,$attendance_date)
+    static public function getAttendance($student_id, $class_id, $attendance_date)
     {
-        return StudentAttendanceModel::CheckAlreadyAttendance($student_id,$class_id,$attendance_date);
+        return StudentAttendanceModel::CheckAlreadyAttendance($student_id, $class_id, $attendance_date);
     }
+    static public function SearchUser($search)
+    {
+        $return = self::select('users.*');
+        $return = $return->where(function ($query) use ($search) {
+            $query->where('users.name', 'like', '%' . $search . '%')
+                ->orWhere('users.last_name', 'like', '%' . $search . '%');
+        })->limit(10)->get();
 
+        return $return;
+    }
 }
