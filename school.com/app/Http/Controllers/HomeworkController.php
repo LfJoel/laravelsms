@@ -8,6 +8,7 @@ use App\Models\ClassSubjectModel;
 use App\Models\HomeworkModel;
 use App\Models\AssignClassTeacherModel;
 use App\Models\SubmitHomeworkModel;
+use App\Models\User;
 
 use Auth;
 use Str;
@@ -15,11 +16,31 @@ use Str;
 class HomeworkController extends Controller
 {
 
+    //parent side function
+
+    public function ParentMyStudentHomework($student_id)
+    {
+        $getStudent = User::getSingle($student_id);
+        $data['getRecord'] = HomeworkModel::getRecordStudent($getStudent->class_id, $getStudent->id);
+        $data['getStudent'] = $getStudent;
+        $data['header_tile'] = 'Student Homework';
+        return view('parent.homework.list', $data);
+    }
+
+    public function ParentMyStudentSubmittedHomework($student_id)
+    {
+        $getStudent = User::getSingle($student_id);
+        $data['getRecord'] = SubmitHomeworkModel::getRecordStudent($getStudent->id);
+        $data['getStudent'] = $getStudent;
+        $data['header_tile'] = 'Submitted Homework';
+        return view('parent.homework.submitted_homework', $data);
+    }
+    
     //student side work
 
     public function StudentHomework()
     {
-        $data['getRecord'] = HomeworkModel::getRecordStudent(Auth::user()->class_id,Auth::user()->id);
+        $data['getRecord'] = HomeworkModel::getRecordStudent(Auth::user()->class_id, Auth::user()->id);
         $data['header_tile'] = 'Student Homework';
         return view('student.homework.list', $data);
     }
@@ -31,11 +52,11 @@ class HomeworkController extends Controller
     }
     public function InsertSubmitHomework($id, Request $request)
     {
-        
+
         $submithomework = new SubmitHomeworkModel;
-        $submithomework->homework_id=$id;
-        $submithomework->student_id=Auth::user()->id;
-        $submithomework->description=trim($request->description);
+        $submithomework->homework_id = $id;
+        $submithomework->student_id = Auth::user()->id;
+        $submithomework->description = trim($request->description);
         if (!empty($request->file('document_file'))) {
 
             $ext = $request->file('document_file')->getClientOriginalExtension();
@@ -46,10 +67,15 @@ class HomeworkController extends Controller
             $submithomework->document_file = $filename;
         }
         $submithomework->save();
-        return redirect('student/my_homework')->with('success','HomeWork Successfully Submited');
+        return redirect('student/my_homework')->with('success', 'HomeWork Successfully Submited');
     }
-    
 
+    public function MySubmittedHomeworkStudent(Request $request)
+    {
+        $data['getRecord'] = SubmitHomeworkModel::getRecordStudent(Auth::user()->id);
+        $data['header_tile'] = 'Submitted Homework';
+        return view('student.homework.submitted_list', $data);
+    }
     //teacher side function
 
     public function TeacherHomework()
@@ -125,13 +151,24 @@ class HomeworkController extends Controller
 
         return redirect('teacher/homework/homework')->with('success', 'Homework successfully Updated');
     }
-
+    public function SubmittedTeacher($homework_id)
+    {
+        $homework = HomeworkModel::getSingle($homework_id);
+        if (!empty($homework)) {
+            $data['homework_id'] = $homework_id;
+            $data['getRecord'] = SubmitHomeworkModel::getRecord($homework_id);
+            $data['header_tile'] = 'Submitted Homework';
+            return view('teacher.homework.submitted', $data);
+        } else {
+            abort(404);
+        }
+    }
+    
     //Admin side function
 
     public function Homework()
     {
         $data['getRecord'] = HomeworkModel::getRecord();
-
         $data['header_tile'] = 'Homework';
         return view('admin.homework.list', $data);
     }
@@ -205,7 +242,24 @@ class HomeworkController extends Controller
 
         return redirect('admin/homework/homework')->with('success', 'Homework successfully Updated');
     }
+    public function Submitted($homework_id)
+    {
+        $homework = HomeworkModel::getSingle($homework_id);
+        if (!empty($homework)) {
+            $data['homework_id'] = $homework_id;
+            $data['getRecord'] = SubmitHomeworkModel::getRecord($homework_id);
+            $data['header_tile'] = 'Submitted Homework';
+            return view('admin.homework.submitted', $data);
+        } else {
+            abort(404);
+        }
+    }
 
+    public function HomeworkReport(){
+        $data['getRecord'] = SubmitHomeworkModel::getHomeworkReport();
+        $data['header_tile'] = 'Homework Report';
+        return view('admin.homework.homework_report', $data);
+    }
     // for all side same ajax function
 
     public function ajax_get_subject(Request $request)

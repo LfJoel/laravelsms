@@ -81,6 +81,8 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::post('teacher/homework/homework/edit/{id}', [HomeworkController::class, 'TeacherUpdate']);
     Route::get('teacher/homework/homework/delete/{id}', [HomeworkController::class, 'Delete']);
     Route::post('teacher/ajax_get_subject', [HomeworkController::class, 'ajax_get_subject']);
+
+    Route::get('teacher/homework/homework/submitted/{id}', [HomeworkController::class, 'SubmittedTeacher']);
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
@@ -101,7 +103,7 @@ Route::group(['middleware' => 'student'], function () {
 
     Route::get('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'SubmitHomework']);
     Route::post('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'InsertSubmitHomework']);
-
+    Route::get('student/my_submitted_homework', [HomeworkController::class, 'MySubmittedHomeworkStudent']);
 });
 Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
@@ -125,6 +127,9 @@ Route::group(['middleware' => 'parent'], function () {
     //notice board
     Route::get('parent/my_notice_board', [CommunicateController::class, 'ParentMyNoticeBoard']);
     Route::get('parent/my_student_notice_board', [CommunicateController::class, 'ParentMyStudentNoticeBoard']);
+
+    Route::get('parent/my_student/homework/{id}', [HomeworkController::class, 'ParentMyStudentHomework']);
+    Route::get('parent/my_student/submitted_homework/{id}', [HomeworkController::class, 'ParentMyStudentSubmittedHomework']);
 });
 
 
@@ -280,4 +285,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/homework/homework/edit/{id}', [HomeworkController::class, 'Update']);
     Route::get('admin/homework/homework/delete/{id}', [HomeworkController::class, 'Delete']);
     Route::post('admin/ajax_get_subject', [HomeworkController::class, 'ajax_get_subject']);
+    Route::get('admin/homework/homework/submitted/{id}', [HomeworkController::class, 'Submitted']);
+    Route::get('admin/homework/homework_report', [HomeworkController::class, 'HomeworkReport']);
+
+    
 });

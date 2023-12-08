@@ -108,7 +108,7 @@
                                         <td>{{date('d-m-Y', strtotime($value->submission_date)) }}</td>
                                         <td>
                                             @if(!empty($value->getDocument()))
-                                            <a href="{{ $value->getDocument()}}" class="btn btn-primary btn-sm">Download</a>
+                                            <a href="{{ $value->getDocument()}}" class="btn btn-primary btn-sm" download="">Download</a>
                                             @endif
                                         </td>
                                         <td>{{ $value->created_by_name}}</td>
@@ -116,6 +116,8 @@
                                         <td>
                                             <a href="{{url('admin/homework/homework/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                             <a href="{{url('admin/homework/homework/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{url('admin/homework/homework/submitted/'.$value->id)}}" class="btn btn-success btn-sm">Submitted Homework</a>
+
                                         </td>
                                     </tr>
 

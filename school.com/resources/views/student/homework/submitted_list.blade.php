@@ -13,11 +13,9 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Homework</h3>
+                    <h3 class="mb-0">My Submited Homework</h3>
                 </div>
-                <div class="col-sm-6" style="text-align: right;">
-                    <a href="{{url('teacher/homework/homework/add')}}" class="btn btn-primary mb-0">Add New Homework</a>
-                </div>
+
             </div>
         </div>
     </div>
@@ -30,7 +28,7 @@
                         <form method="get">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-auto">
+                                <div class="col-auto">
                                         <label>Class</label>
                                         <input type="text" name="class_name" value="{{ Request::get('class_name')}}" class="form-control mb-2" placeholder="Class Name">
                                     </div>
@@ -55,25 +53,25 @@
                                         <input type="date" name="to_submission_date" value="{{ Request::get('to_submission_date')}}" class="form-control mb-2">
                                     </div>
                                     <div class="col-auto">
-                                        <label>From Created Date</label>
-                                        <input type="date" name="from_created_at" value="{{ Request::get('from_created_at')}}" class="form-control mb-2">
+                                        <label>Submitted Date From</label>
+                                        <input type="date" name="from_submitted_at" value="{{ Request::get('from_submitted_at')}}" class="form-control mb-2">
                                     </div>
                                     <div class="col-auto">
-                                        <label>To Created Date</label>
-                                        <input type="date" name="to_created_at" value="{{ Request::get('to_created_at')}}" class="form-control mb-2">
+                                        <label>Submitted Date To</label>
+                                        <input type="date" name="to_submitted_at" value="{{ Request::get('to_submitted_at')}}" class="form-control mb-2">
                                     </div>
-                                
-                                    
+
+
 
                                 </div>
 
                             </div>
                             <div class="row align-items-center justify-content-center">
-                                        <div class="col-auto">
-                                        <button class="btn btn-primary mb-2">Search </button>
-                                            <a href="{{url('teacher/homework/homework')}}" class="btn btn-danger mb-2">Reset</a>
-                                        </div>
-                                    </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary mb-2">Search </button>
+                                    <a href="{{url('student/my_submited_homework')}}" class="btn btn-danger mb-2">Reset</a>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -88,45 +86,45 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-
                                         <th>Class</th>
                                         <th>Subject</th>
                                         <th>Homework Date</th>
                                         <th>Submission Date</th>
                                         <th>Document</th>
-                                        <th>Created By</th>
+                                        <th>Description</th>
                                         <th>Created Date</th>
-                                        <th>Action</th>
+                                        <th>Submited Document</th>
+                                        <th>Submited Description</th>
+                                        <th>Submited Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse($getRecord as $value)
                                     <tr>
-                                        <td>{{$value->class_name }}</td>
+                                        <td>{{$value->class_name}}</td>
                                         <td>{{$value->subject_name }}</td>
-                                        <td>{{date('d-m-Y', strtotime($value->homework_date)) }}</td>
-                                        <td>{{date('d-m-Y', strtotime($value->submission_date)) }}</td>
+                                        <td>{{date('d-m-Y', strtotime($value->getHomework->homework_date)) }}</td>
+                                        <td>{{date('d-m-Y', strtotime($value->getHomework->submission_date)) }}</td>
+                                        <td>
+                                            @if(!empty($value->getHomework->getDocument()))
+                                            <a href="{{ $value->getDocument()}}" class="btn btn-primary btn-sm" download="">Download</a>
+                                            @endif
+                                        </td>
+                                        <td>{!! $value->getHomework->description !!}</td>
+                                        <td>{{date('d-m-Y H:i A', strtotime($value->getHomework->created_at))}}</td>
                                         <td>
                                             @if(!empty($value->getDocument()))
                                             <a href="{{ $value->getDocument()}}" class="btn btn-primary btn-sm" download="">Download</a>
                                             @endif
                                         </td>
-                                        <td>{{ $value->created_by_name}}</td>
+                                        <td>{!! $value->description !!}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
-                                        <td>
-                                            <a href="{{url('teacher/homework/homework/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="{{url('teacher/homework/homework/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                                            <a href="{{url('teacher/homework/homework/submitted/'.$value->id)}}" class="btn btn-success btn-sm">Submitted Homework</a>
-
-                                        </td>
                                     </tr>
-
                                     @empty
                                     <tr>
                                         <td colspan="100%">Record Not Found</td>
                                     </tr>
                                     @endforelse
-
                                 </tbody>
                             </table>
                             <div style="padding: 10px;">
