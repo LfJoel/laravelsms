@@ -12,7 +12,7 @@
                     <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">Edit Class</h3>
+                            <h3 class="mb-0">Setting</h3>
                         </div>
                     </div>
                     <!--end::Row-->
@@ -29,39 +29,31 @@
                         <!-- Start column -->
                         <div class="col-md-12">
                             <!-- general form elements -->
+                            @include('_message')
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <div class="card-title">
-                                        Add New Class
+                                        My Account
                                     </div>
                                 </div>
                                 <form method="post" action="">
                                     {{csrf_field()}}
                                 <div class="card-body">
-                                    <div class="form-group mb-3">
-                                            <label class="form-label">Class Name</label>
-                                            <input type="text" name="name" class="form-control" value="{{ $getRecord->name}}" required placeholder="class name">
-                                            
+                                        <div class="mb-3">
+                                            <label  class="form-label">Paypal Business Email address</label>
+                                            <input type="email" name="paypal_email" class="form-control" aria-describedby="emailHelp" value="{{ $getRecord->paypal_email}}" placeholder="Email address" required>
                                         </div>
-                                        <div class="form-group mb-3">
-                                            <label class="form-label">Amount ($)</label>
-                                            <input type="number" name="amount" class="form-control"value="{{ $getRecord->amount}}" required placeholder="amount">
-                                            
+                                        <div class="mb-3">
+                                            <label  class="form-label">Stripe Public Key</label>
+                                            <input type="text" name="stripe_key" class="form-control"  value="{{ $getRecord->stripe_key}}">
                                         </div>
-                                        <div class="form-group mb-3">
-                                            <label class="form-label" >Status</label>
-                                            <select class="form-control" name="status">
-                                                <option {{ ( $getRecord->status == 0)? 'selected' : '' }} value="0"> Active</option>
-                                                <option {{ ( $getRecord->status == 1)? 'selected' : '' }}  value="1">InActive</option>
-                                            </select>
+                                        <div class="mb-3">
+                                            <label  class="form-label">Stripe Secret Key</label>
+                                            <input type="text" name="stripe_secret" class="form-control"  value="{{ $getRecord->stripe_secret}}">
                                         </div>
-
-                                        
-            
-    
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
                                     </div>
                                 </form>
                             </div>

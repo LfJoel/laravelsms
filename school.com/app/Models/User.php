@@ -217,6 +217,30 @@ class User extends Authenticatable
             ->paginate(20);
         return $return;
     }
+    static public function getCollectFeesStudent()
+    {
+        $return = User::select('users.*', 'class.name as class_name', 'class.amount')
+            ->join('class', 'class.id', '=', 'users.class_id')
+            ->where('users.user_type', '=', 3)
+            ->where('users.is_delete', '=', 0);
+            if (!empty(Requests::get('first_name'))) {
+                $return = $return->where('users.name', 'like', '%' .Requests::get('first_name').'%');
+            }
+            if (!empty(Requests::get('last_name'))) {
+                $return = $return->where('users.last_name', 'like', '%' .Requests::get('last_name').'%');
+            }
+            if (!empty(Requests::get('class_id'))) {
+                $return = $return->where('users.class_id', '=',Requests::get('class_id'));
+            }
+            if (!empty(Requests::get('student_id'))) {
+                $return = $return->where('users.id', '=',Requests::get('student_id'));
+            }
+        $return = $return->orderby('users.name', 'asc')
+            ->paginate(50);
+
+        return $return;
+    }
+    
     static public function getEmailSingle($email)
     {
         return User::where('email', '=', $email)->first();
@@ -228,6 +252,17 @@ class User extends Authenticatable
     static public function getSingle($id)
     {
         return User::find($id);
+    }
+    static public function getSingleClass($id)
+    {
+        return User::select('users.*','class.amount','class.name as class_name')
+        ->join('class','class.id','=','users.class_id')
+        ->where('users.id','=',$id)
+        ->first();
+    }
+    static public function getPaidAmount($student_id,$class_id)
+    {
+        return StudentAddFeesModel::getPaidAmount($student_id,$class_id);
     }
     public function getProfile()
     {

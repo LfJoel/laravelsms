@@ -26,11 +26,11 @@ class ClassController extends Controller
 
         $save = new ClassModel;
         $save->name = $request->name;
+        $save->amount = $request->amount;
         $save->status = $request->status;
         $save->created_by = Auth::User()->id;
         $save->save();
-        //dd($request->all());
-
+        
         return redirect('admin/class/list')->with('success', 'Class Successfully Created');
     }
 
@@ -60,6 +60,7 @@ class ClassController extends Controller
 
         $save = ClassModel::getsingle($id);
         $save->name = trim($request->name);
+        $save->amount = trim($request->amount);
         $save->status = trim($request->status);
         $save->save();
 

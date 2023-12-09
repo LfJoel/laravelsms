@@ -40,7 +40,12 @@
                                 <div class="card-body">
                                     <div class="form-group mb-3">
                                             <label class="form-label">Class Name</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" class="form-control" placeholder="class name">
+                                            
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">Amount ($)</label>
+                                            <input type="number" name="amount" class="form-control" placeholder="amount">
                                             
                                         </div>
                                         <div class="form-group mb-3">
@@ -50,10 +55,6 @@
                                                 <option value="1">InActive</option>
                                             </select>
                                         </div>
-
-                                        
-            
-    
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -30,3 +30,5 @@ Attendance operations
 Mail , communication notice board and home work operations 
 # date 8/12/2023
 All home work operations are completed
+# date 9/12/2023
+created payment gateways and dashboards

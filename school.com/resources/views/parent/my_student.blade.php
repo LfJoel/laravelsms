@@ -104,9 +104,8 @@
                                             <a style="width: 100%;"  class="btn btn-dark btn-sm mb-2" href="{{url('parent/my_student/attendance/'.$value->id)}}">Attendance</a>
                                             <a style="width: 100%;"  class="btn btn-secondary btn-sm  mb-2" href="{{url('parent/my_student/homework/'.$value->id)}}">Homework</a>
                                             <a style="width: 100%;"  class="btn btn-success btn-sm  mb-2" href="{{url('parent/my_student/submitted_homework/'.$value->id)}}">Submitted Homework</a>
-
+                                            <a style="width: 100%;background-color:darkblue;color:aliceblue;"  class="btn  btn-sm  mb-2"  href="{{url('parent/my_student/fees_collection/'.$value->id)}}">Pay Fees</a>
                                         </td>
-
                                     </tr>
                                     @endforeach
                                 </tbody>

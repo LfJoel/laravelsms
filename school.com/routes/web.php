@@ -17,6 +17,7 @@ use App\Http\Controllers\ExaminationController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CommunicateController;
+use App\Http\Controllers\FeesCollectionController;
 use App\Http\Controllers\HomeworkController;
 
 /*
@@ -44,6 +45,8 @@ Route::post('reset/{token}', [AuthController::class, 'postreset']);
 
 //Dashboard
 
+
+// Teacher
 Route::group(['middleware' => 'teacher'], function () {
 
     Route::get('teacher/dashboard', [DashboardController::class, 'dashboard']);
@@ -84,6 +87,9 @@ Route::group(['middleware' => 'teacher'], function () {
 
     Route::get('teacher/homework/homework/submitted/{id}', [HomeworkController::class, 'SubmittedTeacher']);
 });
+
+// student
+
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('student/change_password/', [UserController::class, 'change_password']);
@@ -104,7 +110,21 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'SubmitHomework']);
     Route::post('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'InsertSubmitHomework']);
     Route::get('student/my_submitted_homework', [HomeworkController::class, 'MySubmittedHomeworkStudent']);
+   
+    Route::get('student/fees', [FeesCollectionController::class, 'StudentPayment']);
+    Route::post('student/fees', [FeesCollectionController::class, 'StudentPaymentInsert']);
+
+    Route::get('student/paypal/payment-error', [FeesCollectionController::class, 'PaymentError']);
+    Route::get('student/paypal/payment-success', [FeesCollectionController::class, 'PaymentSuccess']);
+
+
+    Route::get('student/stripe/payment-error', [FeesCollectionController::class, 'PaymentError']);
+    Route::get('student/stripe/payment-success', [FeesCollectionController::class, 'PaymentSuccessStripe']);
+
 });
+
+// parent
+
 Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('parent/change_password/', [UserController::class, 'change_password']);
@@ -130,6 +150,16 @@ Route::group(['middleware' => 'parent'], function () {
 
     Route::get('parent/my_student/homework/{id}', [HomeworkController::class, 'ParentMyStudentHomework']);
     Route::get('parent/my_student/submitted_homework/{id}', [HomeworkController::class, 'ParentMyStudentSubmittedHomework']);
+    
+    Route::get('parent/my_student/fees_collection/{student_id}', [FeesCollectionController::class, 'ParentMyStudentPayFee']);
+
+    Route::post('parent/my_student/fees_collection/{student_id}', [FeesCollectionController::class, 'ParentStudentPayment']);
+
+    Route::get('parent/paypal/payment-error/{student_id}', [FeesCollectionController::class, 'ParentPaymentError']);
+    Route::get('parent/paypal/payment-success/{student_id}', [FeesCollectionController::class, 'ParentPaymentSuccess']);
+
+    Route::get('parent/stripe/payment-error/{student_id}', [FeesCollectionController::class, 'ParentPaymentError']);
+    Route::get('parent/stripe/payment-success/{student_id}', [FeesCollectionController::class, 'PaymentSuccessStripeParent']);
 });
 
 
@@ -141,6 +171,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/account', [UserController::class, 'UpdateMyAccountAdmin']);
     Route::get('admin/change_password/', [UserController::class, 'change_password']);
     Route::post('admin/change_password/', [UserController::class, 'Update_change_password']);
+    //setting
+    Route::get('admin/setting', [UserController::class, 'MySetting']);
+    Route::post('admin/setting', [UserController::class, 'UpdateMySetting']);
 
 
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
@@ -288,5 +321,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/homework/homework/submitted/{id}', [HomeworkController::class, 'Submitted']);
     Route::get('admin/homework/homework_report', [HomeworkController::class, 'HomeworkReport']);
 
-    
+    //Fees Collection
+    Route::get('admin/fees_collection/collect_fees', [FeesCollectionController::class, 'collect_fees']);
+    Route::get('admin/fees_collection/collect_fees/add_fees/{student_id}', [FeesCollectionController::class, 'collect_fees_add']);
+    Route::post('admin/fees_collection/collect_fees/add_fees/{student_id}', [FeesCollectionController::class, 'collect_fees_insert']);
+
+
+
+
 });

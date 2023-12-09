@@ -248,6 +248,24 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item  @if(Request::segment(2) == 'fees_collection') menu-is-opening menu-open @endif">
+                    <a href="#" class="nav-link @if(Request::segment(2) == 'fees_collection' ) active @endif">
+                        <i class="nav-icon fa-solid fa-gauge-high"></i>
+                        <p>
+                            Fees Collection
+                            <i class="nav-arrow fa-solid fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{url('admin/fees_collection/collect_fees')}}" class="nav-link @if(Request::segment(3) == 'collect_fees') active @endif">
+                                <i class="nav-icon fa-regular fa-circle"></i>
+                                <p>Collect Fees</p>
+                            </a>
+                        </li>
+                     
+                    </ul>
+                </li>
                 <li class="nav-item  @if(Request::segment(2) == 'examinations') menu-is-opening menu-open @endif">
                     <a href="#" class="nav-link @if(Request::segment(2) == 'class' || Request::segment(2) == 'examinations' ) active @endif">
                         <i class="nav-icon fa-solid fa-gauge-high"></i>
@@ -359,6 +377,14 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Account
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('admin/setting')}}" class="nav-link @if(Request::segment(2) == 'setting') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            Settings
                         </p>
                     </a>
                 </li>
@@ -567,6 +593,14 @@
                         <i class="nav-icon fa-solid fa-dashboard"></i>
                         <p>
                             My Exam Timetable
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{url('student/fees')}}" class="nav-link @if(Request::segment(2) == 'fees') active @endif">
+                        <i class="nav-icon fa-solid fa-dashboard"></i>
+                        <p>
+                            Payment
                         </p>
                     </a>
                 </li>
