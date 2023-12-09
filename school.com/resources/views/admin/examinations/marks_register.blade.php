@@ -103,6 +103,7 @@
                                             $totalStudentMark =0;
                                             $totalFullMarks = 0;
                                             $totalPassingMark = 0;
+                                            $pass_fail_vali = 0;
                                             @endphp
                                             @foreach($getSubject as $subject)
                                             @php
@@ -161,6 +162,9 @@
                                                     <span class="text-danger fw-bold">
                                                         Fail
                                                     </span>
+                                                    @php 
+                                                    $pass_fail_vali == 1;
+                                                    @endphp
                                                     <!--need to some work-->
                                                     @endif
                                                 </div>
@@ -171,7 +175,7 @@
                                             @endphp
                                             @endforeach
                                             <td>
-                                                <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button>
+                                                <!-- <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button> -->
                                                 @if(!empty($totalStudentMark))
                                                 <br>
                                                 <b>Total Subject Mark :</b> {{ $totalFullMarks}}

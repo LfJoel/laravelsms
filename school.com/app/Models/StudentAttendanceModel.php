@@ -122,5 +122,16 @@ class StudentAttendanceModel extends Model
     ->groupby('student_attendance.class_id')
     ->get();
     }
+
+    static public function getTotalParentAttendanceCount($student_ids)
+    {
+    return  StudentAttendanceModel::select('student_attendance.id' )
+    ->join('class' ,'class.id' ,'=','student_attendance.class_id')
+    ->whereIN('student_attendance.student_id' ,$student_ids)
+    ->count();
+
+    }
+
+    
     
 }

@@ -263,7 +263,12 @@
                                 <p>Collect Fees</p>
                             </a>
                         </li>
-                     
+                        <li class="nav-item">
+                            <a href="{{url('admin/fees_collection/collect_fees_report')}}" class="nav-link @if(Request::segment(3) == 'collect_fees_report') active @endif">
+                                <i class="nav-icon fa-regular fa-circle"></i>
+                                <p>Collect Fees Report</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item  @if(Request::segment(2) == 'examinations') menu-is-opening menu-open @endif">

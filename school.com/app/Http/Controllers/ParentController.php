@@ -14,7 +14,7 @@ class ParentController extends Controller
     public function list()
     {
         $data['getRecord'] = User::getParent();
-        $data['header_tile'] = 'Parent list';
+        $data['header_title'] = 'Parent list';
         return view('admin.parent.list', $data);
     }
     public function add()
@@ -131,7 +131,7 @@ class ParentController extends Controller
         $data['parent_id'] = $id;
         $data['getRecord'] = User::getMyStudent($id);
         $data['getSreachStudent'] = User::getSreachStudent();
-        $data['header_tile'] = 'Parent student list';
+        $data['header_title'] = 'Parent student list';
         return view('admin.parent.mychild', $data);
     }
 
@@ -153,7 +153,7 @@ class ParentController extends Controller
  
         $id =Auth::user()->id;
         $data['getRecord'] = User::getMyStudent($id);
-        $data['header_tile'] = 'My Student';
+        $data['header_title'] = 'My Student';
         return view('parent.my_student', $data);
     }
    

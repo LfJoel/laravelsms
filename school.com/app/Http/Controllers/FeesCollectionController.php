@@ -20,7 +20,7 @@ class FeesCollectionController extends Controller
         if (!empty($request->all())) {
             $data['getRecord'] = User::getCollectFeesStudent();
         }
-        $data['header_tile'] = 'Collect Fees';
+        $data['header_title'] = 'Collect Fees';
         return view('admin.fees_collection.collect_fees', $data);
     }
     public function collect_fees_add($student_id)
@@ -31,10 +31,17 @@ class FeesCollectionController extends Controller
         $data['paid_amount'] = StudentAddFeesModel::getPaidAmount($student_id, $getStudent->class_id);
 
 
-        $data['header_tile'] = 'Add Collect Fees';
+        $data['header_title'] = 'Add Collect Fees';
         return view('admin.fees_collection.add_collect_fees', $data);
     }
-
+    public function collect_fees_report()
+    { 
+        $data['getClass'] = ClassModel::getClass();
+        $data['getRecord'] = StudentAddFeesModel::getRecord();
+        $data['header_title'] = 'Collect Fees Report';
+        return view('admin.fees_collection.collect_fees_report', $data);
+    }
+    
 
     public function collect_fees_insert($student_id, Request $request)
     {
@@ -74,7 +81,7 @@ class FeesCollectionController extends Controller
         $getStudent = User::getSingleClass($student_id);
         $data['getStudent'] = $getStudent;
         $data['paid_amount'] = StudentAddFeesModel::getPaidAmount($student_id, $getStudent->class_id);
-        $data['header_tile'] = 'Payment';
+        $data['header_title'] = 'Payment';
         return view('student.my_fees_collection', $data);
     }
     public function StudentPaymentInsert(Request $request)
@@ -221,7 +228,7 @@ class FeesCollectionController extends Controller
         $getStudent = User::getSingleClass($student_id);
         $data['getStudent'] = $getStudent;
         $data['paid_amount'] = StudentAddFeesModel::getPaidAmount($student_id, $getStudent->class_id);
-        $data['header_tile'] = 'Payment';
+        $data['header_title'] = 'Payment';
         return view('parent.my_student_fees_collection', $data);
     }
 

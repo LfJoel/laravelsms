@@ -16,7 +16,7 @@ class AssignClassTeacherController extends Controller
     {
 
         $data['getRecord'] = AssignClassTeacherModel::getRecord();
-        $data['header_tile'] = 'Assign Class Teacher';
+        $data['header_title'] = 'Assign Class Teacher';
         return view('admin.assign_class_teacher.list', $data);
     }
     public function add()

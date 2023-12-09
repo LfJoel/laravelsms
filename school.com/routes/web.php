@@ -121,6 +121,9 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/stripe/payment-error', [FeesCollectionController::class, 'PaymentError']);
     Route::get('student/stripe/payment-success', [FeesCollectionController::class, 'PaymentSuccessStripe']);
 
+    Route::get(' student/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
+
+
 });
 
 // parent
@@ -275,7 +278,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/examinations/exam_schedule_insert', [ExaminationController::class, 'exam_schedule_insert']);
 
     Route::get('admin/examinations/marks_register', [ExaminationController::class, 'marks_register']);
-    Route::post('admin/examinations/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
+    // Route::post('admin/examinations/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
     Route::post('admin/examinations/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
 
 
@@ -326,6 +329,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/fees_collection/collect_fees/add_fees/{student_id}', [FeesCollectionController::class, 'collect_fees_add']);
     Route::post('admin/fees_collection/collect_fees/add_fees/{student_id}', [FeesCollectionController::class, 'collect_fees_insert']);
 
+    Route::get('admin/fees_collection/collect_fees_report', [FeesCollectionController::class, 'collect_fees_report']);
 
 
 

@@ -72,6 +72,19 @@ class SubmitHomeworkModel extends Model
 
         return $return;
     }
+    static public function getTotalSubmittedHomeworkCount($student_id)
+    {
+
+        $return = SubmitHomeworkModel::select('homework_submit.id')
+            ->join('homework', 'homework.id', '=', 'homework_submit.homework_id')
+            ->join('subject', 'subject.id', '=', 'homework.subject_id')
+            ->join('class', 'class.id', '=', 'homework.class_id')
+            ->where('homework_submit.student_id', '=', $student_id);
+        $return = $return->orderBy('homework_submit.id', 'desc')
+            ->count();
+
+        return $return;
+    }
 
     static public function getHomeworkReport()
     {

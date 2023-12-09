@@ -13,7 +13,7 @@ class TeacherController extends Controller
     public function list()
     {
         $data['getRecord'] = User::getTeacher();
-        $data['header_tile'] = 'teacher list';
+        $data['header_title'] = 'teacher list';
         return view('admin.teacher.list', $data);
     }
     public function add()

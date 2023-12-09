@@ -68,7 +68,20 @@ class NoticeBoardModel extends Model
             ->paginate(20);
         return $return;
     }
-
+    static public function getNoticeBoardCount($message_to)
+    {
+        $return = self::select('notice_board.id')
+            ->join('users', 'users.id', '=', 'notice_board.created_by')
+            ->join('notice_board_message', 'notice_board_message.notice_board_id', '=', 
+            'notice_board.id');
+           
+            $return = $return->where('notice_board_message.message_to', '=', $message_to);
+            $return = $return->where('notice_board.publish_date', '<=', date('Y-m-d'));
+            $return = $return->orderby('notice_board.id', 'desc')
+            ->count();
+        return $return;
+    }
+    
     public function getMessage()
     {
         return $this->hasmany(NoticeBoardMessageModel::class, 'notice_board_id');
@@ -78,4 +91,6 @@ class NoticeBoardModel extends Model
         return NoticeBoardMessageModel::where('notice_board_id', '=', $notice_board_id)
             ->where('message_to', '=', $message_to)->first();
     }
+
+
 }

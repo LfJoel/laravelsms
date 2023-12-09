@@ -14,7 +14,7 @@ class StudentController extends Controller
     public function list()
     {
         $data['getRecord'] = User::getStudent();
-        $data['header_tile'] = 'student list';
+        $data['header_title'] = 'student list';
         return view('admin.student.list', $data);
     }
     public function add()
@@ -165,7 +165,8 @@ class StudentController extends Controller
     public function TeacherMyStudents()
     {
         $data['getRecord'] = User::getTeacherMyStudents(Auth::user()->id);
-        $data['header_tile'] = 'student list';
+        $data['header_title'] = 'student list';
         return view('teacher.teacher_my_students', $data);
     }
+    
 }

@@ -20,8 +20,6 @@ class time table for parent , teacher , student side
 exam time table and calendar for parent , teacher , student side 
 # date 3/12/2023
  exam mark register operations 
-
- note: serialize() function not working while submit row of bulk data ,need to debug it 
 # date 5/12/2023
 grade and exam result operations
 # date 6/12/2023
@@ -31,4 +29,4 @@ Mail , communication notice board and home work operations
 # date 8/12/2023
 All home work operations are completed
 # date 9/12/2023
-created payment gateways and dashboards
+created payment gateways and dashboards and print exam results

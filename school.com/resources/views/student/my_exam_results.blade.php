@@ -34,6 +34,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">{{ $value['exam_name']}}</h3>
+                            <a class="btn btn-danger btn-sm" style="float: right;" href="{{ url('student/my_exam_results/print?exam_id='.$value['exam_id'].'&student_id='.Auth::user()->id)}}" target="_blank">Print</a>
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-striped">
@@ -99,19 +100,21 @@
                                             $getGrade=App\Models\MarksGradeModel::getGrade($percentage);
 
                                             @endphp
-                                        <b>Percentage: {{ round($percentage, 2)}}%</b></td>
-                                        <td colspan="2"><b>Grade: {{  $getGrade  }}</b></td>
+                                            <b>Percentage: {{ round($percentage, 2)}}%</b>
+                                        </td>
+                                        <td colspan="2"><b>Grade: {{ $getGrade  }}</b></td>
                                         <td colspan="5">
                                             <b>Result: @if($result_val == 1)
-                                            <span class="text-danger ">
-                                                Fail
-                                            </span>
-                                            @else
-                                            <span class="text-success">
-                                                Pass
-                                            </span>
-                                            @endif
-                                    </b></td>
+                                                <span class="text-danger ">
+                                                    Fail
+                                                </span>
+                                                @else
+                                                <span class="text-success">
+                                                    Pass
+                                                </span>
+                                                @endif
+                                            </b>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

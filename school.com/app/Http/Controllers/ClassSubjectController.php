@@ -13,7 +13,7 @@ class ClassSubjectController extends Controller
     public function list()
     {
         $data['getRecord'] = ClassSubjectModel::getRecord();
-        $data['header_tile'] = 'Assign subject list';
+        $data['header_title'] = 'Assign subject list';
         return view('admin.assign_subject.list', $data);
     }
     public function add()

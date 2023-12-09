@@ -52,7 +52,7 @@ class ClassTimeTableController extends Controller
 
         $data['week'] = $week;
 
-        $data['header_tile'] = 'Class Time Table';
+        $data['header_title'] = 'Class Time Table';
         return view('admin.class_time_table.list', $data);
     }
 
@@ -130,7 +130,7 @@ class ClassTimeTableController extends Controller
         //  dd($result);
 
         $data['getRecord'] = $result;
-        $data['header_tile'] = 'My Timetable';
+        $data['header_title'] = 'My Timetable';
         return view('student.my_timetable', $data);
     }
 
@@ -161,7 +161,7 @@ class ClassTimeTableController extends Controller
             $result[] = $dataW;
         }
         $data['getRecord'] = $result;
-        $data['header_tile'] = 'My Timetable';
+        $data['header_title'] = 'My Timetable';
         return view('teacher.my_timetable', $data);
     }
 
@@ -194,7 +194,7 @@ class ClassTimeTableController extends Controller
             $result[] = $dataW;
         }
         $data['getRecord'] = $result;
-        $data['header_tile'] = 'My Timetable';
+        $data['header_title'] = 'My Timetable';
         return view('parent.my_timetable', $data);
     }
 }

@@ -47,6 +47,12 @@ class ExaminationModel extends Model
             
         return $return;
     }
-    
-   
+    static public function getTotalExam()
+    {
+
+        return self::select('exam.id')
+            ->where('exam.is_delete' ,'=' ,0)
+            ->count();
+    }
+       
 }
