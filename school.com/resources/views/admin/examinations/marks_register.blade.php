@@ -138,7 +138,7 @@
                                                     Exam
                                                     <input type="text" id="exam_{{ $student->id}}{{ $subject->subject_id}}" name="mark[{{ $i }}]['exam']" placeholder="Enter Mark" class="form-control" style="width:200px;" value="{{ !empty($getMark) ? $getMark->exam : '' }}">
                                                 </div>
-                                                <div class="mb-2">
+                                                <div class="mb-2 ">
                                                     <button type="button" data-schedule="{{$subject->id}}" class="btn btn-primary SaveSingleSubject" id="{{ $student->id}}" data-val="{{ $subject->subject_id}}" data-exam="{{ Request::get('exam_id') }}" data-class="{{Request::get('class_id')}}">Save</button>
                                                 </div>
                                                 <div class="mb-2">
@@ -176,6 +176,9 @@
                                             @endforeach
                                             <td>
                                                 <!-- <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button> -->
+                                                <a class="btn btn-danger  m-3"   href="{{ url('admin/my_exam_results/print?exam_id='.Request::get('exam_id').'&student_id='.$student->id)}}" target="_blank">Print</a>
+
+                                                
                                                 @if(!empty($totalStudentMark))
                                                 <br>
                                                 <b>Total Subject Mark :</b> {{ $totalFullMarks}}

@@ -169,7 +169,9 @@
                                             @endforeach
                                             <td>
                                                 <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button>
-                                                </br>
+                                                <a class="btn btn-danger  "   href="{{ url('teacher/my_exam_results/print?exam_id='.Request::get('exam_id').'&student_id='.$student->id)}}" target="_blank">Print</a>
+
+                                            </br>
                                                 @if(!empty($totalStudentMark))
                                                 <br>
                                                 <b>Total Subject Mark :</b> {{ $totalFullMarks}}

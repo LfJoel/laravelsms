@@ -65,6 +65,7 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::get('teacher/mark_register', [ExaminationController::class, 'mark_register_teachers']);
     Route::post('teacher/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
     Route::post('teacher/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
+    Route::get('teacher/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
 
     //Attendance
     Route::get('teacher/attendance/student', [AttendanceController::class, 'AttendanceStudentTeacher']);
@@ -121,7 +122,7 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/stripe/payment-error', [FeesCollectionController::class, 'PaymentError']);
     Route::get('student/stripe/payment-success', [FeesCollectionController::class, 'PaymentSuccessStripe']);
 
-    Route::get(' student/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
+    Route::get('student/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
 
 
 });
@@ -145,6 +146,8 @@ Route::group(['middleware' => 'parent'], function () {
     Route::get('parent/my_student/calendar/{student_id}', [CalendarController::class, 'MyCalendarParent']);
 
     Route::get('parent/my_student/exam_result/{student_id}', [ExaminationController::class, 'MyStudentExamResultParent']);
+    Route::get('parent/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
+
     Route::get(' parent/my_student/attendance/{student_id}', [AttendanceController::class, 'MyStudentAttendanceParent']);
 
     //notice board
@@ -280,8 +283,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/examinations/marks_register', [ExaminationController::class, 'marks_register']);
     // Route::post('admin/examinations/submit_marks_register', [ExaminationController::class, 'submit_marks_register']);
     Route::post('admin/examinations/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
+    Route::get('admin/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
 
-
+    
     //Mark Grade 
 
     Route::get('admin/examinations/marks_grade/list', [ExaminationController::class, 'marks_grade']);

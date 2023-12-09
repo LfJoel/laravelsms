@@ -386,6 +386,7 @@ class ExaminationController extends Controller
         foreach ($getExam as $value) {
             $dataE = array();
             $dataE['exam_name'] = $value->exam_name;
+            $dataE['exam_id'] = $value->exam_id;
             $getExamSubject = MarksRegisterModel::getExamSubject($value->exam_id, $student_id);
             $dataSubject = array();
 
