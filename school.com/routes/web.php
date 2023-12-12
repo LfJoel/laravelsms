@@ -19,6 +19,8 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CommunicateController;
 use App\Http\Controllers\FeesCollectionController;
 use App\Http\Controllers\HomeworkController;
+use App\Http\Controllers\ChatController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +44,12 @@ Route::get('reset/{token}', [AuthController::class, 'reset']);
 Route::post('reset/{token}', [AuthController::class, 'postreset']);
 
 
+// Chat System
 
-//Dashboard
+Route::group(['middleware' => 'chat'], function () {
+
+    Route::get('chat', [ChatController::class, 'Chat']);
+});
 
 
 // Teacher
@@ -111,7 +117,7 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'SubmitHomework']);
     Route::post('student/my_homework/submit_homework/{id}', [HomeworkController::class, 'InsertSubmitHomework']);
     Route::get('student/my_submitted_homework', [HomeworkController::class, 'MySubmittedHomeworkStudent']);
-   
+
     Route::get('student/fees', [FeesCollectionController::class, 'StudentPayment']);
     Route::post('student/fees', [FeesCollectionController::class, 'StudentPaymentInsert']);
 
@@ -123,8 +129,6 @@ Route::group(['middleware' => 'student'], function () {
     Route::get('student/stripe/payment-success', [FeesCollectionController::class, 'PaymentSuccessStripe']);
 
     Route::get('student/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
-
-
 });
 
 // parent
@@ -156,7 +160,7 @@ Route::group(['middleware' => 'parent'], function () {
 
     Route::get('parent/my_student/homework/{id}', [HomeworkController::class, 'ParentMyStudentHomework']);
     Route::get('parent/my_student/submitted_homework/{id}', [HomeworkController::class, 'ParentMyStudentSubmittedHomework']);
-    
+
     Route::get('parent/my_student/fees_collection/{student_id}', [FeesCollectionController::class, 'ParentMyStudentPayFee']);
 
     Route::post('parent/my_student/fees_collection/{student_id}', [FeesCollectionController::class, 'ParentStudentPayment']);
@@ -285,7 +289,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/examinations/single_submit_marks_register', [ExaminationController::class, 'single_submit_marks_register']);
     Route::get('admin/my_exam_results/print', [ExaminationController::class, 'MyExamResultPrint']);
 
-    
+
     //Mark Grade 
 
     Route::get('admin/examinations/marks_grade/list', [ExaminationController::class, 'marks_grade']);
@@ -334,7 +338,4 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/fees_collection/collect_fees/add_fees/{student_id}', [FeesCollectionController::class, 'collect_fees_insert']);
 
     Route::get('admin/fees_collection/collect_fees_report', [FeesCollectionController::class, 'collect_fees_report']);
-
-
-
 });

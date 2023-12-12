@@ -61,11 +61,11 @@
                                         <option {{ Request::get('gender')=='Others' ?'slected':''}} value="Others">Others</option>
                                     </select>
                                 </div>
-                               
+
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center">
-                            <div class="col-md-2 m-3">
+                                <div class="col-md-2 m-3">
                                     <button class="btn btn-primary mb-2">Search</button>
                                 </div>
                                 <div class="col-md-2 m-3">
@@ -149,7 +149,8 @@
                                         </td>
 
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
-                                        <td style="min-width:150px;">
+                                        <td style="min-width:250px;">
+                                            <a href="{{url('chat?receiver_id='.base64_encode($value->id))}}" class="btn btn-success btn-sm">Send Message</a>
                                             <a href="{{url('admin/teacher/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                             <a href="{{url('admin/teacher/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                         </td>

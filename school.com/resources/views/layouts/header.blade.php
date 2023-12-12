@@ -92,7 +92,7 @@
                         <!--end::Message-->
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    <a href="{{ url('chat') }}" class="dropdown-item dropdown-footer">See All Messages</a>
                 </div>
             </li>
             <!--end::Messages Dropdown Menu-->
