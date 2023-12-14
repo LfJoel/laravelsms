@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use PgSql\Result;
+use Cache;
 use Request as Requests;
 
 class User extends Authenticatable
@@ -52,6 +53,11 @@ class User extends Authenticatable
         return User::select('users.*')
             ->where('user_type', '=', $user_type)
             ->where('is_delete', '=', 0)->get();
+    }
+
+    public function onlineUser()
+    {
+        return Cache::has('OnlineUser' . $this->id);
     }
     static public function getAdmin()
     {
@@ -216,13 +222,13 @@ class User extends Authenticatable
             ->orderby('users.id', 'desc')
             ->get();
 
-            $student_ids = array();
-            foreach($return as $value){
-                $student_ids[] =$value->id;
-            }
+        $student_ids = array();
+        foreach ($return as $value) {
+            $student_ids[] = $value->id;
+        }
         return $student_ids;
     }
-    
+
     static public function getStudentClass($class_id)
     {
         return User::select('users.*', 'users.name', 'users.last_name')
@@ -340,5 +346,13 @@ class User extends Authenticatable
             ->where('user_type', '=', $user_type)
             ->where('is_delete', '=', 0)
             ->count();
+    }
+    public function getProfileDirect()
+    {
+        if (!empty($this->profile_pic) && file_exists('upload/profile/' . $this->profile_pic)) {
+            return url('upload/profile/' . $this->profile_pic);
+        } else {
+            return url('upload/profile/user.png');
+        }
     }
 }

@@ -105,6 +105,8 @@
                                             <a style="width: 100%;"  class="btn btn-secondary btn-sm  mb-2" href="{{url('parent/my_student/homework/'.$value->id)}}">Homework</a>
                                             <a style="width: 100%;"  class="btn btn-success btn-sm  mb-2" href="{{url('parent/my_student/submitted_homework/'.$value->id)}}">Submitted Homework</a>
                                             <a style="width: 100%;background-color:darkblue;color:aliceblue;"  class="btn  btn-sm  mb-2"  href="{{url('parent/my_student/fees_collection/'.$value->id)}}">Pay Fees</a>
+                                            <a style="width: 100%;" href="{{url('chat?receiver_id='.base64_encode($value->id))}}" class="btn btn-success  mb-2 btn-sm">Send Message</a>
+
                                         </td>
                                     </tr>
                                     @endforeach

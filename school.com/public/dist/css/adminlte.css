@@ -781,6 +781,7 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  justify-content: space-between;
 }
 .row > * {
   /* flex-shrink: 0; */
@@ -1225,8 +1226,10 @@ progress {
     width: 41.66666667%;
   }
   .col-md-6 {
-    flex: 0 0 auto;
-    width: 50%;
+    /* flex: 0 0 auto; */
+    /* width: 50%; */
+    /* display: flex; */
+    /* justify-content: space-between; */
   }
   .col-md-7 {
     flex: 0 0 auto;
@@ -12751,7 +12754,7 @@ textarea.form-control-lg {
   top: 9px;
   right: 5px;
   padding: 2px 4px;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 400;
 }
 

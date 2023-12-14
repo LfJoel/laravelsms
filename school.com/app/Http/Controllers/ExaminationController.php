@@ -122,7 +122,7 @@ class ExaminationController extends Controller
             }
         }
         $data['getRecord'] = $result;
-
+        $data['header_title'] = "Exam Schedule";
 
         return view('admin.examinations.exam_schedule', $data);
     }

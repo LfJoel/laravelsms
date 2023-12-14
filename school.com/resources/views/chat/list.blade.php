@@ -1,16 +1,23 @@
 @extends('layouts.app')
 @section('style')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="{{ url('public/emoji/emojionearea.min.css')}}" rel="stylesheet" />
+
 <style type="text/css">
     .card {
         background: #fff;
         transition: .5s;
         border: 0;
-        margin-bottom: 30px;
+
         border-radius: .55rem;
         position: relative;
         width: 100%;
         box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    }
+
+    .emojionearea-editor {
+        height: 90px !important;
+        min-height: 90px !important;
     }
 
     .chat-app .people-list {
@@ -19,7 +26,9 @@
         left: 0;
         top: 0;
         padding: 20px;
-        z-index: 7
+        z-index: 7;
+
+        background: #fff;
     }
 
     .chat-list {
@@ -177,7 +186,7 @@
 
     .chat .chat-history .other-message:after {
         border-bottom-color: #e8f1f3;
-        left: 93%
+        left: 30px;
     }
 
     .chat .chat-message {
@@ -296,155 +305,22 @@
                     <div class="card chat-app">
                         <div id="plist" class="people-list">
                             <div class="input-group">
+                                <span class="input-group-text" id="getSearchUser"><i class="fa fa-search"></i></span>
+                                <input type="text" id="getSearch" class="form-control" placeholder="Search...">
+                                <input type="hidden" id="getReceiverIDDynamic" value="{{ $receiver_id }}">
 
-                                <span class="input-group-text"><i class="fa fa-search"></i></span>
-
-                                <input type="text" class="form-control" placeholder="Search...">
                             </div>
-                            <ul class="list-unstyled chat-list mt-2 mb-0">
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Vincent Porter</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix active">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Aiden Chavez</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Mike Thomas</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Christian Kelly</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> left 10 hours ago </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Monica Ward</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Dean Henry</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Monica Ward</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Dean Henry</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Monica Ward</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Dean Henry</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
-                                    </div>
-                                </li>
+                            <ul class="list-unstyled chat-list mt-2 mb-0" id="getUserSearchDynamic">
+                                <!-- user -->
+                                @include('chat._user')
                             </ul>
                         </div>
-                        <div class="chat">
-                            <div class="chat-header clearfix">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                                        </a>
-                                        <div class="chat-about">
-                                            <h6 class="m-b-0">Aiden Chavez</h6>
-                                            <small>Last seen: 2 hours ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 hidden-sm text-right">
-                                        <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-history">
-                                <ul class="m-b-0">
-                                    <li class="clearfix">
-                                        <div class="message-data text-right">
-                                            <span class="message-data-time">10:10 AM, Today</span>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-                                        </div>
-                                        <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:12 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Are we meeting today?</div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:12 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Are we meeting today?</div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:12 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Are we meeting today?</div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:12 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Are we meeting today?</div>
-                                    </li>
+                        <div class="chat" id="getChatMessageAll">
+                            @if(!empty($getReceiver))
+                            @include('chat._message')
+                            @else
 
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:15 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Project has been already finished and I have results to show you.</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="chat-message clearfix">
-                                <div class="input-group mb-0">
-
-                                    <span class="input-group-text"><i class="fa fa-send"></i></span>
-
-
-                                    <input type="text" class="form-control" placeholder="Enter text here...">
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -456,4 +332,108 @@
 
 </main>
 
+@endsection
+
+@section('script')
+<script src="{{ url('public/emoji/emojionearea.min.js')}}"></script>
+<script type="text/javascript">
+    $('.emoji').emojioneArea();
+
+    $('body').delegate('.getChatWindow', 'click', function(e) {
+        e.preventDefault();
+        $('.getChatWindow').removeClass('active');
+        $(this).addClass('active');
+        var receiver_id = $(this).attr('id');
+        $('#getReceiverIDDynamic').val(receiver_id);
+
+
+        $.ajax({
+            type: 'POST',
+            url: "{{url('get_chat_window')}}",
+            data: {
+                'receiver_id': receiver_id,
+                '_token': "{{ csrf_token() }}"
+            },
+            dataType: 'json',
+            success: function(data) {
+                $('#clearMessage' + receiver_id).hide();
+                $('#getChatMessageAll').html(data.success);
+                window.history.pushState("", "", "{{ url('chat?receiver_id=') }}" + data.receiver_id);
+                $('.emoji').emojioneArea();
+                scrolldown();
+
+            },
+            error: function(data) {
+
+            },
+        });
+    });
+
+    $('body').delegate('#getSearchUser', 'click', function(e) {
+
+        var search = $('#getSearch').val();
+        var receiver_id = $('#getReceiverIDDynamic').val();
+
+
+        $.ajax({
+            type: 'POST',
+            url: "{{url('get_chat_search_user')}}",
+            data: {
+                'search': search,
+                'receiver_id': receiver_id,
+                '_token': "{{ csrf_token() }}"
+            },
+            dataType: 'json',
+            success: function(data) {
+                $(('#getUserSearchDynamic')).html(data.success);
+            },
+            error: function(data) {
+
+            },
+        });
+    });
+
+
+    $('body').delegate('#SubmitMessage', 'submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: "{{url('submit_message')}}",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function(data) {
+                $('#AppendMessage').append(data.success);
+                $('#ClearMessage').val('');
+                $('#file_name').val('');
+                $('#getFileName').html('');
+                $('.emojionearea-editor').html('');
+
+                scrolldown();
+            },
+            error: function(data) {
+
+            },
+        });
+    });
+
+    function scrolldown() {
+        $('.chat-history').animate({
+            scrollTop: $('.chat-history').prop("scrollHeight") + 30000
+        }, 500);
+    }
+    scrolldown();
+
+    $('body').delegate('#open_file', 'click', function(e) {
+        $('#file_name').trigger('click');
+    });
+    $('body').delegate('#file_name', 'change', function(e) {
+        var filename = this.files[0].name;
+        $('#getFileName').html(filename);
+
+
+
+    });
+</script>
 @endsection
