@@ -43,5 +43,5 @@ Student Interface:
 
 View Attendance: Provide students with the ability to view their attendance records and receive notifications for low attendance.
 Grades: Enable students to access their grades, view feedback from teachers, and track their academic progress.
-Parent Interface:
+
 
