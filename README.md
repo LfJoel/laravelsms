@@ -54,22 +54,22 @@ Grades: Enable students to access their grades, view feedback from teachers, and
 
 ## Features
 
-PreLogin
+#### PreLogin =>
     - Login
     - Forgot Password / Reset Password
 
-PostLogin
+#### PostLogin =>
     - Change Password
     - Update My profile
     - Logout
 
-Role 
+#### Role =>
     - Admin
     - Teacher
     - Student
     - Parent 
 
-Chat System     
+#### Chat System =>    
 
     - Admin
     - Teacher
