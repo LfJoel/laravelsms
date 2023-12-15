@@ -52,6 +52,8 @@ Student Interface:
 View Attendance: Provide students with the ability to view their attendance records and receive notifications for low attendance.
 Grades: Enable students to access their grades, view feedback from teachers, and track their academic progress.
 
+#### Features
+
 PreLogin
     - Login
     - Forgot Password / Reset Password
@@ -74,13 +76,16 @@ Chat System
     - Student
     - Parent 
     
-Admin ===>   
-        - Add
-        - List
-        - Edit
-        - Status Change
-        - Delete
-        - Search filter
+## Admin
+
+    Admin =>
+
+                - Add
+                - List
+                - Edit
+                - Status Change
+                - Delete
+                - Search filter
 
     Student => 
                 - Add
@@ -202,7 +207,7 @@ Admin ===>
                  - Update details
 
 
-Teacher ===>
+## Teacher 
 
     My Account =>
                  - Update
@@ -258,7 +263,7 @@ Teacher ===>
                  - Search filter
 
 
-Student ===>
+## Student
 
     My Account =>
                  - Update
@@ -308,7 +313,7 @@ Student ===>
 
                 - Pay fees
 
-Parent ===>
+## Parent
 
     My Account =>
                  - Update
