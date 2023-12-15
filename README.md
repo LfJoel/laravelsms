@@ -2,7 +2,7 @@
 school_management_system using laravel
 
 
-#### Application Information
+## Application Information
 
 sms is school management application developed in php laravel 10.
   
@@ -52,7 +52,7 @@ Student Interface:
 View Attendance: Provide students with the ability to view their attendance records and receive notifications for low attendance.
 Grades: Enable students to access their grades, view feedback from teachers, and track their academic progress.
 
-#### Features
+## Features
 
 PreLogin
     - Login
@@ -76,7 +76,7 @@ Chat System
     - Student
     - Parent 
     
-## Admin
+#### Admin
 
     Admin =>
 
@@ -207,7 +207,7 @@ Chat System
                  - Update details
 
 
-## Teacher 
+#### Teacher 
 
     My Account =>
                  - Update
@@ -263,7 +263,7 @@ Chat System
                  - Search filter
 
 
-## Student
+#### Student
 
     My Account =>
                  - Update
@@ -313,7 +313,7 @@ Chat System
 
                 - Pay fees
 
-## Parent
+#### Parent
 
     My Account =>
                  - Update
