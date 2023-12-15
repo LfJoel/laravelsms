@@ -294,14 +294,14 @@
         <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <h3 class="mb-3">Message</h3>
                 </div>
             </div>
 
             <!--end::Row-->
             <div class="row clearfix">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="card chat-app">
                         <div id="plist" class="people-list">
                             <div class="input-group">

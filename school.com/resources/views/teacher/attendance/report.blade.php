@@ -13,7 +13,12 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Attendance Report (Total : {{$getRecord->total()}})</h3>
+                    <h3 class="mb-0">Attendance Report (Total : 
+                        @if(!empty($getRecord)) 
+                       <span>{{$getRecord->total();}}</span> 
+                        @else
+                         <span>0</span>
+                        @endif )</h3>
                 </div>
             </div>
             <!--end::Row-->

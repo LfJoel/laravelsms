@@ -35,7 +35,7 @@
                     <div class="card card-primary card-outline">
                         <div class="card-header">
                             <div class="card-title">
-                                Add New Notice Board
+                            Email
                             </div>
                         </div>  
                        

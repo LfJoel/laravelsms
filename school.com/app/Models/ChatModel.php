@@ -11,6 +11,7 @@ use Auth;
 class ChatModel extends Model
 {
     use HasFactory;
+    
     protected $table = "chat";
 
     public static function getChat($receiver_id, $sender_id)

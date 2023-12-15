@@ -15,9 +15,6 @@
                 <div class="col-sm-6">
                     <h3 class="mb-0">Exam Schedule</h3>
                 </div>
-                <div class="col-sm-6" style="text-align: right;">
-                    <a href="{{url('admin/examinations/exam/add')}}" class="btn btn-primary mb-0">Add New Exam</a>
-                </div>
             </div>
             <!--end::Row-->
         </div>
