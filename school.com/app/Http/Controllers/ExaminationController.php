@@ -100,7 +100,7 @@ class ExaminationController extends Controller
                 $dataS['subject_type'] = $value->subject_type;
 
                 $ExamSchedule = ExamScheduleModel::getSingle($request->get('exam_id'), $request->get('class_id'), $value->subject_id);
-
+                
                 if (!empty($ExamSchedule)) {
                     $dataS['exam_date'] = $ExamSchedule->exam_date;
 
@@ -121,7 +121,7 @@ class ExaminationController extends Controller
                 $result[] = $dataS;
             }
         }
-        $data['getRecord'] = $result;
+        $data['getRecord'] = $result ;
         $data['header_title'] = "Exam Schedule";
 
         return view('admin.examinations.exam_schedule', $data);

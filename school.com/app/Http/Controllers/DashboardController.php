@@ -58,11 +58,9 @@ class DashboardController extends Controller
             if (!empty($student_ids)) {
                 $data['getTotalPaidAmount'] = StudentAddFeesModel::getTotalPaidAmountMyStudent($student_ids);
                 $data['getTotalAttendance'] = StudentAttendanceModel::getTotalParentAttendanceCount($student_ids);
-
             } else {
                 $data['getTotalPaidAmount'] = 0;
                 $data['getTotalAttendance'] = 0;
-
             }
 
             $data['totalStudent'] = User::getMyStudentTotalCount(Auth::user()->id);

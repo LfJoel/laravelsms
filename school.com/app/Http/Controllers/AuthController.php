@@ -46,7 +46,10 @@ class AuthController extends Controller
                 return redirect('parent/dashboard');
             }
         } else {
-            return redirect()->back()->with('error', 'Please Enter Correct Email ID or Password');
+            // return response()->json([
+            //     'error' => false,
+            // ]);
+             return redirect()->back()->with('error', 'Please Enter Correct Email ID or Password');
      
         }
     }

@@ -62,10 +62,10 @@ class SubmitHomeworkModel extends Model
         }
 
         if (!empty(Request::get('from_submitted_at'))) {
-            $return = $return->whereDate('homework_submit.created_at', '<=', Request::get('from_submited_at'));
+            $return = $return->whereDate('homework_submit.created_at', '>=', Request::get('from_submitted_at'));
         }
         if (!empty(Request::get('to_submitted_at'))) {
-            $return = $return->whereDate('homework_submit.created_at', '<=', Request::get('to_submited_at'));
+            $return = $return->whereDate('homework_submit.created_at', '<=', Request::get('to_submitted_at'));
         }
         $return = $return->orderBy('homework_submit.id', 'desc')
             ->paginate(20);

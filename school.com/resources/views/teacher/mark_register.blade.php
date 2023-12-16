@@ -53,7 +53,7 @@
                                     <button class="btn btn-primary mb-2">Search</button>
                                 </div>
                                 <div class=" col-auto m-3">
-                                    <a href="{{url('teacher/marks_register')}}" class="btn btn-danger mb-2">Reset</a>
+                                    <a href="{{url('teacher/mark_register')}}" class="btn btn-danger mb-2">Reset</a>
                                 </div>
                             </div>
                         </div>

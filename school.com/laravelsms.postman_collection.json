@@ -1,0 +1,4071 @@
+{
+	"info": {
+		"_postman_id": "5d7db311-d618-43de-99af-49caa8bb503f",
+		"name": "laravelsms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29109701",
+		"_collection_link": "https://www.postman.com/cryosat-administrator-7041257/workspace/larvonews/collection/29109701-5d7db311-d618-43de-99af-49caa8bb503f?action=share&source=collection_link&creator=29109701"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Admin List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/admin/list"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Admin",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{sms}}admin/admin/list?name=admin&email=admin%40gmail.com&date=2023-12-14",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"admin",
+										"list"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "admin"
+										},
+										{
+											"key": "email",
+											"value": "admin%40gmail.com"
+										},
+										{
+											"key": "date",
+											"value": "2023-12-14"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "name: joel\r\nemail: joel@gmail.com\r\npassword: password",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/admin/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Admin",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/admin/edit/105"
+							},
+							"response": []
+						},
+						{
+							"name": "update Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "name: joel\r\nemail: joel@gmail.com\r\npassword: password",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/admin/edit/105"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Admin",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/admin/delete/77"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Teacher",
+					"item": [
+						{
+							"name": "Teacher List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/teacher/list"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Teacher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}admin/teacher/list?name=teacher&last_name=teacher&admission_date=2023-12-14&gender=Male",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"teacher",
+										"list"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "teacher"
+										},
+										{
+											"key": "last_name",
+											"value": "teacher"
+										},
+										{
+											"key": "admission_date",
+											"value": "2023-12-14"
+										},
+										{
+											"key": "gender",
+											"value": "Male"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Teacher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/teacher/delete/106"
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Teacher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/teacher/edit/102"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Teacher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "name: teacher\r\nlast_name: teacher\r\ngender: Male\r\ndate_of_birth: 2023-12-14\r\nadmission_date: 2023-12-14\r\nmobile_number: 1234567890\r\nmarital_status: single\r\nnote: test\r\nqualification: test\r\naddress: test\r\npermanent_address: test\r\nwork_experience: test\r\nprofile_pic: (binary)\r\nstatus: 0\r\nemail: teacher@gmail.com\r\npassword: password",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/teacher/edit/102"
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Teacher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"teacher\",\r\n    \"last_name\": \"teacher\",\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": 2023-12-14,\r\n    \"admission_date\": 2023-12-14,\r\n    \"mobile_number\": 1234567890,\r\n    \"marital_status\": \"single\",\r\n    \"note\": \"test\",\r\n    \"qualification\": \"test\",\r\n    \"address\": \"test\",\r\n    \"permanent_address\": \"test\",\r\n    \"work_experience\": \"test\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \"teacher@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/teacher/add"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "Student List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/student/list"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Student",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{sms}}admin/student/list?name=student&last_name=&admission_number=123234&class=&gender=",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"student",
+										"list"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "student"
+										},
+										{
+											"key": "last_name",
+											"value": ""
+										},
+										{
+											"key": "admission_number",
+											"value": "123234"
+										},
+										{
+											"key": "class",
+											"value": ""
+										},
+										{
+											"key": "gender",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Student",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/student/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Student",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/student/edit/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"student\",\r\n    \"last_name\": \"student\",\r\n    \"admission_number\": 123234,\r\n    \"roll_number\": 123123,\r\n    \"class_id\": 8,\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": 2023-12-14,\r\n    \"caste\": \"awer\",\r\n    \"religion\": \"awe\",\r\n    \"mobile_number\": 1234567890,\r\n    \"admission_date\": 2023-12-14,\r\n    \"profile_pic\": \"\",\r\n    \"blood_group\": \"aw\",\r\n    \"height\": 12,\r\n    \"weight\": 12,\r\n    \"status\": 0,\r\n    \"email\": \"student@gmail.com\",\r\n    \"password\": 123456\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/student/edit/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"student\",\r\n    \"last_name\": \"student\",\r\n    \"admission_number\": 123234,\r\n    \"roll_number\": 123123,\r\n    \"class_id\": 8,\r\n    \"gender\": \"Male\",\r\n    \"date_of_birth\": 2023-12-14,\r\n    \"caste\": \"awer\",\r\n    \"religion\": \"awe\",\r\n    \"mobile_number\": 1234567890,\r\n    \"admission_date\": 2023-12-14,\r\n    \"profile_pic\": \"\",\r\n    \"blood_group\": \"aw\",\r\n    \"height\": 12,\r\n    \"weight\": 12,\r\n    \"status\": 0,\r\n    \"email\": \"student@gmail.com\",\r\n    \"password\": 123456\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/student/add"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Parent",
+					"item": [
+						{
+							"name": "Parent Child",
+							"item": [
+								{
+									"name": "Parent Child List",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/parent/my-child/104"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Child ",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/parent/assign_student_parent_delete/103"
+									},
+									"response": []
+								},
+								{
+									"name": "Search Child ",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{sms}}admin/parent/my-child/104?id=&name=student&last_name=",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"parent",
+												"my-child",
+												"104"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": ""
+												},
+												{
+													"key": "name",
+													"value": "student"
+												},
+												{
+													"key": "last_name",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Assign Child to Parent",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/parent/assign_student_parent/103/104"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Parent List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/parent/list"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Parent",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{sms}}admin/parent/list?name=parent&email=parent%40gmail.com",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"parent",
+										"list"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "parent"
+										},
+										{
+											"key": "email",
+											"value": "parent%40gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Parent",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/parent/edit/104"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Parent",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/parent/edit/104"
+							},
+							"response": []
+						},
+						{
+							"name": "Add Parent",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/parent/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Parent",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/parent/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Parent",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"parent\",\r\n    \"last_name\": \"parent\",\r\n    \"gender\": \"Male\",\r\n    \"mobile_number\": 123567890,\r\n    \"occupation\": \"parent\",\r\n    \"address\": \"parent\",\r\n    \"profile_pic\": \"\",\r\n    \"status\": 0,\r\n    \"email\": \" parent@gmail.com\",\r\n    \"password\": 123456\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/parent/delete/109"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Academics",
+					"item": [
+						{
+							"name": "Class",
+							"item": [
+								{
+									"name": "Class List",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{sms}}admin/class/list"
+									},
+									"response": []
+								},
+								{
+									"name": "Search Class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{sms}}admin/class/list?name=three&date=",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"class",
+												"list"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "three"
+												},
+												{
+													"key": "date",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{sms}}admin/class/delete/5"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{sms}}admin/class/edit/4"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Class",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"12 th\",\r\n    \"amount\": 100000,\r\n    \"status\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/class/edit/4"
+									},
+									"response": []
+								},
+								{
+									"name": "Add Class",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/class/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Add New Class",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"12 th\",\r\n    \"amount\": 100000,\r\n    \"status\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/class/add"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Subject",
+							"item": [
+								{
+									"name": "Subject List",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/subject/list"
+									},
+									"response": []
+								},
+								{
+									"name": "Search Subject",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{sms}}admin/subject/list?name=maths&type=Theory&date=",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"subject",
+												"list"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "maths"
+												},
+												{
+													"key": "type",
+													"value": "Theory"
+												},
+												{
+													"key": "date",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Subject",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/subject/delete/16"
+									},
+									"response": []
+								},
+								{
+									"name": "Add Subject",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/subject/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Add New Subject",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"science\",\r\n    \"type\": \"Practical\",\r\n    \"status\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/subject/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Subject",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/subject/edit/18"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Subject",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"science 1\",\r\n    \"type\": \"Practical\",\r\n    \"status\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/subject/edit/18"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Assign Subject to Class",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{sms}}admin/assign_subject/list"
+									},
+									"response": []
+								},
+								{
+									"name": "Search Assigned Subject",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{sms}}admin/assign_subject/list?class_name=four&subject_name=tamil&date=",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"assign_subject",
+												"list"
+											],
+											"query": [
+												{
+													"key": "class_name",
+													"value": "four"
+												},
+												{
+													"key": "subject_name",
+													"value": "tamil"
+												},
+												{
+													"key": "date",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Single Assigned Subject",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{sms}}admin/assign_subject/edit_single/46"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Single Assigned Subject",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"class_id\": 8,\r\n    \"subject_id\": 13,\r\n    \"status\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_subject/edit_single/46"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit All Assigned Subject  for Class",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_subject/edit/46"
+									},
+									"response": []
+								},
+								{
+									"name": "Update All Assigned Subject  for Class",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "class_id 8\r\nsubject_id[]: 14\r\nsubject_id[]: 13\r\nstatus: 0",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_subject/edit/46"
+									},
+									"response": []
+								},
+								{
+									"name": "Add Subject to Class",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "class_id: 10\r\nsubject_id[]: 14\r\nsubject_id[]: 15\r\nsubject_id[]: 18\r\nsubject_id[]: 17\r\nsubject_id[]: 13\r\nstatus: 0",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_subject/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Single Subject Assigned to the Class",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_subject/delete/53"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Assign Class to Teacher",
+							"item": [
+								{
+									"name": "List",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/list"
+									},
+									"response": []
+								},
+								{
+									"name": "Search",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{sms}}admin/assign_class_teacher/list?class_name=three&teacher_name=teacher&status=100&date=",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"assign_class_teacher",
+												"list"
+											],
+											"query": [
+												{
+													"key": "class_name",
+													"value": "three"
+												},
+												{
+													"key": "teacher_name",
+													"value": "teacher"
+												},
+												{
+													"key": "status",
+													"value": "100"
+												},
+												{
+													"key": "date",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Assign Class to Teacher",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "class_id: 10\r\nteacher_id[]: 102\r\nstatus: 0",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit All Assigned  Class to Teacher",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/edit/30"
+									},
+									"response": []
+								},
+								{
+									"name": "Update All Assigned  Class for Teachers",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "class_id: 8\r\nteacher_id[]: 102\r\nteacher_id[]: 15\r\nteacher_id[]: 2\r\nstatus: 0",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/edit/30"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Single Teacher",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/edit_single/34"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Single Teacher",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "class_id: 8\r\nteacher_id: 2\r\nstatus: 0",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/edit_single/34"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Teacher",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/assign_class_teacher/delete/34"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Class Timetable",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}admin/class_time_table/list?class_id=10&subject_id=14",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"class_time_table",
+										"list"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "10"
+										},
+										{
+											"key": "subject_id",
+											"value": "14"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Class Timetable",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "subject_id: 14\r\nclass_id: 10\r\ntimetable[1][week_id]: 1\r\ntimetable[1][start_time]: 18:51\r\ntimetable[1][end_time]: 18:51\r\ntimetable[1][room_number]: 1\r\ntimetable[2][week_id]: 2\r\ntimetable[2][start_time]: 18:47\r\ntimetable[2][end_time]: 18:46\r\ntimetable[2][room_number]: 2\r\ntimetable[3][week_id]: 3\r\ntimetable[3][start_time]: 18:46\r\ntimetable[3][end_time]: 18:46\r\ntimetable[3][room_number]: 3\r\ntimetable[4][week_id]: 4\r\ntimetable[4][start_time]: 18:47\r\ntimetable[4][end_time]: 18:49\r\ntimetable[4][room_number]: 4\r\ntimetable[5][week_id]: 5\r\ntimetable[5][start_time]: 18:47\r\ntimetable[5][end_time]: 20:46\r\ntimetable[5][room_number]: 5\r\ntimetable[6][week_id]: 6\r\ntimetable[6][start_time]: 18:46\r\ntimetable[6][end_time]: 18:46\r\ntimetable[6][room_number]: 6\r\ntimetable[7][week_id]: 7\r\ntimetable[7][start_time]: 19:46\r\ntimetable[7][end_time]: 18:46\r\ntimetable[7][room_number]: 7",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/class_time_table/add"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Attendance",
+					"item": [
+						{
+							"name": "Student Attendance Page",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/attendance/student"
+							},
+							"response": []
+						},
+						{
+							"name": "Student Attendance List ",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{sms}}admin/attendance/student?class_id=8&attendance_date=2023-12-16",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"attendance",
+										"student"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "8"
+										},
+										{
+											"key": "attendance_date",
+											"value": "2023-12-16"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Attendance",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"student_id\": 103,\r\n    \"attendance_type\": 1,\r\n    \"class_id\": 8,\r\n    \"attendance_date\": 2023-12-16\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/attendance/student/save"
+							},
+							"response": []
+						},
+						{
+							"name": "Attendance Report List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"student_id\": 103,\r\n    \"attendance_type\": 1,\r\n    \"class_id\": 8,\r\n    \"attendance_date\": 2023-12-16\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/attendance/report"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Attendance Report",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"student_id\": 103,\r\n    \"attendance_type\": 1,\r\n    \"class_id\": 8,\r\n    \"attendance_date\": 2023-12-16\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}admin/attendance/report?class_id=8&student_name=student&student_last_name=student&attendance_type=1&attendance_date=",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"attendance",
+										"report"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "8"
+										},
+										{
+											"key": "student_name",
+											"value": "student"
+										},
+										{
+											"key": "student_last_name",
+											"value": "student"
+										},
+										{
+											"key": "attendance_type",
+											"value": "1"
+										},
+										{
+											"key": "attendance_date",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Noticeboard ",
+					"item": [
+						{
+							"name": "Noticeboard List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/communicate/notice_board"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Noticeboard",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{sms}}admin/communicate/notice_board?title=cricket&notice_date_from=&notice_date_to=&publish_date_from=&publish_date_to=&message_to=",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"communicate",
+										"notice_board"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "cricket"
+										},
+										{
+											"key": "notice_date_from",
+											"value": ""
+										},
+										{
+											"key": "notice_date_to",
+											"value": ""
+										},
+										{
+											"key": "publish_date_from",
+											"value": ""
+										},
+										{
+											"key": "publish_date_to",
+											"value": ""
+										},
+										{
+											"key": "message_to",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Notice",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/communicate/notice_board/edit/10"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Notice",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"new notice\",\r\n    \"notice_date\": 2023-12-07,\r\n    \"publish_date\": 2023-12-07,\r\n    \"message_to[]\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/communicate/notice_board/edit/10"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Notice",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/communicate/notice_board/delete/7"
+							},
+							"response": []
+						},
+						{
+							"name": "Add Notice",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/communicate/notice_board/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Notice",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"new notice\",\r\n    \"notice_date\": 2023-12-07,\r\n    \"publish_date\": 2023-12-07,\r\n    \"message_to[]\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/communicate/notice_board/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Send Email Page",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}admin/communicate/send_email"
+							},
+							"response": []
+						},
+						{
+							"name": "Send Email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"subject\": \"email\",\r\n    \"user_id\": 109,\r\n    \"message\": \"frgfd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/communicate/send_email"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Homework ",
+					"item": [
+						{
+							"name": "Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/homework/homework"
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Homework",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "class_id: 8\r\nsubject_id: 14\r\nhomework_date: 2023-12-16\r\nsubmission_date: 2023-12-17\r\ndocument_file: (binary)\r\ndescription: <p>new homework</p>\r\nfiles: (binary)",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/homework/homework/add"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}admin/homework/homework/addadmin/homework/homework?class_name=four&subject_name=tamil&from_homework_date=&to_homework_date=&from_submission_date=&to_submission_date=&from_created_at=&to_created_at=",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"homework",
+										"homework",
+										"addadmin",
+										"homework",
+										"homework"
+									],
+									"query": [
+										{
+											"key": "class_name",
+											"value": "four"
+										},
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": ""
+										},
+										{
+											"key": "to_homework_date",
+											"value": ""
+										},
+										{
+											"key": "from_submission_date",
+											"value": ""
+										},
+										{
+											"key": "to_submission_date",
+											"value": ""
+										},
+										{
+											"key": "from_created_at",
+											"value": ""
+										},
+										{
+											"key": "to_created_at",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/homework/homework/edit/10"
+							},
+							"response": []
+						},
+						{
+							"name": "update Homework",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "class_id: 8\r\nsubject_id: 14\r\nhomework_date: 2023-12-16\r\nsubmission_date: 2023-12-17\r\ndocument_file: (binary)\r\ndescription: <p>new homework</p>\r\nfiles: (binary)",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/homework/homework/edit/10"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/homework/homework/delete/10"
+							},
+							"response": []
+						},
+						{
+							"name": "Homework Report List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}admin/homework/homework_report"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Homework Report",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}admin/homework/homework_report?first_name=&last_name=&class_name=four&subject_name=tamil&from_homework_date=&to_homework_date=&from_submission_date=&to_submission_date=&from_submitted_at=&to_submitted_at=",
+									"host": [
+										"{{sms}}admin"
+									],
+									"path": [
+										"homework",
+										"homework_report"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": ""
+										},
+										{
+											"key": "last_name",
+											"value": ""
+										},
+										{
+											"key": "class_name",
+											"value": "four"
+										},
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": ""
+										},
+										{
+											"key": "to_homework_date",
+											"value": ""
+										},
+										{
+											"key": "from_submission_date",
+											"value": ""
+										},
+										{
+											"key": "to_submission_date",
+											"value": ""
+										},
+										{
+											"key": "from_submitted_at",
+											"value": ""
+										},
+										{
+											"key": "to_submitted_at",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Examinations",
+					"item": [
+						{
+							"name": "Exam",
+							"item": [
+								{
+									"name": "Delete Exam",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/exam/delete/5"
+									},
+									"response": []
+								},
+								{
+									"name": "Exam List",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/exam/list"
+									},
+									"response": []
+								},
+								{
+									"name": "Search Exam",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{sms}}admin/examinations/exam/list?name=first&note=&date=2023-12-01",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"examinations",
+												"exam",
+												"list"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "first"
+												},
+												{
+													"key": "note",
+													"value": ""
+												},
+												{
+													"key": "date",
+													"value": "2023-12-01"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Exam",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"second term\",\r\n    \"note\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/exam/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Exam",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"second term\",\r\n    \"note\": \"important\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/exam/edit/5"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Exam",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/exam/edit/5"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Exam Schedule",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{sms}}admin/examinations/exam_schedule?exam_id=1&class_id=10",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"examinations",
+												"exam_schedule"
+											],
+											"query": [
+												{
+													"key": "exam_id",
+													"value": "1"
+												},
+												{
+													"key": "class_id",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Schedule Exam",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "exam_id: 1\r\nclass_id: 10\r\nschedule[1][subject_id]: 14\r\nschedule[1][exam_date]: 2023-12-16\r\nschedule[1][start_time]: 13:09\r\nschedule[1][end_time]: 19:16\r\nschedule[1][room_number]: 5\r\nschedule[1][full_marks]: \r\nschedule[1][passing_mark]: \r\nschedule[2][subject_id]: 18\r\nschedule[2][exam_date]: 2023-12-09\r\nschedule[2][start_time]: 22:09\r\nschedule[2][end_time]: 21:09\r\nschedule[2][room_number]: 5\r\nschedule[2][full_marks]: \r\nschedule[2][passing_mark]: \r\nschedule[3][subject_id]: 17\r\nschedule[3][exam_date]: 2023-12-01\r\nschedule[3][start_time]: 22:09\r\nschedule[3][end_time]: 22:09\r\nschedule[3][room_number]: 5\r\nschedule[3][full_marks]: \r\nschedule[3][passing_mark]: \r\nschedule[4][subject_id]: 13\r\nschedule[4][exam_date]: 2023-12-11\r\nschedule[4][start_time]: 19:12\r\nschedule[4][end_time]: 22:09\r\nschedule[4][room_number]: 5\r\nschedule[4][full_marks]: \r\nschedule[4][passing_mark]: ",
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/exam_schedule_insert"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mark Register",
+							"item": [
+								{
+									"name": "List",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{sms}}admin/examinations/marks_register?exam_id=1&class_id=8",
+											"host": [
+												"{{sms}}admin"
+											],
+											"path": [
+												"examinations",
+												"marks_register"
+											],
+											"query": [
+												{
+													"key": "exam_id",
+													"value": "1"
+												},
+												{
+													"key": "class_id",
+													"value": "8"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Save Mark",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"student_id\": 103,\r\n    \"subject_id\": 14,\r\n    \"exam_id\": 1,\r\n    \"class_id\": 8,\r\n    \"class_work\": 20,\r\n    \"home_work\": 20,\r\n    \"test_work\": 20,\r\n    \"exam\": 15\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/single_submit_marks_register"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mark Grade",
+							"item": [
+								{
+									"name": "List",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/marks_grade/list"
+									},
+									"response": []
+								},
+								{
+									"name": "Add New Grade",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"-E\",\r\n    \"percent_from\": 0,\r\n    \"percent_to\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/marks_grade/add"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Grade",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/marks_grade/edit/8"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Grade",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": -E,\r\n    \"percent_from\": 0,\r\n    \"percent_to\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/marks_grade/edit/8"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Grade",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{sms}}admin/examinations/marks_grade/delete/8"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "My Account",
+					"item": [
+						{
+							"name": "Account",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/account"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin\",\r\n    \"last_name\": \"admin\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}admin/account"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{sms}}admin/dashboard"
+					},
+					"response": []
+				},
+				{
+					"name": "Setting",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}admin/setting"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Setting",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paypal_email\": \"school@gmail.com\",\r\n    \"stripe_key\": \"\",\r\n    \"stripe_secret\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}admin/setting"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_password\": 123456,\r\n    \"new_password\": 12345678\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}admin/change_password"
+					},
+					"response": []
+				}
+			],
+			"description": "Admin side routes"
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "My account",
+					"item": [
+						{
+							"name": "My account",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}teacher/account"
+							},
+							"response": []
+						},
+						{
+							"name": "Update my account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "name: teacher\r\nlast_name: teacher\r\ngender: Male\r\ndate_of_birth: 2023-12-14\r\nmobile_number: 1234567890\r\nmarital_status: single\r\nqualification: test\r\naddress: test\r\npermanent_address: test\r\nwork_experience: test\r\nprofile_pic: (binary)\r\nemail: teacher@gmail.com",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/account"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Homework",
+					"item": [
+						{
+							"name": "My Students Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/homework/homework"
+							},
+							"response": []
+						},
+						{
+							"name": "Search My Students Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}teacher/homework/homework?class_name=four&subject_name=tamil&from_homework_date=2023-12-19&to_homework_date=2023-12-15&from_submission_date=2023-12-15&to_submission_date=2023-12-15&from_created_at=2023-12-15&to_created_at=2023-12-15",
+									"host": [
+										"{{sms}}teacher"
+									],
+									"path": [
+										"homework",
+										"homework"
+									],
+									"query": [
+										{
+											"key": "class_name",
+											"value": "four"
+										},
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": "2023-12-19"
+										},
+										{
+											"key": "to_homework_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "from_submission_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_submission_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "from_created_at",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_created_at",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Student Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/homework/homework/edit/8"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Student Homework",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "class_id: 8\r\nsubject_id: 13\r\nhomework_date: 2023-12-19\r\nsubmission_date: 2023-12-30\r\ndocument_file: (binary)\r\ndescription: <p>new</p>\r\nfiles: (binary)",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/homework/homework/edit/8"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/homework/homework/delete/5"
+							},
+							"response": []
+						},
+						{
+							"name": "Submitted Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/homework/homework/submitted/8"
+							},
+							"response": []
+						},
+						{
+							"name": "Add Homework",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "class_id: 7\r\nsubject_id: 16\r\nhomework_date: 2023-12-15\r\nsubmission_date: 2023-12-15\r\ndocument_file: (binary)\r\ndescription: <p>new homework</p>\r\nfiles: (binary)",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/homework/homework/add"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Attendance",
+					"item": [
+						{
+							"name": "Class Attendance List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}teacher/attendance/student?class_id=8&attendance_date=2023-12-15",
+									"host": [
+										"{{sms}}teacher"
+									],
+									"path": [
+										"attendance",
+										"student"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "8"
+										},
+										{
+											"key": "attendance_date",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Attendance to Student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "student_id: 103\r\nattendance_type: 1\r\nclass_id: 8\r\nattendance_date: 2023-12-15",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/attendance/student/save"
+							},
+							"response": []
+						},
+						{
+							"name": "Attendance Report",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/attendance/report"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Attendance Report",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}teacher/attendance/report?class_id=8&student_name=student&student_last_name=student&attendance_type=2&attendance_date=2023-12-15",
+									"host": [
+										"{{sms}}teacher"
+									],
+									"path": [
+										"attendance",
+										"report"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "8"
+										},
+										{
+											"key": "student_name",
+											"value": "student"
+										},
+										{
+											"key": "student_last_name",
+											"value": "student"
+										},
+										{
+											"key": "attendance_type",
+											"value": "2"
+										},
+										{
+											"key": "attendance_date",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notice Board",
+					"item": [
+						{
+							"name": "Notice Board List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/my_notice_board"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Notice",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}teacher/my_notice_board?title=cricket&notice_date_from=2023-12-15&notice_date_to=2023-12-15",
+									"host": [
+										"{{sms}}teacher"
+									],
+									"path": [
+										"my_notice_board"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "cricket"
+										},
+										{
+											"key": "notice_date_from",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "notice_date_to",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Mark Register",
+					"item": [
+						{
+							"name": "Save Mark",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "id: 5\r\nstudent_id: 103\r\nsubject_id: 14\r\nexam_id: 3\r\nclass_id: 8\r\nclass_work: 21\r\nhome_work: 12\r\ntest_work: 21\r\nexam: 21",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}teacher/single_submit_marks_register"
+							},
+							"response": []
+						},
+						{
+							"name": "Mark Register",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}teacher/mark_register?exam_id=3&class_id=7",
+									"host": [
+										"{{sms}}teacher"
+									],
+									"path": [
+										"mark_register"
+									],
+									"query": [
+										{
+											"key": "exam_id",
+											"value": "3"
+										},
+										{
+											"key": "class_id",
+											"value": "7"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{sms}}teacher/dashboard"
+					},
+					"response": []
+				},
+				{
+					"name": "Class & Subject List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}teacher/my_class_subject"
+					},
+					"response": []
+				},
+				{
+					"name": "Class & Subject Timetable",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}teacher/my_class_subject/class_timetable/7/15"
+					},
+					"response": []
+				},
+				{
+					"name": "My Sudents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}teacher/teacher_my_students"
+					},
+					"response": []
+				},
+				{
+					"name": "Calendar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}teacher/my_calendar"
+					},
+					"response": []
+				},
+				{
+					"name": "Exam Timetable List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}teacher/my_exam_timetable"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_password\": 123456,\r\n    \"new_password\": 12345678\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}teacher/change_password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Homework",
+					"item": [
+						{
+							"name": "Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}student/my_homework"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}student/my_homework?subject_name=tamil&from_homework_date=2023-12-16&to_homework_date=2023-12-16&from_submission_date=2023-12-16&to_submission_date=2023-12-16&from_created_at=2023-12-16&to_created_at=2023-12-16",
+									"host": [
+										"{{sms}}student"
+									],
+									"path": [
+										"my_homework"
+									],
+									"query": [
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": "2023-12-16"
+										},
+										{
+											"key": "to_homework_date",
+											"value": "2023-12-16"
+										},
+										{
+											"key": "from_submission_date",
+											"value": "2023-12-16"
+										},
+										{
+											"key": "to_submission_date",
+											"value": "2023-12-16"
+										},
+										{
+											"key": "from_created_at",
+											"value": "2023-12-16"
+										},
+										{
+											"key": "to_created_at",
+											"value": "2023-12-16"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}submit_homework/8"
+							},
+							"response": []
+						},
+						{
+							"name": "Submit the  Homework",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"homework_id\" : 8,\r\n    \"student_id\" :103,\r\n    \"description\" :\"description\",\r\n    \"document_file\" :\"\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}student/my_homework/submit_homework/8"
+							},
+							"response": []
+						},
+						{
+							"name": "Submitted Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}student/my_submitted_homework"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Submitted Homework",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}student/my_submitted_homework?class_name=four&subject_name=tamil&from_homework_date=&to_homework_date=&from_submission_date=&to_submission_date=&from_submitted_at=2023-12-16&to_submitted_at=2023-12-16",
+									"host": [
+										"{{sms}}student"
+									],
+									"path": [
+										"my_submitted_homework"
+									],
+									"query": [
+										{
+											"key": "class_name",
+											"value": "four"
+										},
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": ""
+										},
+										{
+											"key": "to_homework_date",
+											"value": ""
+										},
+										{
+											"key": "from_submission_date",
+											"value": ""
+										},
+										{
+											"key": "to_submission_date",
+											"value": ""
+										},
+										{
+											"key": "from_submitted_at",
+											"value": "2023-12-16"
+										},
+										{
+											"key": "to_submitted_at",
+											"value": "2023-12-16"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Attendance",
+					"item": [
+						{
+							"name": "Attendance Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}student/my_attendance"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Attendance Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}student/my_attendance?class_id=8&attendance_type=1&attendance_date=2023-12-06",
+									"host": [
+										"{{sms}}student"
+									],
+									"path": [
+										"my_attendance"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "8"
+										},
+										{
+											"key": "attendance_type",
+											"value": "1"
+										},
+										{
+											"key": "attendance_date",
+											"value": "2023-12-06"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notice Board",
+					"item": [
+						{
+							"name": "Notice Board List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{sms}}student/my_notice_board"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Notice",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}student/my_notice_board?title=test&notice_date_from=2023-12-06&notice_date_to=2023-12-16",
+									"host": [
+										"{{sms}}student"
+									],
+									"path": [
+										"my_notice_board"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "test"
+										},
+										{
+											"key": "notice_date_from",
+											"value": "2023-12-06"
+										},
+										{
+											"key": "notice_date_to",
+											"value": "2023-12-16"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "My Account",
+					"item": [
+						{
+							"name": "My Account",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}student/account"
+							},
+							"response": []
+						},
+						{
+							"name": "Update My Account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "name: student\r\nlast_name: student\r\ngender: Male\r\ndate_of_birth: 2023-12-14\r\ncaste: awer\r\nreligion: awe\r\nmobile_number: 1234567890\r\nprofile_pic: (binary)\r\nblood_group: aw\r\nheight: 12\r\nweight: 12\r\nemail: student@gmail.com",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}student/account"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{sms}}student/dashboard"
+					},
+					"response": []
+				},
+				{
+					"name": "My Subject List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}student/my_subject"
+					},
+					"response": []
+				},
+				{
+					"name": "Calendar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}student/my_calendar"
+					},
+					"response": []
+				},
+				{
+					"name": "Timetable",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}student/my_timetable"
+					},
+					"response": []
+				},
+				{
+					"name": "Exam Results",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}student/my_exam_results"
+					},
+					"response": []
+				},
+				{
+					"name": "Exam Timetable",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}student/my_exam_timetable"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_password\": 123456,\r\n    \"new_password\": 12345678\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}student/change_password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parent",
+			"item": [
+				{
+					"name": "My Account",
+					"item": [
+						{
+							"name": "Account",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/account"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "name: parent\r\nlast_name: parent\r\ngender: Male\r\nmobile_number: 123567890\r\noccupation: parent\r\naddress: parent\r\nprofile_pic: (binary)\r\nemail: parent@gmail.com",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}parent/account"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "My Student  Infromations",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Exam Timetable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/exam_timetable/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Subjects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/subject/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Class Timetable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/subject/class_timetable/8/14/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Calendar",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/calendar/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Exam Result",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/exam_result/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Attendance List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/attendance/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Attendance List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{sms}}parent/my_student/attendance/103?class_id=8&attendance_type=1&attendance_date=2023-12-06",
+									"host": [
+										"{{sms}}parent"
+									],
+									"path": [
+										"my_student",
+										"attendance",
+										"103"
+									],
+									"query": [
+										{
+											"key": "class_id",
+											"value": "8"
+										},
+										{
+											"key": "attendance_type",
+											"value": "1"
+										},
+										{
+											"key": "attendance_date",
+											"value": "2023-12-06"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Homework List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{sms}}parent/my_student/homework/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}parent/my_student/homework/103?subject_name=tamil&from_homework_date=2023-12-15&to_homework_date=2023-12-20&from_submission_date=2023-12-15&to_submission_date=2023-12-30&from_created_at=2023-12-15&to_created_at=2023-12-30",
+									"host": [
+										"{{sms}}parent"
+									],
+									"path": [
+										"my_student",
+										"homework",
+										"103"
+									],
+									"query": [
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_homework_date",
+											"value": "2023-12-20"
+										},
+										{
+											"key": "from_submission_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_submission_date",
+											"value": "2023-12-30"
+										},
+										{
+											"key": "from_created_at",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_created_at",
+											"value": "2023-12-30"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submitted Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}parent/my_student/submitted_homework/103"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Submitted Homework List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}parent/my_student/submitted_homework/103?class_name=four&subject_name=tamil&from_homework_date=2023-12-15&to_homework_date=2023-12-15&from_submission_date=2023-12-15&to_submission_date=2023-12-15&from_submitted_at=2023-12-15&to_submitted_at=2023-12-15",
+									"host": [
+										"{{sms}}parent"
+									],
+									"path": [
+										"my_student",
+										"submitted_homework",
+										"103"
+									],
+									"query": [
+										{
+											"key": "class_name",
+											"value": "four"
+										},
+										{
+											"key": "subject_name",
+											"value": "tamil"
+										},
+										{
+											"key": "from_homework_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_homework_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "from_submission_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_submission_date",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "from_submitted_at",
+											"value": "2023-12-15"
+										},
+										{
+											"key": "to_submitted_at",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notice Board",
+					"item": [
+						{
+							"name": "Notice Board List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}parent/my_notice_board"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Notice Board List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}parent/my_notice_board?title=sports&notice_date_from=2023-12-01&notice_date_to=2023-12-15",
+									"host": [
+										"{{sms}}parent"
+									],
+									"path": [
+										"my_notice_board"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "sports"
+										},
+										{
+											"key": "notice_date_from",
+											"value": "2023-12-01"
+										},
+										{
+											"key": "notice_date_to",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "My Student  Notice Board List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "{{sms}}parent/my_student_notice_board"
+							},
+							"response": []
+						},
+						{
+							"name": "Search My Student  Notice Board List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{sms}}parent/my_student_notice_board?title=sports&notice_date_from=2023-12-07&notice_date_to=2023-12-15",
+									"host": [
+										"{{sms}}parent"
+									],
+									"path": [
+										"my_student_notice_board"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "sports"
+										},
+										{
+											"key": "notice_date_from",
+											"value": "2023-12-07"
+										},
+										{
+											"key": "notice_date_to",
+											"value": "2023-12-15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{sms}}parent/dashboard"
+					},
+					"response": []
+				},
+				{
+					"name": "My Student List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}parent/my_student"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_password\": 123456,\r\n    \"new_password\": 12345678\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}parent/change_password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": 123456\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{sms}}login"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "{{sms}}"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "sms",
+			"value": "http://localhost/sms/school.com/"
+		}
+	]
+}

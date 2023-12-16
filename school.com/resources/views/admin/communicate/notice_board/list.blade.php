@@ -39,9 +39,9 @@
                                     <label>Message To</label>
                                     <select name="message_to" id="" class="form-control">
                                         <option  value="">Select</option>
-                                        <option {{ Request::get('message_to' == 3)?'selected':''}} value="3">Student</option>
-                                        <option {{ Request::get('message_to' == 3)?'selected':''}} value="4">Parent</option>
-                                        <option {{ Request::get('message_to' == 3)?'selected':''}} value="2">Teacher</option>
+                                        <option {{ (Request::get('message_to') == 3) ? 'selected' : ''}} value="3">Student</option>
+                                        <option {{ (Request::get('message_to') == 4) ? 'selected' : ''}} value="4">Parent</option>
+                                        <option {{(Request::get('message_to') == 2) ? 'selected' : ''}} value="2">Teacher</option>
                                     </select>
                                 </div>
                             </div>

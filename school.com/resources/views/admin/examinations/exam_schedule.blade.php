@@ -102,25 +102,25 @@
                                         @foreach($getRecord as $value)
                                         <tr>
                                             <td>{{ $value['subject_name']}}
-                                                <input type="hidden" class="form-contol" name="schedule[{{ $i }}][subject_id]" value="{{$value['subject_id']}}">
+                                                <input required type="hidden" class="form-contol" name="schedule[{{ $i }}][subject_id]" value="{{$value['subject_id']}}"> 
                                             </td>
                                             <td>
-                                                <input type="date" class="form-contol" name="schedule[{{ $i }}][exam_date]" value="{{$value['exam_date']}}">
+                                                <input required type="date" class="form-contol" name="schedule[{{ $i }}][exam_date]" value="{{$value['exam_date']}}">
                                             </td>
                                             <td>
-                                                <input type="time" class="form-contol" name="schedule[{{ $i }}][start_time]" value="{{$value['start_time']}}"> 
+                                                <input required type="time" class="form-contol" name="schedule[{{ $i }}][start_time]" value="{{$value['start_time']}}"> 
                                             </td>
                                             <td>
-                                                <input type="time" class="form-contol" name="schedule[{{ $i }}][end_time]" value="{{$value['end_time']}}">
+                                                <input required type="time" class="form-contol" name="schedule[{{ $i }}][end_time]" value="{{$value['end_time']}}">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-contol" name="schedule[{{ $i }}][room_number]" value="{{$value['room_number']}}">
+                                                <input required type="text" class="form-contol" name="schedule[{{ $i }}][room_number]" value="{{$value['room_number']}}">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-contol" name="schedule[{{ $i }}][full_marks]" value="{{$value['full_marks']}}"> 
+                                                <input required type="text" class="form-contol" name="schedule[{{ $i }}][full_marks]" value="{{$value['full_marks']}}"> 
                                             </td>
                                             <td>
-                                                <input type="text" class="form-contol" name="schedule[{{ $i }}][passing_mark]" value="{{$value['passing_mark']}}">
+                                                <input required type="text" class="form-contol" name="schedule[{{ $i }}][passing_mark]" value="{{$value['passing_mark']}}">
                                             </td>
                                         </tr>
                                         @php

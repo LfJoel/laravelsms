@@ -48,7 +48,7 @@
 
                                 <div class="form-group col-md-2 m-3">
                                     <label class="form-label">Date of Joining</label>
-                                    <input type="text" name="admission_date" value="{{ Request::get('admission_date')}}" class="form-control">
+                                    <input type="date" name="admission_date" value="{{ Request::get('admission_date')}}" class="form-control">
 
                                 </div>
 
