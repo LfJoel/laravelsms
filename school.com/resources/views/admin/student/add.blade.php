@@ -119,7 +119,6 @@
                                         <label class="form-label">Profile Picture</label>
                                         <input type="file" name="profile_pic" class="form-control">
                                         <div class="text-danger">{{ $errors->first('profile_pic')}}</div>
-
                                     </div>
                                     <div class="form-group col-md-6 mb-3">
                                         <label class="form-label">Blood Group</label>

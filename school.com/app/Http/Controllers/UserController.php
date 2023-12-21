@@ -45,6 +45,7 @@ class UserController extends Controller
         $admin->name = trim($request->name);
         $admin->last_name = trim($request->last_name);
         $admin->email = trim($request->email);
+    
         $admin->save();
 
         return redirect()->back()->with('success', 'Account successfully Updated');
@@ -62,6 +63,24 @@ class UserController extends Controller
         $setting->paypal_email = trim($request->paypal_email);
         $setting->stripe_key = trim($request->stripe_key);
         $setting->stripe_secret = trim($request->stripe_secret);
+        if (!empty($request->file('logo'))) {
+    
+            $ext = $request->file('logo')->getClientOriginalExtension();
+            $file = $request->file('logo');
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/setting', $filename);
+            $setting->logo = $filename;
+        }
+        if (!empty($request->file('fevicon_icon'))) {
+    
+            $ext = $request->file('fevicon_icon')->getClientOriginalExtension();
+            $file = $request->file('fevicon_icon');
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $fevicon_icon = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/setting', $fevicon_icon);
+            $setting->fevicon_icon = $fevicon_icon;
+        }
         $setting->save();
         return redirect()->back()->with('success', 'Setting successfully Updated');
     }

@@ -33,21 +33,25 @@
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
         <!--begin::Brand Link-->
-        <a href="#" class="brand-link">
+        <a href="#" class="brand-link" style="text-align: center;">
             <!--begin::Brand Image-->
-            <img src="" alt="Logo" class="brand-image opacity-75 shadow">
-            <!--end::Brand Image-->
-            <!--begin::Brand Text-->
-            <span class="brand-text fw-light">School</span>
+
+            @if(!empty($getHeaderSetting->getLogo()))
+            <img src="{{ $getHeaderSetting->getLogo() }}" alt="Logo"  style="width: auto;height:60px; border-radius:5px;">
+        <!--begin::Brand Text-->
+        @else
+        <span class="brand-text fw-light">School</span>
             <!--end::Brand Text-->
+        @endif    
         </a>
         <!--end::Brand Link-->
+          
     </div>
     <div class="sidebar-brand">
         <!--begin::Brand Link-->
         <a href="#" class="brand-link">
             <!--begin::Brand Image-->
-            <img src="" alt="Logo" class="round opacity-75 shadow">
+            <img  style="height: 50px;width: 50px;margin: 0 10px 0 10px;  border-radius: 50px;" src="{{ Auth::user()->getProfileDirect()}}" alt="{{ Auth::user()->name}}">
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
             <span class="brand-text fw-light">{{ Auth::user()->name}}</span>
