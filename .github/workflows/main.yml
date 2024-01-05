@@ -1,16 +1,14 @@
-
 name: prod
-
 on:
   push:
     branches:
       - updates
 
 jobs:
-  build:
+  echo_hello:
     runs-on: ubuntu-latest
 
-  steps:
+    steps:
     - name: Echo Hello
       run: echo "Hello"
       
