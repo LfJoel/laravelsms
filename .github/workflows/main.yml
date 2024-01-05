@@ -1,0 +1,10 @@
+stages:
+ - deploy
+deploy-job:
+-stage:deploy
+script:
+ -echo "deploying"
+ -echo"application successsfully deploed"
+
+ only:
+ - master
