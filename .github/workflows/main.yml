@@ -1,10 +1,32 @@
-stages:
+name : laravel-deployment
+
+# on:
+#  push:
+#   branches: [ updates ]
+  stages:
  - deploy
 deploy-job:
 -stage:deploy
 script:
  -echo "deploying"
- -echo"application successsfully deploed"
-
+   -echo"application successsfully deploed"
+- ls /var/www
  only:
  - master
+
+  #  steps:
+  #   -uses: action/checkout@v2
+  #   -name: create Zip deployment package
+  #     run : zip -r deploy.zip ./
+
+
+# stages:
+#  - deploy
+# deploy-job:
+# -stage:deploy
+# script:
+#  -echo "deploying"
+#  -echo"application successsfully deploed"
+
+#  only:
+#  - master
