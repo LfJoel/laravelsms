@@ -36,9 +36,26 @@
                                         My Account
                                     </div>
                                 </div>
-                                <form method="post" action="">
+                                <form method="post" action=""  enctype="multipart/form-data">
                                     {{csrf_field()}}
                                 <div class="card-body">
+                                <div class="mb-3">
+                                        <label class="form-label">Fevicon Icon</label>
+                                        <input type="file" name="fevicon_icon" class="form-control">
+                                        <div class="text-danger">{{ $errors->first('profile_pic')}}</div>
+                                        @if(!empty($getRecord->getFevicon()))
+                                        <img src="{{ $getRecord->getFevicon() }}" alt="" style="width:100px;">
+
+                                        @endif
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Logo</label>
+                                        <input type="file" name="logo" class="form-control">
+                                        <div class="text-danger">{{ $errors->first('profile_pic')}}</div>
+                                        @if(!empty($getRecord->getLogo()))
+                                        <img src="{{ $getRecord->getLogo() }}" alt="" style="width:100px;">
+                                        @endif
+                                    </div>
                                         <div class="mb-3">
                                             <label  class="form-label">Paypal Business Email address</label>
                                             <input type="email" name="paypal_email" class="form-control" aria-describedby="emailHelp" value="{{ $getRecord->paypal_email}}" placeholder="Email address" required>

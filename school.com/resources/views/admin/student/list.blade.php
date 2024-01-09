@@ -186,8 +186,8 @@
                                     <tr>
                                         <td>{{$value->id}}</td>
                                         <td>
-                                            @if(!empty($value->getProfile()))
-                                            <img src="{{$value->getProfile()}}" alt="" style="height: 50px;width:50px; border-radius:50px;">
+                                            @if(!empty($value->getProfileDirect()))
+                                            <img src="{{$value->getProfileDirect()}}" alt="" style="height: 50px;width:50px; border-radius:50px;">
                                             @endif
                                         </td>
                                         <td>{{$value->name}} {{$value->last_name}}</td>
