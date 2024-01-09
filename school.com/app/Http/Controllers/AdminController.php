@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Symfony\Contracts\Service\Attribute\Required;
+use Str;
 
 class AdminController extends Controller
 {
@@ -44,6 +45,15 @@ class AdminController extends Controller
         $user->name = trim($request->name);
         $user->email = trim($request->email);
         $user->password = Hash::make($request->password);
+        if (!empty($request->file('profile_pic'))) {
+
+            $ext = $request->file('profile_pic')->getClientOriginalExtension();
+            $file = $request->file('profile_pic');
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/profile', $filename);
+            $user->profile_pic = $filename;
+        }
         $user->user_type = 1;
         $user->save();
 
@@ -87,6 +97,17 @@ class AdminController extends Controller
         }
         if (!empty($request->password)) {
             $user->password = Hash::make($request->password);
+        }
+        if (!empty($request->file('profile_pic'))) {
+            if ($user->getProfile()) {
+                unlink('upload/profile/' . $user->profile_pic);
+            }
+            $ext = $request->file('profile_pic')->getClientOriginalExtension();
+            $file = $request->file('profile_pic');
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/profile', $filename);
+            $user->profile_pic = $filename;
         }
         $user->user_type = 1;
         $user->save();

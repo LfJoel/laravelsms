@@ -5,6 +5,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>{{ $header_title }}</title>
+    @php
+        $getHeaderSetting = App\Models\SettingsModel::getSingle();
+    @endphp
+    <link href="{{ $getHeaderSetting->getFevicon() }}" rel="icon" type="image/jpg" />
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="AdminLTE v4 | Dashboard">
@@ -35,7 +39,7 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    @yield('style') 
+    @yield('style')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -44,13 +48,13 @@
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
         <!--begin::Header-->
-       @include('layouts.header')
+        @include('layouts.header')
         <!--end::Header-->
-        @yield('content') 
+        @yield('content')
         <!--begin::Footer-->
-      @include('layouts.footer')
+        @include('layouts.footer')
         <!--end::Footer-->
-      
+
     </div>
     <!--end::App Wrapper-->
     <!--begin::Script-->
@@ -65,7 +69,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-    @yield('script') 
+    @yield('script')
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
