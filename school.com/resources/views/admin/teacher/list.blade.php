@@ -48,7 +48,7 @@
 
                                 <div class="form-group col-md-2 m-3">
                                     <label class="form-label">Date of Joining</label>
-                                    <input type="text" name="admission_date" value="{{ Request::get('admission_date')}}" class="form-control">
+                                    <input type="date" name="admission_date" value="{{ Request::get('admission_date')}}" class="form-control">
 
                                 </div>
 
@@ -61,11 +61,11 @@
                                         <option {{ Request::get('gender')=='Others' ?'slected':''}} value="Others">Others</option>
                                     </select>
                                 </div>
-                               
+
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center">
-                            <div class="col-md-2 m-3">
+                                <div class="col-md-2 m-3">
                                     <button class="btn btn-primary mb-2">Search</button>
                                 </div>
                                 <div class="col-md-2 m-3">
@@ -118,8 +118,8 @@
                                     <tr>
                                         <td>{{$value->id}}</td>
                                         <td>
-                                            @if(!empty($value->getProfile()))
-                                            <img src="{{$value->getProfile()}}" alt="" style="height: 50px;width:50px; border-radius:50px;">
+                                            @if(!empty($value->getProfileDirect()))
+                                            <img src="{{$value->getProfileDirect()}}" alt="" style="height: 50px;width:50px; border-radius:50px;">
                                             @endif
                                         </td>
                                         <td>{{$value->name}} {{$value->last_name}}</td>
@@ -149,7 +149,8 @@
                                         </td>
 
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
-                                        <td style="min-width:150px;">
+                                        <td style="min-width:250px;">
+                                            <a href="{{url('chat?receiver_id='.base64_encode($value->id))}}" class="btn btn-success btn-sm">Send Message</a>
                                             <a href="{{url('admin/teacher/edit/'.$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                             <a href="{{url('admin/teacher/delete/'.$value->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                         </td>

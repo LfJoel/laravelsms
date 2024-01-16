@@ -40,7 +40,12 @@
                                 <div class="card-body">
                                     <div class="form-group mb-3">
                                             <label class="form-label">Class Name</label>
-                                            <input type="text" name="name" class="form-control" value="{{ $getRecord->name}}" required>
+                                            <input type="text" name="name" class="form-control" value="{{ $getRecord->name}}" required placeholder="class name">
+                                            
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">Amount ($)</label>
+                                            <input type="number" name="amount" class="form-control"value="{{ $getRecord->amount}}" required placeholder="amount">
                                             
                                         </div>
                                         <div class="form-group mb-3">

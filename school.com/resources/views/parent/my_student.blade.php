@@ -96,15 +96,18 @@
                                         <td>{{$value->height}}</td>
                                         <td>{{$value->weight}}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
-                                        <td style="min-width:500px;">
-                                            <a class="btn btn-primary btn-sm" href="{{url('parent/my_student/exam_timetable/'.$value->id)}}">Exam Timetable</a>
-                                            <a class="btn btn-success btn-sm" href="{{url('parent/my_student/subject/'.$value->id)}}">Subject</a>
-                                            <a class="btn btn-warning btn-sm" href="{{url('parent/my_student/calendar/'.$value->id)}}">Calendar</a>
-                                            <a class="btn btn-light btn-sm" href="{{url('parent/my_student/exam_result/'.$value->id)}}">Exam Result</a>
-                                            <a class="btn btn-dark btn-sm" href="{{url('parent/my_student/attendance/'.$value->id)}}">Attendance</a>
+                                        <td>
+                                            <a style="width: 100%;" class="btn btn-primary btn-sm  mb-2" href="{{url('parent/my_student/exam_timetable/'.$value->id)}}">Exam Timetable</a>
+                                            <a style="width: 100%;"  class="btn btn-success btn-sm  mb-2" href="{{url('parent/my_student/subject/'.$value->id)}}">Subject</a>
+                                            <a style="width: 100%;"  class="btn btn-warning btn-sm  mb-2" href="{{url('parent/my_student/calendar/'.$value->id)}}">Calendar</a>
+                                            <a style="width: 100%;"  class="btn btn-light btn-sm  mb-2" href="{{url('parent/my_student/exam_result/'.$value->id)}}">Exam Result</a>
+                                            <a style="width: 100%;"  class="btn btn-dark btn-sm mb-2" href="{{url('parent/my_student/attendance/'.$value->id)}}">Attendance</a>
+                                            <a style="width: 100%;"  class="btn btn-secondary btn-sm  mb-2" href="{{url('parent/my_student/homework/'.$value->id)}}">Homework</a>
+                                            <a style="width: 100%;"  class="btn btn-success btn-sm  mb-2" href="{{url('parent/my_student/submitted_homework/'.$value->id)}}">Submitted Homework</a>
+                                            <a style="width: 100%;background-color:darkblue;color:aliceblue;"  class="btn  btn-sm  mb-2"  href="{{url('parent/my_student/fees_collection/'.$value->id)}}">Pay Fees</a>
+                                            <a style="width: 100%;" href="{{url('chat?receiver_id='.base64_encode($value->id))}}" class="btn btn-success  mb-2 btn-sm">Send Message</a>
 
                                         </td>
-
                                     </tr>
                                     @endforeach
                                 </tbody>

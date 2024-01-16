@@ -13,7 +13,12 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Attendance Report (Total : {{$getRecord->total()}})</h3>
+                    <h3 class="mb-0">Attendance Report (Total : 
+                        @if(!empty($getRecord)) 
+                       <span>{{$getRecord->total();}}</span> 
+                        @else
+                         <span>0</span>
+                        @endif )</h3>
                 </div>
             </div>
             <!--end::Row-->
@@ -59,12 +64,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2 m-3">
-                                    <label>Start Attendance Date</label>
-                                    <input type="date" class="form-control" value="{{ Request::get('start_attendance_date')}}" name="start_attendance_date">
-                                </div>
-                                <div class="form-group col-md-2 m-3">
-                                    <label>End Attendance Date</label>
-                                    <input type="date" class="form-control" value="{{ Request::get('end_attendance_date')}}" name="end_attendance_date">
+                                    <label>Attendance Date</label>
+                                    <input type="date" class="form-control" value="{{ Request::get('attendance_date')}}" name="attendance_date">
                                 </div>
                                 <div class=" col-auto m-3">
                                     <button class="btn btn-primary mb-2">Search</button>

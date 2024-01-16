@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use PgSql\Result;
+use Cache;
 use Request as Requests;
 
 class User extends Authenticatable
@@ -47,7 +48,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    static public function getUser($user_type)
+    {
+        return User::select('users.*')
+            ->where('user_type', '=', $user_type)
+            ->where('is_delete', '=', 0)->get();
+    }
 
+    public function onlineUser()
+    {
+        return Cache::has('OnlineUser' . $this->id);
+    }
     static public function getAdmin()
     {
         $return = User::select('users.*')
@@ -188,12 +199,42 @@ class User extends Authenticatable
             ->get();
         return $return;
     }
+    static public function getMyStudentTotalCount($parent_id)
+    {
+        $return = User::select('users.id')
+            ->join('users as parent', 'parent.id', '=', 'users.parent_id')
+            ->join('class', 'class.id', '=', 'users.class_id', 'left')
+            ->where('users.user_type', '=', 3)
+            ->where('users.parent_id', '=', $parent_id)
+            ->where('users.is_delete', '=', 0)
+            ->orderby('users.id', 'desc')
+            ->count();
+        return $return;
+    }
+    static public function getMyStudentIDs($parent_id)
+    {
+        $return = User::select('users.id')
+            ->join('users as parent', 'parent.id', '=', 'users.parent_id')
+            ->join('class', 'class.id', '=', 'users.class_id', 'left')
+            ->where('users.user_type', '=', 3)
+            ->where('users.parent_id', '=', $parent_id)
+            ->where('users.is_delete', '=', 0)
+            ->orderby('users.id', 'desc')
+            ->get();
+
+        $student_ids = array();
+        foreach ($return as $value) {
+            $student_ids[] = $value->id;
+        }
+        return $student_ids;
+    }
+
     static public function getStudentClass($class_id)
     {
-        return User::select('users.*' ,'users.name' , 'users.last_name')
+        return User::select('users.*', 'users.name', 'users.last_name')
             ->where('users.user_type', '=', 3)
             ->where('users.is_delete', '=', 0)
-            ->where('users.class_id' ,'=' ,$class_id)
+            ->where('users.class_id', '=', $class_id)
             ->orderby('users.id', 'desc')
             ->get();
     }
@@ -212,6 +253,45 @@ class User extends Authenticatable
             ->paginate(20);
         return $return;
     }
+    static public function getTeacherMyStudentsCount($teacher_id)
+    {
+        $return = User::select('users.id')
+            ->join('class', 'class.id', '=', 'users.class_id', 'left')
+            ->join('assign_class_teacher', 'assign_class_teacher.class_id', '=', 'class.id')
+            ->where('assign_class_teacher.teacher_id', '=', $teacher_id)
+            ->where('assign_class_teacher.status', '=', 0)
+            ->where('assign_class_teacher.is_delete', '=', 0)
+            ->where('users.user_type', '=', 3)
+            ->where('users.is_delete', '=', 0)
+            ->orderby('users.id', 'desc')
+            ->groupby('users.id')
+            ->count();
+        return $return;
+    }
+    static public function getCollectFeesStudent()
+    {
+        $return = User::select('users.*', 'class.name as class_name', 'class.amount')
+            ->join('class', 'class.id', '=', 'users.class_id')
+            ->where('users.user_type', '=', 3)
+            ->where('users.is_delete', '=', 0);
+        if (!empty(Requests::get('first_name'))) {
+            $return = $return->where('users.name', 'like', '%' . Requests::get('first_name') . '%');
+        }
+        if (!empty(Requests::get('last_name'))) {
+            $return = $return->where('users.last_name', 'like', '%' . Requests::get('last_name') . '%');
+        }
+        if (!empty(Requests::get('class_id'))) {
+            $return = $return->where('users.class_id', '=', Requests::get('class_id'));
+        }
+        if (!empty(Requests::get('student_id'))) {
+            $return = $return->where('users.id', '=', Requests::get('student_id'));
+        }
+        $return = $return->orderby('users.name', 'asc')
+            ->paginate(50);
+
+        return $return;
+    }
+
     static public function getEmailSingle($email)
     {
         return User::where('email', '=', $email)->first();
@@ -224,6 +304,17 @@ class User extends Authenticatable
     {
         return User::find($id);
     }
+    static public function getSingleClass($id)
+    {
+        return User::select('users.*', 'class.amount', 'class.name as class_name')
+            ->join('class', 'class.id', '=', 'users.class_id')
+            ->where('users.id', '=', $id)
+            ->first();
+    }
+    static public function getPaidAmount($student_id, $class_id)
+    {
+        return StudentAddFeesModel::getPaidAmount($student_id, $class_id);
+    }
     public function getProfile()
     {
         if (!empty($this->profile_pic) && file_exists('upload/profile/' . $this->profile_pic)) {
@@ -233,9 +324,35 @@ class User extends Authenticatable
         }
     }
 
-    static public function getAttendance($student_id,$class_id,$attendance_date)
+    static public function getAttendance($student_id, $class_id, $attendance_date)
     {
-        return StudentAttendanceModel::CheckAlreadyAttendance($student_id,$class_id,$attendance_date);
+        return StudentAttendanceModel::CheckAlreadyAttendance($student_id, $class_id, $attendance_date);
+    }
+    static public function SearchUser($search)
+    {
+        $return = self::select('users.*');
+        $return = $return->where(function ($query) use ($search) {
+            $query->where('users.name', 'like', '%' . $search . '%')
+                ->orWhere('users.last_name', 'like', '%' . $search . '%');
+        })->limit(10)->get();
+
+        return $return;
     }
 
+
+    static public function getTotalUser($user_type)
+    {
+        return User::select('users.id')
+            ->where('user_type', '=', $user_type)
+            ->where('is_delete', '=', 0)
+            ->count();
+    }
+    public function getProfileDirect()
+    {
+        if (!empty($this->profile_pic) && file_exists('upload/profile/' . $this->profile_pic)) {
+            return url('upload/profile/' . $this->profile_pic);
+        } else {
+            return url('upload/profile/user.png');
+        }
+    }
 }

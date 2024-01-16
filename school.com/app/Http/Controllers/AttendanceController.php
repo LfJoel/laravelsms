@@ -18,7 +18,7 @@ class AttendanceController extends Controller
     if (!empty($request->get('class_id')) && !empty($request->get('attendance_date'))) {
       $data['getStudent'] = User::getStudentClass($request->get('class_id'));
     }
-    $data['header_tile'] = 'Attendance Student';
+    $data['header_title'] = 'Attendance Student';
     return view('admin.attendance.student', $data);
   }
 
@@ -46,7 +46,7 @@ class AttendanceController extends Controller
   {
     $data['getClass'] = ClassModel::getClass();
     $data['getRecord'] = StudentAttendanceModel::getRecord();
-    $data['header_tile'] = 'Attendance Report';
+    $data['header_title'] = 'Attendance Report';
     return view('admin.attendance.report', $data);
   }
 
@@ -60,7 +60,7 @@ class AttendanceController extends Controller
     {
       $data['getStudent'] = User::getStudentClass($request->get('class_id'));
     }
-    $data['header_tile'] = 'Attendance Student';
+    $data['header_title'] = 'Attendance Student';
     return view('teacher.attendance.student', $data);
   }
   public function AttendanceReportTeacher(Request $request)
@@ -72,7 +72,7 @@ class AttendanceController extends Controller
     }
     $data['getClass'] =$getClass;
     $data['getRecord'] = StudentAttendanceModel::getRecordTeacher($classarray);
-    $data['header_tile'] = 'Attendance Report';
+    $data['header_title'] = 'Attendance Report';
     return view('teacher.attendance.report', $data);
   }
   
@@ -82,7 +82,7 @@ class AttendanceController extends Controller
 
     $data['getClass'] = StudentAttendanceModel::getClassStudent(Auth::user()->id);
     $data['getRecord'] = StudentAttendanceModel::getRecordStudent(Auth::user()->id);
-    $data['header_tile'] = 'My Attendance';
+    $data['header_title'] = 'My Attendance';
     return view('student.my_attendance', $data);
   }
 
@@ -94,7 +94,7 @@ class AttendanceController extends Controller
     $data['getStudent'] = user::getSingle($student_id);
     $data['getClass'] = StudentAttendanceModel::getClassStudent($student_id);
     $data['getRecord'] = StudentAttendanceModel::getRecordStudent($student_id);
-    $data['header_tile'] = 'Student Attendance';
+    $data['header_title'] = 'Student Attendance';
     return view('parent.my_attendance', $data);
   }
   

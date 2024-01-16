@@ -31,38 +31,38 @@
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Row-->
-<div class="col-md-12">
-    <div class="card card-primary">
-    <form method="get">
-                <div class="card-body">
-                    <div class="row">
-                    <div class="col-auto">
-                        <label class="sr-only">Name</label>
-                        <input type="text" name="name" value="{{ Request::get('name')}}"  class="form-control mb-2" placeholder="Name">
-                    </div>
-                    <div class="col-auto">
-                        <label class="sr-only" >Email</label>
-                        <input type="text" name="email" value="{{ Request::get('email')}}" class="form-control mb-2"  placeholder="Email">
-                    </div>
-                    <div class="col-auto">
-                        <label class="sr-only" >Date</label>
-                        <input type="date" name="date" value="{{ Request::get('date')}}" class="form-control mb-2"  placeholder="Email">
-                    </div>
-                    <div class="col-auto">
-                        <button  class="btn btn-primary mb-2">Search</button>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{url('admin/admin/list')}}" class="btn btn-danger mb-2">Reset</a>
-                    </div>
-                    </div>
-               
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <form method="get">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label class="sr-only">Name</label>
+                                    <input type="text" name="name" value="{{ Request::get('name')}}" class="form-control mb-2" placeholder="Name">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only">Email</label>
+                                    <input type="text" name="email" value="{{ Request::get('email')}}" class="form-control mb-2" placeholder="Email">
+                                </div>
+                                <div class="col-auto">
+                                    <label class="sr-only">Date</label>
+                                    <input type="date" name="date" value="{{ Request::get('date')}}" class="form-control mb-2" placeholder="Email">
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary mb-2">Search</button>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="{{url('admin/admin/list')}}" class="btn btn-danger mb-2">Reset</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
-            </form>
-    </div>
-</div>
+            </div>
 
             <!-- Start column -->
-           
+
             <div class="row">
 
                 <div class="col-md-12">
@@ -77,6 +77,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Profile </th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Created Date</th>
@@ -88,12 +89,19 @@
                                     @foreach($getRecord as $value)
                                     <tr>
                                         <td>{{$value->id}}</td>
+                                        <td>
+                                            @if(!empty($value->getProfileDirect()))
+                                            <img src="{{$value->getProfileDirect()}}" alt="" style="height: 50px;width:50px; border-radius:50px;">
+                                            @endif
+                                        </td>
                                         <td>{{$value->name}}</td>
                                         <td>{{$value->email}}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                         <td>
-                                            <a href="{{url('admin/admin/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                                            <a href="{{url('admin/admin/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                                            <a href="{{url('chat?receiver_id='.base64_encode($value->id))}}" class="btn btn-success btn-sm">Send Message</a>
+                                            <a href="{{url('admin/admin/edit/'.$value->id)}}" class="btn btn-primary  btn-sm">Edit</a>
+                                            <a href="{{url('admin/admin/delete/'.$value->id)}}" class="btn btn-danger  btn-sm">Delete</a>
+
                                         </td>
                                     </tr>
                                     @endforeach

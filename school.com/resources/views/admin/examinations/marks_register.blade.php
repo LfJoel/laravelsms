@@ -15,9 +15,6 @@
                 <div class="col-sm-6">
                     <h3 class="mb-0">Marks Register</h3>
                 </div>
-                <div class="col-sm-6" style="text-align: right;">
-                    <a href="{{url('admin/examinations/exam/add')}}" class="btn btn-primary mb-0">Add New Exam</a>
-                </div>
             </div>
             <!--end::Row-->
         </div>
@@ -103,6 +100,7 @@
                                             $totalStudentMark =0;
                                             $totalFullMarks = 0;
                                             $totalPassingMark = 0;
+                                            $pass_fail_vali = 0;
                                             @endphp
                                             @foreach($getSubject as $subject)
                                             @php
@@ -137,7 +135,7 @@
                                                     Exam
                                                     <input type="text" id="exam_{{ $student->id}}{{ $subject->subject_id}}" name="mark[{{ $i }}]['exam']" placeholder="Enter Mark" class="form-control" style="width:200px;" value="{{ !empty($getMark) ? $getMark->exam : '' }}">
                                                 </div>
-                                                <div class="mb-2">
+                                                <div class="mb-2 ">
                                                     <button type="button" data-schedule="{{$subject->id}}" class="btn btn-primary SaveSingleSubject" id="{{ $student->id}}" data-val="{{ $subject->subject_id}}" data-exam="{{ Request::get('exam_id') }}" data-class="{{Request::get('class_id')}}">Save</button>
                                                 </div>
                                                 <div class="mb-2">
@@ -161,6 +159,9 @@
                                                     <span class="text-danger fw-bold">
                                                         Fail
                                                     </span>
+                                                    @php 
+                                                    $pass_fail_vali == 1;
+                                                    @endphp
                                                     <!--need to some work-->
                                                     @endif
                                                 </div>
@@ -171,7 +172,10 @@
                                             @endphp
                                             @endforeach
                                             <td>
-                                                <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button>
+                                                <!-- <button type="submit" placeholder="Enter Mark" class="btn btn-success">Save</button> -->
+                                                <a class="btn btn-danger  m-3"   href="{{ url('admin/my_exam_results/print?exam_id='.Request::get('exam_id').'&student_id='.$student->id)}}" target="_blank">Print</a>
+
+                                                
                                                 @if(!empty($totalStudentMark))
                                                 <br>
                                                 <b>Total Subject Mark :</b> {{ $totalFullMarks}}

@@ -13,7 +13,7 @@ class TeacherController extends Controller
     public function list()
     {
         $data['getRecord'] = User::getTeacher();
-        $data['header_tile'] = 'teacher list';
+        $data['header_title'] = 'teacher list';
         return view('admin.teacher.list', $data);
     }
     public function add()
@@ -31,7 +31,7 @@ class TeacherController extends Controller
             
 
         ]);
-        // dd($request->all());
+        
         $teacher = new User;
         $teacher->name = trim($request->name);
         $teacher->last_name = trim($request->last_name);
@@ -58,7 +58,7 @@ class TeacherController extends Controller
         $teacher->permanent_address = trim($request->permanent_address);
         $teacher->qualification = trim($request->qualification);
         $teacher->work_experience = trim($request->work_experience);       
-         $teacher->note = trim($request->note);
+        $teacher->note = trim($request->note);
         $teacher->status = trim($request->status);
         $teacher->email = trim($request->email);
         $teacher->password = Hash::make($request->password);

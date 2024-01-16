@@ -1,0 +1,76 @@
+User Authentication and Dashboard:
+
+Admin Interface:
+
+User Authentication: Implement a secure login system for administrators with encrypted password storage. Allow the admin to reset passwords, add new admin accounts, and manage user roles.
+
+Dashboard: Provide a centralized dashboard for the admin to view and manage all aspects of the school. Include functionalities like managing staff, student enrollment, class schedules, and overall school statistics.
+
+User Management: Allow the admin to add, edit, or remove teachers, students, and parents. Provide options for assigning roles and permissions.
+Teacher Interface:
+
+Login and Profile: Enable teachers to log in with their credentials. Allow them to update their profiles, including personal details and qualifications.
+
+Class Management: Provide a section where teachers can view and manage their class schedules, assign grades, and input attendance.
+
+Communication: Implement a messaging system for teachers to communicate with students and parents. Include options for sending announcements, updates, and progress reports.
+
+
+Student Interface:
+
+Login and Profile: Enable students to log in and view their personal profiles, including academic records, attendance, and contact information.
+
+Course Information: Display the courses the student is enrolled in, along with relevant details such as schedule, teacher information, and grades.
+
+Communication: Provide a platform for students to communicate with teachers and fellow students, facilitating discussions and queries.
+Parent Interface:
+
+Login and Profile: Allow parents to log in and view profiles for each of their children, including academic performance, attendance, and contact information.
+
+Communication: Implement a messaging system for parents to communicate with teachers and receive updates on their child's progress.
+Reports and Progress: Provide access to academic reports, attendance records, and any other relevant information about their child's educational journey.
+Attendance and Academic Tracking:
+
+Admin Interface:
+
+Attendance Management: Develop a system for tracking and managing attendance records for both teachers and students. Allow admins to generate attendance reports.
+
+
+Attendance Tracking: Enable teachers to take and manage attendance for their classes. Implement features for automated attendance reports.
+
+Grade Entry: Allow teachers to input and manage grades for assignments, exams, and other assessments.
+Student Interface:
+
+View Attendance: Provide students with the ability to view their attendance records and receive notifications for low attendance.
+Grades: Enable students to access their grades, view feedback from teachers, and track their academic progress.
+
+
+# date 22/11/2023
+i have done admin page , student page, teacher and parent page, login with reset password via email 
+# date 23/11/2023
+i have done admin crud operations and pagination and filters
+# date 25/11/2023
+class, subject, assign_subject , crud operations 
+# date 27/11/2023
+student, parent, teachers , crud operations ,parent student assign
+# date 28/11/2023
+student, parent, admin , teachers my account operations
+# date 29/11/2023
+assign class to teacher crud operation
+# date 30/11/2023
+class time table and sub menu and student my class time table
+# date 1/12/2023
+class time table for parent , teacher , student side
+# date 2/12/2023
+exam time table and calendar for parent , teacher , student side 
+# date 3/12/2023
+ exam mark register operations 
+# date 5/12/2023
+grade and exam result operations
+# date 6/12/2023
+Attendance operations
+# date 7/12/2023
+Mail , communication notice board and home work operations 
+# date 8/12/2023
+All home work operations are completed
+# date 9/12/2023

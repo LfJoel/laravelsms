@@ -48,4 +48,14 @@ class ClassModel extends Model
             ->get();
         return $return;
     }
+    static public function getTotalClass(){
+
+       
+        return ClassModel::select('class.id')
+            ->where('class.is_delete', '=', '0')
+            ->where('class.status', '=', '0')
+            ->count();
+      
+    }
+    
 }

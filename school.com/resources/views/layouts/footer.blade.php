@@ -5,7 +5,7 @@
             <!--begin::Copyright-->
             <strong>
                 Copyright &copy; 2014-2023
-                <a href="https://adminlte.io">AdminLTE.io</a>.
+                <a href="#">ABC School</a>.
             </strong>
             All rights reserved.
             <!--end::Copyright-->

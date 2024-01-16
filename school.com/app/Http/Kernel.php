@@ -36,6 +36,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\OnlineUser::class,
+
         ],
 
         'api' => [
@@ -68,5 +70,7 @@ class Kernel extends HttpKernel
         'student' => \App\Http\Middleware\Studentmiddleware::class,
         'teacher' => \App\Http\Middleware\Teachermiddleware::class,
         'parent' => \App\Http\Middleware\Parentmiddleware::class,
+        'chat' => \App\Http\Middleware\CommonChatMiddleware::class,
+
     ];
 }

@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function login()
     {
-        
+
         if (!empty(Auth::check())) {
 
             if (Auth::user()->user_type == 1) {
@@ -46,9 +46,12 @@ class AuthController extends Controller
                 return redirect('parent/dashboard');
             }
         } else {
-            return redirect()->back()->with('error', 'Please enter correct email and password');
+            // return response()->json([
+            //     'error' => false,
+            // ]);
+             return redirect()->back()->with('error', 'Please Enter Correct Email ID or Password');
+     
         }
-        
     }
     public function forgotpassword()
     {
@@ -57,51 +60,50 @@ class AuthController extends Controller
     public function postforgotpassword(Request $request)
     {
 
-        $user = User::getEmailsingle($request -> email);
-        if(!empty($user)){
-            $user -> remember_token = Str::random(30);
-            $user ->save();
-           
-            Mail::to($user -> email )->send(new ForgotPasswordMail($user));
-          
-            return redirect()->back()->with('error','Please check your email and reset your password');
+        $user = User::getEmailsingle($request->email);
+        if (!empty($user)) {
+            $user->remember_token = Str::random(30);
+            $user->save();
 
-        }
-        else{
-            return redirect()->back()->with('error','Email not found in the system');
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+
+            return redirect()->back()->with('error', 'Please check your email and reset your password');
+        } else {
+            return redirect()->back()->with('error', 'Email not found in the system');
         }
         // dd($checkEmailsingle);
         // return view('auth.forgot');
     }
 
-    public function reset($token){
+    public function reset($token)
+    {
         $user = User::getTokensingle($token);
-        if(!empty($user)){
+        if (!empty($user)) {
             $data['user'] = $user;
-            return view('auth.reset',$data);
-        }
-        else{
+            return view('auth.reset', $data);
+        } else {
             abort(404);
         }
         // dd($token);
     }
-    public function postreset($token, Request $request){
-    
-        if($request -> password == $request ->cpassword){
+    public function postreset($token, Request $request)
+    {
+
+        if ($request->password == $request->cpassword) {
             $user = User::getTokensingle($token);
-            $user ->password = Hash::make($request->password);
-            $user -> remember_token = Str::random(30);
+            $user->password = Hash::make($request->password);
+            $user->remember_token = Str::random(30);
             $user->save();
 
-            return redirect(Url(''))->with('error','password successfully reset.');
+            return redirect(Url(''))->with('error', 'password successfully reset.');
+        } else {
+            return redirect()->back()->with('error', 'password and confirm password does not match');
         }
-else{
-    return redirect()->back()->with('error','password and confirm password does not match');
-}
     }
     public function logout()
     {
         Auth::logout();
         return redirect(url(''));
     }
+    
 }

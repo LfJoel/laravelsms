@@ -100,7 +100,7 @@ class ExaminationController extends Controller
                 $dataS['subject_type'] = $value->subject_type;
 
                 $ExamSchedule = ExamScheduleModel::getSingle($request->get('exam_id'), $request->get('class_id'), $value->subject_id);
-
+                
                 if (!empty($ExamSchedule)) {
                     $dataS['exam_date'] = $ExamSchedule->exam_date;
 
@@ -121,8 +121,8 @@ class ExaminationController extends Controller
                 $result[] = $dataS;
             }
         }
-        $data['getRecord'] = $result;
-
+        $data['getRecord'] = $result ;
+        $data['header_title'] = "Exam Schedule";
 
         return view('admin.examinations.exam_schedule', $data);
     }
@@ -178,6 +178,36 @@ class ExaminationController extends Controller
     }
 
     // student side function 
+    public function MyExamResultPrint(Request $request)
+    {
+        $exam_id = $request->exam_id;
+        $student_id = $request->student_id;
+        $data['getExam'] = ExaminationModel::getSingle($exam_id);
+        $data['getStudent'] = User::getSingle($student_id);
+
+        $data['getClass'] = MarksRegisterModel::getClass($exam_id, $student_id);
+        $getExamSubject = MarksRegisterModel::getExamSubject($exam_id, $student_id);
+
+        $dataSubject = array();
+
+        foreach ($getExamSubject  as $exam) {
+
+            $total_score =  $exam['class_work'] + $exam['test_work'] + $exam['home_work'] + $exam['exam'];
+            $dataS = array();
+            $dataS['subject_name'] = $exam['subject_name'];
+            $dataS['class_work'] = $exam['class_work'];
+            $dataS['test_work'] = $exam['test_work'];
+            $dataS['home_work'] = $exam['home_work'];
+            $dataS['exam'] = $exam['exam'];
+            $dataS['total_score'] =  $total_score;
+            $dataS['full_marks'] = $exam['full_marks'];
+            $dataS['passing_mark'] = $exam['passing_mark'];
+            $dataSubject[] = $dataS;
+        }
+        $data['getMarks'] = $dataSubject;
+
+        return view('print_exam_result', $data);
+    }
     public function MyExamTimetable(Request $request)
     {
 
@@ -221,6 +251,8 @@ class ExaminationController extends Controller
         foreach ($getExam as $value) {
             $dataE = array();
             $dataE['exam_name'] = $value->exam_name;
+            $dataE['exam_id'] = $value->exam_id;
+
             $getExamSubject = MarksRegisterModel::getExamSubject($value->exam_id, Auth::user()->id);
 
             $dataSubject = array();
@@ -354,6 +386,7 @@ class ExaminationController extends Controller
         foreach ($getExam as $value) {
             $dataE = array();
             $dataE['exam_name'] = $value->exam_name;
+            $dataE['exam_id'] = $value->exam_id;
             $getExamSubject = MarksRegisterModel::getExamSubject($value->exam_id, $student_id);
             $dataSubject = array();
 
@@ -382,52 +415,58 @@ class ExaminationController extends Controller
 
     // Admin Side function
 
-    public function submit_marks_register(Request $request)
-    {
-        $subject_id = null;
+    // public function submit_marks_register(Request $request)
+    // {
 
-        if (!empty($request->mark)) {
+    //     $validation = 0;
+    //     if (!empty($request->mark)) {
 
-            foreach ($request->mark as $mark) {
+    //         foreach ($request->mark as $mark) {
 
-                $class_work = !empty($mars['class_work']) ? $mark['class_work'] : 0;
-                $home_work = !empty($mark['home_work']) ? $mark['home_work'] : 0;
-                $test_work = !empty($mark['test_work']) ? $mark['test_work'] : 0;
-                $exam = !empty($mark['exam']) ? $mark['exam'] : 0;
-                $subject_id = !empty($mark['subject_id']) ? $mark['subject_id'] : 0;
-                $full_marks = !empty($mark['full_marks']) ? $mark['full_marks'] : 0;
-                $passing_mark = !empty($mark['passing_mark']) ? $mark['passing_mark'] : 0;
+    //             $class_work = !empty($mars['class_work']) ? $mark['class_work'] : 0;
+    //             $home_work = !empty($mark['home_work']) ? $mark['home_work'] : 0;
+    //             $test_work = !empty($mark['test_work']) ? $mark['test_work'] : 0;
+    //             $exam = !empty($mark['exam']) ? $mark['exam'] : 0;
+    //             $subject_id = !empty($mark['subject_id']) ? $mark['subject_id'] : 0;
+    //             $full_marks = !empty($mark['full_marks']) ? $mark['full_marks'] : 0;
+    //             $passing_mark = !empty($mark['passing_mark']) ? $mark['passing_mark'] : 0;
 
-                $getMark = MarksRegisterModel::checkAlreadymark(
-                    $request->student_id,
-                    $request->exam_id,
-                    $request->class_id,
-                    $subject_id
-                );
-                if (!empty($getMark)) {
-                    $save = $getMark;
-                } else {
-                    $save = new MarksRegisterModel;
-                    $save->created_by = Auth::user()->id;
-                }
-                $save->student_id = $request->student_id;
-                $save->class_id = $request->class_id;
-                $save->exam_id = $request->exam_id;
-                $save->subject_id = $subject_id;
-                $save->class_work = $class_work;
-                $save->home_work = $home_work;
-                $save->test_work = $test_work;
-                $save->exam = $exam;
-                $save->full_marks = $full_marks;
-                $save->passing_mark = $passing_mark;
-                $save->save();
-            }
-        }
 
-        $json['message'] = "Mark Register Successfully Saved";
+    //             if($full_marks >= $totsl_mark){
+    //                 $getMark = MarksRegisterModel::checkAlreadymark(
+    //                     $request->student_id,
+    //                     $request->exam_id,
+    //                     $request->class_id,
+    //                     $subject_id
+    //                 );
+    //                 if (!empty($getMark)) {
+    //                     $save = $getMark;
+    //                 } else {
+    //                     $save = new MarksRegisterModel;
+    //                     $save->created_by = Auth::user()->id;
+    //                 }
+    //                 $save->student_id = $request->student_id;
+    //                 $save->class_id = $request->class_id;
+    //                 $save->exam_id = $request->exam_id;
+    //                 $save->subject_id = $subject_id;
+    //                 $save->class_work = $class_work;
+    //                 $save->home_work = $home_work;
+    //                 $save->test_work = $test_work;
+    //                 $save->exam = $exam;
+    //                 $save->full_marks = $full_marks;
+    //                 $save->passing_mark = $passing_mark;
+    //                 $save->save();
+    //             }
+    //             else {
+    //                 $validation = 1;
+    //             }
+    //             }
+                
+    //     } 
+    //     $json['message'] = "Mark Register Successfully Saved";
 
-        echo json_encode($json);
-    }
+    //     echo json_encode($json);
+    // }
     public function single_submit_marks_register(Request $request)
     {
 
@@ -492,28 +531,27 @@ class ExaminationController extends Controller
 
         $mark_grade = new MarksGradeModel;
 
-         $mark_grade->name = trim($request->name);
-         $mark_grade->percent_from = trim($request->percent_from);
-         $mark_grade->percent_to = trim($request->percent_to);
-         $mark_grade->created_by = Auth::user()->id;
-         $mark_grade->save();
+        $mark_grade->name = trim($request->name);
+        $mark_grade->percent_from = trim($request->percent_from);
+        $mark_grade->percent_to = trim($request->percent_to);
+        $mark_grade->created_by = Auth::user()->id;
+        $mark_grade->save();
 
-         return redirect('admin/examinations/marks_grade/list')->with('success', 'Marks Grade  SuccessFully Created');
+        return redirect('admin/examinations/marks_grade/list')->with('success', 'Marks Grade  SuccessFully Created');
+    }
 
+    public function marks_grade_edit($id)
+    {
+
+        $data['getRecord'] = MarksGradeModel::getsingle($id);
+        if (!empty($data)) {
+            $data['header_title'] = "Edit Marks Grade";
+            return view('admin.examinations.marks_grade.edit', $data);
+        } else {
+            abort(404);
         }
+    }
 
-        public function marks_grade_edit($id)
-        {
-    
-            $data['getRecord'] = MarksGradeModel::getsingle($id);
-            if (!empty($data)) {
-                $data['header_title'] = "Edit Marks Grade";
-                return view('admin.examinations.marks_grade.edit', $data);
-            } else {
-                abort(404);
-            }
-        }  
-        
     public function marks_grade_update($id, Request $request)
     {
 

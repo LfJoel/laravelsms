@@ -35,13 +35,18 @@
                                         Add New Admin
                                     </div>
                                 </div>
-                                <form method="post" action="">
+                                <form method="post" action="" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                 <div class="card-body">
+                                   <div class="mb-3">
+                                        <label class="form-label">Profile Picture</label>
+                                        <input type="file" name="profile_pic" class="form-control">
+                                        <div class="text-danger">{{ $errors->first('profile_pic')}}</div>
+                                    </div>
                                     <div class="mb-3">
                                             <label class="form-label">Name</label>
                                             <input type="name" name="name" class="form-control" value="{{old('name')}}">
-                                            
+                                    
                                         </div>
                                         <div class="mb-3">
                                             <label  class="form-label">Email address</label>

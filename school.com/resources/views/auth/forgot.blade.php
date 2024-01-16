@@ -4,6 +4,10 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    @php
+        $getHeaderSetting = App\Models\SettingsModel::getSingle();
+    @endphp
+    <link href="{{ $getHeaderSetting->getFevicon() }}" rel="icon" type="image/jpg" />
     <title>Forgot Password</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
