@@ -1,9 +1,39 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\HomeworkModel
+ *
+ * @property int $id
+ * @property int|null $class_id
+ * @property int|null $subject_id
+ * @property string|null $homework_date
+ * @property string|null $submission_date
+ * @property string|null $description
+ * @property string|null $document_file
+ * @property int $is_delete
+ * @property int|null $created_by
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\HomeworkModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereClassId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereDocumentFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereHomeworkDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereIsDelete($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereSubjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereSubmissionDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomeworkModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use Request;
 
 class HomeworkModel extends Model
@@ -133,7 +163,7 @@ class HomeworkModel extends Model
 
         return $return;
     }
-    
+
     static public function getTotalHomeworkCount($class_id,$student_id)
     {
         $return = HomeworkModel::select('homework.id')

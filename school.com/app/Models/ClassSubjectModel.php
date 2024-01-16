@@ -1,9 +1,33 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\ClassSubjectModel
+ *
+ * @property int $id
+ * @property int|null $class_id
+ * @property int|null $subject_id
+ * @property int|null $created_by
+ * @property int $is_delete
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\ClassSubjectModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereClassId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereIsDelete($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereSubjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ClassSubjectModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use Request;
 
 class ClassSubjectModel extends Model
@@ -77,3 +101,4 @@ class ClassSubjectModel extends Model
         return ClassSubjectModel::where('class_id', '=', $class_id)->delete();
     }
 }
+

@@ -1,9 +1,35 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\ChatModel
+ *
+ * @property int $id
+ * @property int|null $sender_id
+ * @property int|null $receiver_id
+ * @property string|null $message
+ * @property string|null $file
+ * @property int $status
+ * @property int|null $created_date
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\ChatModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereCreatedDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereReceiverId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereSenderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use DB;
 use Request;
 use Auth;
@@ -11,7 +37,7 @@ use Auth;
 class ChatModel extends Model
 {
     use HasFactory;
-    
+
     protected $table = "chat";
 
     public static function getChat($receiver_id, $sender_id)

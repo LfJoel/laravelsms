@@ -1,9 +1,33 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\StudentAttendanceModel
+ *
+ * @property int $id
+ * @property int|null $class_id
+ * @property string|null $attendance_date
+ * @property int|null $student_id
+ * @property int|null $attendance_type
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $created_by
+ * @method static \Database\Factories\StudentAttendanceModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereAttendanceDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereAttendanceType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereClassId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereStudentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAttendanceModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use Request;
 
 class StudentAttendanceModel extends Model
@@ -90,7 +114,7 @@ class StudentAttendanceModel extends Model
     }
 
 
-    // student side function 
+    // student side function
     static public function getRecordStudent($student_id)
     {
         $return = StudentAttendanceModel::select(
@@ -108,7 +132,7 @@ class StudentAttendanceModel extends Model
             if (!empty(Request::get('attendance_type'))) {
                 $return = $return->where('student_attendance.attendance_type', '=', Request::get('attendance_type'));
             }
-       
+
             $return = $return->orderby('student_attendance.id', 'desc')
             ->paginate(50);
 
@@ -132,6 +156,6 @@ class StudentAttendanceModel extends Model
 
     }
 
-    
-    
+
+
 }

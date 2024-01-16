@@ -1,9 +1,45 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\StudentAddFeesModel
+ *
+ * @property int $id
+ * @property int|null $class_id
+ * @property int|null $student_id
+ * @property int $total_amount
+ * @property int $remaining_amount
+ * @property int $paid_amount
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $payment_type
+ * @property string|null $remark
+ * @property int|null $created_by
+ * @property int $is_payment
+ * @property string|null $payment_data
+ * @property string|null $stripe_session_id
+ * @method static \Database\Factories\StudentAddFeesModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereClassId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereIsPayment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel wherePaidAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel wherePaymentData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel wherePaymentType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereRemainingAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereRemark($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereStripeSessionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereStudentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereTotalAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAddFeesModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use Request;
 
 class StudentAddFeesModel extends Model
@@ -73,7 +109,7 @@ class StudentAddFeesModel extends Model
              if (!empty(Request::get('payment_type'))) {
                 $return = $return->where('student_fees.payment_type', 'like', '%' .  Request::get('payment_type') . '%');
             }
-            
+
             $return = $return->orderby('student_fees.id', 'desc')
             ->paginate(50);
 
@@ -92,5 +128,5 @@ class StudentAddFeesModel extends Model
             ->where('student_fees.is_payment','=', 1)
             ->sum('student_fees.paid_amount');
     }
-    
+
 }

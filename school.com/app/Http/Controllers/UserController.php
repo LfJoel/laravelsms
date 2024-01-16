@@ -72,6 +72,15 @@ class UserController extends Controller
             $file->move('upload/setting', $filename);
             $setting->logo = $filename;
         }
+        if (!empty($request->file('small_logo'))) {
+    
+            $ext = $request->file('small_logo')->getClientOriginalExtension();
+            $file = $request->file('small_logo');
+            $randomStr = date('Ymdhis') . Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $ext;
+            $file->move('upload/setting', $filename);
+            $setting->small_logo = $filename;
+        }
         if (!empty($request->file('fevicon_icon'))) {
     
             $ext = $request->file('fevicon_icon')->getClientOriginalExtension();

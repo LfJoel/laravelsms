@@ -8,6 +8,7 @@ use App\Models\User;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ChatModel>
  */
+
 class ChatModelFactory extends Factory
 {
     /**
@@ -17,7 +18,7 @@ class ChatModelFactory extends Factory
      */
     protected $model = ChatModel::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
             'sender_id' => function () {
@@ -28,7 +29,7 @@ class ChatModelFactory extends Factory
             },
             'message' => $this->faker->text,
             'file' => $this->faker->word,
-            'status' => $this->faker->numberBetween(0, 1),
+            'status' => 0,
             'created_date' => $this->faker->unixTime,
             'created_at' => now(),
             'updated_at' => now(),

@@ -1,9 +1,31 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\SubmitHomeworkModel
+ *
+ * @property int $id
+ * @property int|null $homework_id
+ * @property int|null $student_id
+ * @property string|null $description
+ * @property string|null $document_file
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\SubmitHomeworkModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereDocumentFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereHomeworkId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereStudentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubmitHomeworkModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use Request;
 
 class SubmitHomeworkModel extends Model

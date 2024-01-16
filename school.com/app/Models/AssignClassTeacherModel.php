@@ -2,6 +2,31 @@
 
 namespace App\Models;
 
+/**
+ * App\Models\AssignClassTeacherModel
+ *
+ * @property int $id
+ * @property int|null $class_id
+ * @property int|null $teacher_id
+ * @property int $status
+ * @property int $is_delete
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $created_by
+ * @method static \Database\Factories\AssignClassTeacherModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereClassId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereIsDelete($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereTeacherId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignClassTeacherModel whereUpdatedAt($value)
+ */
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Request;

@@ -1,9 +1,43 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\ExamScheduleModel
+ *
+ * @property int $id
+ * @property int|null $exam_id
+ * @property int|null $class_id
+ * @property int|null $subject_id
+ * @property string|null $exam_date
+ * @property string|null $start_time
+ * @property string|null $end_time
+ * @property string|null $room_number
+ * @property string|null $full_marks
+ * @property string|null $passing_mark
+ * @property int|null $created_by
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\ExamScheduleModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereClassId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereExamDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereExamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereFullMarks($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel wherePassingMark($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereRoomNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereStartTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereSubjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExamScheduleModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class ExamScheduleModel extends Model
 {
@@ -67,13 +101,13 @@ class ExamScheduleModel extends Model
             ->where('exam_schedule.class_id', '=', $class_id)
             ->get();
     }
-    
 
-    
+
+
 
     static public function   getExamtimetableTeacher($teacher_id)
     {
- 
+
         return self::select('exam_schedule.*', 'class.name as class_name' , 'subject.name as subject_name' , 'exam.name as exam_name')
             ->join('assign_class_teacher', 'assign_class_teacher.class_id', '=', 'exam_schedule.class_id')
             ->join('class', 'class.id', '=', 'exam_schedule.class_id')
@@ -82,7 +116,7 @@ class ExamScheduleModel extends Model
             ->where('assign_class_teacher.teacher_id', '=', $teacher_id)
             ->get();
     }
-   
+
     static public function getMark($student_id,$exam_id,$class_id,$subject_id){
         return MarksRegisterModel::checkAlreadymark($student_id,$exam_id,$class_id,$subject_id);
     }

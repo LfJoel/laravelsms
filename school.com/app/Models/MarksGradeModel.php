@@ -1,7 +1,27 @@
 <?php
 
 namespace App\Models;
-
+/**
+ * App\Models\MarksGradeModel
+ *
+ * @property int $id
+ * @property string|null $name
+ * @property int $percent_from
+ * @property int $percent_to
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $created_by
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel wherePercentFrom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel wherePercentTo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MarksGradeModel whereUpdatedAt($value)
+ */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,3 +51,4 @@ class MarksGradeModel extends Model
         return  !empty($return->name) ? $return->name: '' ;
     }
 }
+
